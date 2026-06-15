@@ -187,7 +187,7 @@ export function PartnersSection() {
                   alt={logo.alt}
                   width={144}
                   height={56}
-                  className="h-10 w-auto object-contain opacity-40 grayscale hover:opacity-70 hover:grayscale-0 transition-all duration-300"
+                  className="h-10 w-auto object-contain opacity-70"
                 />
               </div>
             ))}
