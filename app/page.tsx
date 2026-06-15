@@ -81,7 +81,6 @@ const partnerLogos = [
   { src: "/images/coway.png",           alt: "Coway" },
   { src: "/images/heitech.png",         alt: "HeiTech" },
 ];
-const budgetRanges = ["1 – 5K", "5 – 10K", "10 – 20K", "20 – 50K", "> 50K"];
 
 /* ── vertical side label ─────────────────────────────────────── */
 function SideTag({ label }: { label: string }) {
@@ -166,18 +165,11 @@ export default function HomePage() {
                           style={{ background: ACCENT, borderRadius: "100%" }} aria-hidden="true" />
 
                         <div className="relative flex flex-1 flex-col p-8">
-                          {/* number + icon row */}
-                          <div className="mb-6 flex items-start justify-between">
+                          {/* number */}
+                          <div className="mb-6">
                             <span className="font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "2.5rem", color: `${ACCENT}35` }}>
                               {String(i + 1).padStart(2, "0")}
                             </span>
-                            <Image
-                              src={item.iconSrc}
-                              alt={item.title}
-                              width={48}
-                              height={48}
-                              className="rounded object-cover opacity-60 group-hover:opacity-90 transition-opacity"
-                            />
                           </div>
 
                           {/* title + code */}
@@ -572,81 +564,6 @@ export default function HomePage() {
           </Container>
         </section>
 
-        {/* ─── Hey! We are ready to / help you!!! / ─────────────── */}
-        <section className="relative overflow-hidden border-t border-white/8 py-32" style={{ backgroundImage: SECTION_BG }}>
-          <div className="pointer-events-none absolute inset-0"
-            style={{ background: `radial-gradient(ellipse 80% 50% at 50% 100%, ${ACCENT}18 0%, transparent 70%)` }} />
-          <Container className="relative">
-            <div className="grid gap-20 lg:grid-cols-2">
-              <ScrollReveal>
-                <p className="mb-4 text-[10px] tracking-[0.4em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ ready to begin</p>
-                <h2 className="font-bold leading-tight text-white"
-                  style={{ fontFamily: DISPLAY, fontSize: "clamp(2.5rem, 6vw, 5rem)" }}>
-                  Hey! We are ready<br />to&nbsp;<span style={gradStyle}>/ help you!!! /</span>
-                </h2>
-                <p className="mt-6 text-sm leading-relaxed text-white/40" style={{ fontFamily: BODY }}>
-                  Tell us about your project and we will get back to you within 24 hours.
-                </p>
-              </ScrollReveal>
-
-              <ScrollReveal delay={0.15}>
-                <form className="space-y-6">
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    {[
-                      { label: "Name",  type: "text",  placeholder: "Your name" },
-                      { label: "Email", type: "email", placeholder: "your@email.com" },
-                    ].map((f) => (
-                      <div key={f.label}>
-                        <label className="mb-2 block text-[10px] tracking-[0.2em] uppercase text-white/40"
-                          style={{ fontFamily: BODY }}>{f.label}</label>
-                        <input type={f.type} placeholder={f.placeholder}
-                          className="w-full border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/20 outline-none focus:border-white/40 transition-colors"
-                          style={{ fontFamily: BODY }} />
-                      </div>
-                    ))}
-                  </div>
-
-                  <div>
-                    <label className="mb-3 block text-[10px] tracking-[0.2em] uppercase text-white/40"
-                      style={{ fontFamily: BODY }}>Project Budget (USD)</label>
-                    <div className="flex flex-wrap gap-2">
-                      {budgetRanges.map((range) => (
-                        <label key={range}
-                          className="cursor-pointer border border-white/10 px-4 py-2 text-[11px] text-white/40 hover:border-white/30 hover:text-white/70 transition-all"
-                          style={{ fontFamily: BODY }}>
-                          <input type="radio" name="budget" value={range} className="sr-only" />
-                          {range}
-                        </label>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="mb-2 block text-[10px] tracking-[0.2em] uppercase text-white/40"
-                      style={{ fontFamily: BODY }}>Message</label>
-                    <textarea rows={4} placeholder="Tell us about your project..."
-                      className="w-full resize-none border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/20 outline-none focus:border-white/40 transition-colors"
-                      style={{ fontFamily: BODY }} />
-                  </div>
-
-                  <div>
-                    <label className="mb-2 block text-[10px] tracking-[0.2em] uppercase text-white/40"
-                      style={{ fontFamily: BODY }}>Add Attachment</label>
-                    <div className="cursor-pointer border border-dashed border-white/10 px-4 py-6 text-center hover:border-white/20 transition-colors">
-                      <p className="text-[11px] text-white/30" style={{ fontFamily: BODY }}>Click to upload or drag &amp; drop</p>
-                    </div>
-                  </div>
-
-                  <button type="submit"
-                    className="w-full border border-white/20 py-4 text-[11px] tracking-[0.3em] uppercase text-white/60 hover:border-white hover:text-white transition-all duration-300"
-                    style={{ fontFamily: BODY }}>
-                    Send Message /
-                  </button>
-                </form>
-              </ScrollReveal>
-            </div>
-          </Container>
-        </section>
 
       </main>
       <Footer />
