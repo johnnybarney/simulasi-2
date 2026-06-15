@@ -2,25 +2,25 @@ import { Container } from "@/components/layout/Container";
 
 const DISPLAY = "'Clash Display', sans-serif";
 const BODY    = "var(--font-chakra), 'Chakra Petch', sans-serif";
-const ORCHID  = "#b64cf7";
-const CRIMSON = "#c5013c";
+const ACCENT  = "#00c5cd";
+const ACCENT2 = "#545454";
 
 const gradStyle = {
-  background: `linear-gradient(135deg, ${CRIMSON}, ${ORCHID})`,
+  background: `linear-gradient(135deg, ${ACCENT2}, ${ACCENT})`,
   WebkitBackgroundClip: "text" as const,
   WebkitTextFillColor: "transparent" as const,
   backgroundClip: "text" as const,
 };
 
-const CARD_BG    = "linear-gradient(339deg, rgba(114,111,119,0.05) 18%, rgba(255,255,255,0.05) 77%)";
-const SECTION_BG = "linear-gradient(300deg, #161616, #0f0f0f 56%, #1a1919)";
+const CARD_BG    = "linear-gradient(339deg, rgba(0,197,205,0.04) 18%, rgba(84,84,84,0.08) 77%)";
+const SECTION_BG = "linear-gradient(300deg, #050505, #000000 56%, #080808)";
 
 /* ── Hero ─────────────────────────────────────────────────── */
 export function ReconnaissanceIntelligenceHero() {
   return (
     <section className="relative flex min-h-[70vh] items-end overflow-hidden pb-20 pt-32">
       <div className="pointer-events-none absolute -top-40 right-1/3 h-[500px] w-[500px] rounded-full opacity-10 blur-[120px]"
-        style={{ background: `radial-gradient(circle, ${ORCHID} 0%, transparent 65%)` }} aria-hidden="true" />
+        style={{ background: `radial-gradient(circle, ${ACCENT} 0%, transparent 65%)` }} aria-hidden="true" />
       <span className="pointer-events-none absolute bottom-0 right-0 select-none font-bold leading-none text-white/[0.025]"
         style={{ fontFamily: DISPLAY, fontSize: "clamp(4rem, 14vw, 12rem)", lineHeight: 1 }}>
         recon
@@ -37,7 +37,7 @@ export function ReconnaissanceIntelligenceHero() {
           <p className="mt-6 max-w-lg text-sm leading-relaxed text-white/40" style={{ fontFamily: BODY }}>
             Transform raw data into actionable military and cyber intelligence. Accelerate decision-making with automated sensemaking and predictive insights.
           </p>
-          <p className="mt-4 text-xs tracking-[0.3em] uppercase" style={{ color: ORCHID, fontFamily: BODY }}>
+          <p className="mt-4 text-xs tracking-[0.3em] uppercase" style={{ color: ACCENT, fontFamily: BODY }}>
             ( Recon Intel )
           </p>
         </div>
@@ -84,8 +84,8 @@ export function ReconnaissanceIntelligenceInvestigationsSection() {
             </p>
             <div className="space-y-6">
               {features.map((f) => (
-                <div key={f.num} className="border-l-2 pl-6" style={{ borderColor: `${ORCHID}33` }}>
-                  <p className="mb-1 text-sm font-semibold" style={{ color: ORCHID, fontFamily: BODY }}>/ {f.num}</p>
+                <div key={f.num} className="border-l-2 pl-6" style={{ borderColor: `${ACCENT}33` }}>
+                  <p className="mb-1 text-sm font-semibold" style={{ color: ACCENT, fontFamily: BODY }}>/ {f.num}</p>
                   <h3 className="mb-1 font-semibold text-white" style={{ fontFamily: DISPLAY }}>{f.title}</h3>
                   <p className="text-xs text-white/50" style={{ fontFamily: BODY }}>{f.description}</p>
                 </div>
@@ -98,7 +98,7 @@ export function ReconnaissanceIntelligenceInvestigationsSection() {
           {capabilities.map((cap, i) => (
             <div key={cap} className="p-4 text-center transition-all hover:scale-[1.02]"
               style={{ backgroundImage: CARD_BG, borderRadius: "9px" }}>
-              <p className="text-[10px] tracking-widest uppercase" style={{ color: ORCHID, fontFamily: BODY }}>/ {String(i + 1).padStart(2, "0")}</p>
+              <p className="text-[10px] tracking-widest uppercase" style={{ color: ACCENT, fontFamily: BODY }}>/ {String(i + 1).padStart(2, "0")}</p>
               <p className="mt-2 text-xs text-white/70" style={{ fontFamily: BODY }}>{cap}</p>
             </div>
           ))}
@@ -140,7 +140,7 @@ export function ReconnaissanceIntelligenceVulnerabilitySection() {
           {cards.map((card, i) => (
             <div key={card.title} className="p-8 transition-all duration-500 hover:scale-[1.02]"
               style={{ backgroundImage: CARD_BG, borderRadius: "9px" }}>
-              <span className="block mb-6 font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "3rem", color: `${ORCHID}40` }}>
+              <span className="block mb-6 font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "3rem", color: `${ACCENT}40` }}>
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="mb-3 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1.125rem" }}>{card.title}</h3>
@@ -180,7 +180,7 @@ export function ReconnaissanceIntelligenceForensicsSection() {
         <ul className="divide-y divide-white/8">
           {items.map((item, i) => (
             <li key={item.title} className="group flex items-start gap-8 py-10">
-              <span className="w-12 shrink-0 text-sm font-semibold" style={{ color: ORCHID, fontFamily: BODY }}>/ {String(i + 1).padStart(2, "0")}</span>
+              <span className="w-12 shrink-0 text-sm font-semibold" style={{ color: ACCENT, fontFamily: BODY }}>/ {String(i + 1).padStart(2, "0")}</span>
               <div>
                 <h3 className="font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(1rem, 1.5vw, 1.25rem)" }}>
                   {item.title}
@@ -227,7 +227,7 @@ export function ReconnaissanceIntelligenceWhyChooseSection() {
           {items.map((item, i) => (
             <div key={item.title} className="p-8 transition-all duration-500 hover:scale-[1.02]"
               style={{ backgroundImage: CARD_BG, borderRadius: "9px" }}>
-              <span className="block mb-6 font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "3rem", color: `${ORCHID}40` }}>
+              <span className="block mb-6 font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "3rem", color: `${ACCENT}40` }}>
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="mb-3 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1.125rem" }}>{item.title}</h3>

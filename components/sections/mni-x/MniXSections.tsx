@@ -3,25 +3,25 @@ import { Container } from "@/components/layout/Container";
 
 const DISPLAY = "'Clash Display', sans-serif";
 const BODY    = "var(--font-chakra), 'Chakra Petch', sans-serif";
-const ORCHID  = "#b64cf7";
-const CRIMSON = "#c5013c";
+const ACCENT  = "#00c5cd";
+const ACCENT2 = "#545454";
 
 const gradStyle = {
-  background: `linear-gradient(135deg, ${CRIMSON}, ${ORCHID})`,
+  background: `linear-gradient(135deg, ${ACCENT2}, ${ACCENT})`,
   WebkitBackgroundClip: "text" as const,
   WebkitTextFillColor: "transparent" as const,
   backgroundClip: "text" as const,
 };
 
-const CARD_BG    = "linear-gradient(339deg, rgba(114,111,119,0.05) 18%, rgba(255,255,255,0.05) 77%)";
-const SECTION_BG = "linear-gradient(300deg, #161616, #0f0f0f 56%, #1a1919)";
+const CARD_BG    = "linear-gradient(339deg, rgba(0,197,205,0.04) 18%, rgba(84,84,84,0.08) 77%)";
+const SECTION_BG = "linear-gradient(300deg, #050505, #000000 56%, #080808)";
 
 /* ── Hero ─────────────────────────────────────────────────── */
 export function MniXHero() {
   return (
     <section className="relative flex min-h-[80vh] items-end overflow-hidden pb-20 pt-32">
       <div className="pointer-events-none absolute -top-40 right-1/4 h-[500px] w-[500px] rounded-full opacity-10 blur-[120px]"
-        style={{ background: `radial-gradient(circle, ${ORCHID} 0%, transparent 65%)` }} aria-hidden="true" />
+        style={{ background: `radial-gradient(circle, ${ACCENT} 0%, transparent 65%)` }} aria-hidden="true" />
       <span className="pointer-events-none absolute bottom-0 right-0 select-none font-bold leading-none text-white/[0.025]"
         style={{ fontFamily: DISPLAY, fontSize: "clamp(4rem, 14vw, 12rem)", lineHeight: 1 }}>
         MNI-X
@@ -39,7 +39,7 @@ export function MniXHero() {
           <p className="mt-4 max-w-lg text-sm leading-relaxed text-white/40" style={{ fontFamily: BODY }}>
             To become the prime standard for physical cyber security visualization, empowering teams to train more effectively, plan incident response more clearly, and communicate risk to stakeholders with unparalleled clarity.
           </p>
-          <p className="mt-4 text-xs tracking-[0.3em] uppercase" style={{ color: ORCHID, fontFamily: BODY }}>
+          <p className="mt-4 text-xs tracking-[0.3em] uppercase" style={{ color: ACCENT, fontFamily: BODY }}>
             ( Physical Cyber Warfare Visualization )
           </p>
         </div>
@@ -83,7 +83,7 @@ export function MniXProblemSection() {
           {painPoints.map((p, i) => (
             <div key={p.title} className="p-8 transition-all duration-500 hover:scale-[1.02]"
               style={{ backgroundImage: CARD_BG, borderRadius: "9px" }}>
-              <span className="block mb-6 font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "3rem", color: `${ORCHID}40` }}>
+              <span className="block mb-6 font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "3rem", color: `${ACCENT}40` }}>
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="mb-3 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1.125rem" }}>{p.title}</h3>
@@ -132,7 +132,7 @@ export function MniXOpportunitySection() {
           {useCases.map((item, i) => (
             <div key={item.title} className="p-8 transition-all duration-500 hover:scale-[1.02]"
               style={{ backgroundImage: CARD_BG, borderRadius: "9px" }}>
-              <span className="block mb-6 font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "3rem", color: `${ORCHID}40` }}>
+              <span className="block mb-6 font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "3rem", color: `${ACCENT}40` }}>
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="mb-3 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1.125rem" }}>{item.title}</h3>
@@ -192,8 +192,8 @@ export function MniXProductsSection() {
             <div key={p.tier} className="p-8 transition-all duration-500 hover:scale-[1.02]"
               style={{ backgroundImage: CARD_BG, borderRadius: "9px" }}>
               <div className="mb-6 flex items-start justify-between gap-3">
-                <span className="font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "3rem", color: `${ORCHID}40` }}>{p.tier}</span>
-                <span className="mt-1 border px-3 py-1 text-[9px] tracking-widest uppercase" style={{ borderColor: `${ORCHID}40`, color: ORCHID, fontFamily: BODY }}>
+                <span className="font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "3rem", color: `${ACCENT}40` }}>{p.tier}</span>
+                <span className="mt-1 border px-3 py-1 text-[9px] tracking-widest uppercase" style={{ borderColor: `${ACCENT}40`, color: ACCENT, fontFamily: BODY }}>
                   {p.badge}
                 </span>
               </div>
@@ -204,13 +204,13 @@ export function MniXProductsSection() {
                 <ul className="mt-4 space-y-2">
                   {p.kits.map((kit) => (
                     <li key={kit} className="flex items-center gap-2 text-xs text-white/50" style={{ fontFamily: BODY }}>
-                      <span style={{ color: ORCHID }}>/</span> {kit}
+                      <span style={{ color: ACCENT }}>/</span> {kit}
                     </li>
                   ))}
                 </ul>
               )}
               {p.note && (
-                <p className="mt-4 border-l-2 pl-3 text-xs italic text-white/40" style={{ borderColor: `${ORCHID}40`, fontFamily: BODY }}>
+                <p className="mt-4 border-l-2 pl-3 text-xs italic text-white/40" style={{ borderColor: `${ACCENT}40`, fontFamily: BODY }}>
                   {p.note}
                 </p>
               )}

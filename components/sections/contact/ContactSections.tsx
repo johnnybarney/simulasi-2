@@ -5,17 +5,17 @@ import { contactContent } from "@/lib/constants/contact";
 
 const DISPLAY = "'Clash Display', sans-serif";
 const BODY    = "var(--font-chakra), 'Chakra Petch', sans-serif";
-const ORCHID  = "#b64cf7";
-const CRIMSON = "#c5013c";
+const ACCENT  = "#00c5cd";
+const ACCENT2 = "#545454";
 
 const gradStyle = {
-  background: `linear-gradient(135deg, ${CRIMSON}, ${ORCHID})`,
+  background: `linear-gradient(135deg, ${ACCENT2}, ${ACCENT})`,
   WebkitBackgroundClip: "text" as const,
   WebkitTextFillColor: "transparent" as const,
   backgroundClip: "text" as const,
 };
 
-const SECTION_BG = "linear-gradient(300deg, #161616, #0f0f0f 56%, #1a1919)";
+const SECTION_BG = "linear-gradient(300deg, #050505, #000000 56%, #080808)";
 
 export function ContactMainSection({ embedded = false }: { embedded?: boolean }) {
   const { hero, office, channels } = contactContent;
@@ -25,7 +25,7 @@ export function ContactMainSection({ embedded = false }: { embedded?: boolean })
       className="relative overflow-hidden border-t border-white/8 py-32"
       style={{ backgroundImage: SECTION_BG }}>
       <div className="pointer-events-none absolute inset-0"
-        style={{ background: `radial-gradient(ellipse 80% 50% at 50% 100%, ${ORCHID}18 0%, transparent 70%)` }} />
+        style={{ background: `radial-gradient(ellipse 80% 50% at 50% 100%, ${ACCENT}18 0%, transparent 70%)` }} />
       <Container className="relative">
         {embedded && (
           <div className="mb-16">
@@ -57,7 +57,7 @@ export function ContactMainSection({ embedded = false }: { embedded?: boolean })
               <Link href={`https://www.google.com/maps/search/?api=1&query=${office.mapQuery}`}
                 target="_blank" rel="noopener noreferrer"
                 className="mt-4 inline-block text-[10px] tracking-[0.2em] uppercase transition-colors hover:text-white"
-                style={{ color: ORCHID, fontFamily: BODY }}>
+                style={{ color: ACCENT, fontFamily: BODY }}>
                 Open in Google Maps →
               </Link>
             </div>
@@ -65,7 +65,7 @@ export function ContactMainSection({ embedded = false }: { embedded?: boolean })
             <ul className="divide-y divide-white/8">
               {channels.map((channel) => (
                 <li key={channel.label} className="py-5">
-                  <p className="mb-1 text-[10px] tracking-[0.2em] uppercase" style={{ color: ORCHID, fontFamily: BODY }}>
+                  <p className="mb-1 text-[10px] tracking-[0.2em] uppercase" style={{ color: ACCENT, fontFamily: BODY }}>
                     / {channel.label}
                   </p>
                   {"href" in channel ? (

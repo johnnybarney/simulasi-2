@@ -4,7 +4,7 @@ import { routes } from "@/lib/navigation";
 
 const DISPLAY = "'Clash Display', sans-serif";
 const BODY    = "var(--font-chakra), 'Chakra Petch', sans-serif";
-const ORCHID  = "#b64cf7";
+const ACCENT  = "#00c5cd";
 
 const footerLinks = [
   { label: "Services", href: routes.tsx },
@@ -19,7 +19,7 @@ export function Footer() {
       <Container className="flex flex-col items-center gap-6 text-center md:flex-row md:justify-between md:text-left">
         <Link href="/" className="font-bold text-white/80 text-lg" style={{ fontFamily: DISPLAY }}>
           simulasi<span style={{
-            background: `linear-gradient(135deg,#c5013c,${ORCHID})`,
+            background: `linear-gradient(135deg,#545454,${ACCENT})`,
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
           }}>.</span>

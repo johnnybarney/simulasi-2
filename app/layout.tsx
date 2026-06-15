@@ -48,7 +48,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap"
         />
       </head>
-      <body className="flex min-h-full flex-col text-white antialiased" style={{ backgroundColor: "#141414", fontFamily: "var(--font-chakra), 'Chakra Petch', sans-serif" }}>
+      <body className="flex min-h-full flex-col text-white antialiased" style={{ backgroundColor: "#000000", fontFamily: "var(--font-chakra), 'Chakra Petch', sans-serif" }}>
         <CustomCursor />
         <ScrollProgress />
         <BackToTop />

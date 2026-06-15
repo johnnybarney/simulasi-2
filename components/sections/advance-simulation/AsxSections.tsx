@@ -5,18 +5,18 @@ import {
 
 const DISPLAY = "'Clash Display', sans-serif";
 const BODY    = "var(--font-chakra), 'Chakra Petch', sans-serif";
-const ORCHID  = "#b64cf7";
-const CRIMSON = "#c5013c";
+const ACCENT  = "#00c5cd";
+const ACCENT2 = "#545454";
 
 const gradStyle = {
-  background: `linear-gradient(135deg, ${CRIMSON}, ${ORCHID})`,
+  background: `linear-gradient(135deg, ${ACCENT2}, ${ACCENT})`,
   WebkitBackgroundClip: "text" as const,
   WebkitTextFillColor: "transparent" as const,
   backgroundClip: "text" as const,
 };
 
-const CARD_BG    = "linear-gradient(339deg, rgba(114,111,119,0.05) 18%, rgba(255,255,255,0.05) 77%)";
-const SECTION_BG = "linear-gradient(300deg, #161616, #0f0f0f 56%, #1a1919)";
+const CARD_BG    = "linear-gradient(339deg, rgba(0,197,205,0.04) 18%, rgba(84,84,84,0.08) 77%)";
+const SECTION_BG = "linear-gradient(300deg, #050505, #000000 56%, #080808)";
 
 /* ── Hero ─────────────────────────────────────────────────── */
 export function AsxHero() {
@@ -25,7 +25,7 @@ export function AsxHero() {
   return (
     <section className="relative overflow-hidden pb-20 pt-32">
       <div className="pointer-events-none absolute -top-40 right-1/4 h-[500px] w-[500px] rounded-full opacity-10 blur-[120px]"
-        style={{ background: `radial-gradient(circle, ${ORCHID} 0%, transparent 65%)` }} aria-hidden="true" />
+        style={{ background: `radial-gradient(circle, ${ACCENT} 0%, transparent 65%)` }} aria-hidden="true" />
       <span className="pointer-events-none absolute bottom-0 right-0 select-none font-bold leading-none text-white/[0.025]"
         style={{ fontFamily: DISPLAY, fontSize: "clamp(5rem, 16vw, 14rem)", lineHeight: 1 }}>
         ASX
@@ -43,7 +43,7 @@ export function AsxHero() {
         <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/40" style={{ fontFamily: BODY }}>
           Deploys a Dual-Track Hybrid Protocol. We synchronize Interactive Tabletop Exercises ( iTTX ) validating strategic command decisions with Technical Simulation Exercises ( TSX ) testing the physical integrity of your infrastructure.
         </p>
-        <p className="mt-4 text-xs tracking-[0.3em] uppercase" style={{ color: ORCHID, fontFamily: BODY }}>( ASX )</p>
+        <p className="mt-4 text-xs tracking-[0.3em] uppercase" style={{ color: ACCENT, fontFamily: BODY }}>( ASX )</p>
       </Container>
 
       <Container className="relative mt-12">
@@ -74,18 +74,18 @@ export function AsxOfferingsSection() {
               <div key={offering.title}
                 className={`grid items-start gap-12 lg:grid-cols-2 ${reversed ? "lg:[&>*:first-child]:order-2 lg:[&>*:last-child]:order-1" : ""}`}>
                 <div className="lg:pt-4">
-                  <span className="block mb-3 text-sm font-semibold" style={{ color: ORCHID, fontFamily: BODY }}>/ {String(index + 1).padStart(2, "0")}</span>
+                  <span className="block mb-3 text-sm font-semibold" style={{ color: ACCENT, fontFamily: BODY }}>/ {String(index + 1).padStart(2, "0")}</span>
                   <h3 className="font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(1.5rem, 2.5vw, 2rem)" }}>
                     {offering.title}
                   </h3>
-                  <div className="mt-4 h-px w-16" style={{ background: `linear-gradient(90deg, ${ORCHID}, transparent)` }} />
+                  <div className="mt-4 h-px w-16" style={{ background: `linear-gradient(90deg, ${ACCENT}, transparent)` }} />
                 </div>
                 <div className="space-y-4">
                   {offering.blocks.map((block) => (
                     <div key={block.label} className="p-6 transition-all duration-300 hover:scale-[1.01]"
                       style={{ backgroundImage: CARD_BG, borderRadius: "9px" }}>
                       <p className="mb-1 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1rem" }}>
-                        <span style={{ color: ORCHID }}>/ </span>{block.label}
+                        <span style={{ color: ACCENT }}>/ </span>{block.label}
                       </p>
                       <p className="text-sm text-white/50" style={{ fontFamily: BODY }}>{block.text}</p>
                     </div>
@@ -119,7 +119,7 @@ export function AsxWhyChooseSection() {
           {whyChoose.map((item, i) => (
             <div key={item.title} className="p-8 transition-all duration-500 hover:scale-[1.02]"
               style={{ backgroundImage: CARD_BG, borderRadius: "9px" }}>
-              <span className="block mb-4 font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "2.5rem", color: `${ORCHID}40` }}>
+              <span className="block mb-4 font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "2.5rem", color: `${ACCENT}40` }}>
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="mb-3 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1.125rem" }}>

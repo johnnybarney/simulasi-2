@@ -3,23 +3,23 @@ import { homeContent } from "@/lib/constants/home";
 
 const DISPLAY = "'Clash Display', sans-serif";
 const BODY    = "var(--font-chakra), 'Chakra Petch', sans-serif";
-const ORCHID  = "#b64cf7";
-const CRIMSON = "#c5013c";
+const ACCENT  = "#00c5cd";
+const ACCENT2 = "#545454";
 
 const gradStyle = {
-  background: `linear-gradient(135deg, ${CRIMSON}, ${ORCHID})`,
+  background: `linear-gradient(135deg, ${ACCENT2}, ${ACCENT})`,
   WebkitBackgroundClip: "text" as const,
   WebkitTextFillColor: "transparent" as const,
   backgroundClip: "text" as const,
 };
 
-const CARD_BG = "linear-gradient(339deg, rgba(114,111,119,0.05) 18%, rgba(255,255,255,0.05) 77%)";
+const CARD_BG = "linear-gradient(339deg, rgba(0,197,205,0.04) 18%, rgba(84,84,84,0.08) 77%)";
 
 export function WhyChooseSection() {
   const { whyChoose } = homeContent;
 
   return (
-    <section className="relative overflow-hidden py-32" style={{ background: "linear-gradient(300deg, #161616, #0f0f0f 56%, #1a1919)" }}>
+    <section className="relative overflow-hidden py-32" style={{ background: "linear-gradient(300deg, #050505, #000000 56%, #080808)" }}>
       <span className="pointer-events-none absolute -right-10 top-1/2 -translate-y-1/2 select-none font-bold text-white/[0.025]"
         style={{ fontFamily: DISPLAY, fontSize: "clamp(6rem, 18vw, 16rem)", lineHeight: 1 }}>
         why
@@ -37,7 +37,7 @@ export function WhyChooseSection() {
           {whyChoose.items.map((item, i) => (
             <div key={item.title} className="p-8 transition-all duration-500 hover:scale-[1.02]"
               style={{ backgroundImage: CARD_BG, borderRadius: "9px" }}>
-              <span className="block mb-6 font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "3rem", color: `${ORCHID}40` }}>
+              <span className="block mb-6 font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "3rem", color: `${ACCENT}40` }}>
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="mb-3 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1rem" }}>{item.title}</h3>

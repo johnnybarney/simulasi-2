@@ -9,7 +9,7 @@ import { Container } from "@/components/layout/Container";
 
 const DISPLAY = "'Clash Display', sans-serif";
 const BODY    = "var(--font-chakra), 'Chakra Petch', sans-serif";
-const ORCHID  = "#b64cf7";
+const ACCENT  = "#00c5cd";
 
 const allLinks = [
   { label: "Services", href: routes.tsx },
@@ -46,7 +46,7 @@ export function Header({ activeHref }: Props) {
   return (
     <>
       {/* ── thin bar ─────────────────────────────────────────── */}
-      <header className="fixed top-0 left-0 right-0 z-[200]" style={{ backgroundColor: "#141414" }}>
+      <header className="fixed top-0 left-0 right-0 z-[200]" style={{ backgroundColor: "#000000" }}>
         <Container className="flex items-center justify-between py-6">
           <Link
             href="/"
@@ -83,7 +83,7 @@ export function Header({ activeHref }: Props) {
           "fixed inset-0 z-[199] transition-all duration-500",
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none",
         )}
-        style={{ backgroundColor: "#141414", backdropFilter: "blur(45px)" }}
+        style={{ backgroundColor: "#000000", backdropFilter: "blur(45px)" }}
       >
         <Container className="flex h-full flex-col justify-between py-28">
           {/* contact info — matches Xizt menu top */}
@@ -100,7 +100,7 @@ export function Header({ activeHref }: Props) {
             </a>
           </div>
 
-          {/* main nav links — Xizt style: huge Clash Display, orchid hover */}
+          {/* main nav links — Xizt style: huge Clash Display, ACCENT hover */}
           <nav aria-label="Overlay navigation">
             <ul className="space-y-1">
               {allLinks.map((link, i) => (
@@ -115,7 +115,7 @@ export function Header({ activeHref }: Props) {
                       letterSpacing: "0.04em",
                       textTransform: "uppercase",
                     }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = ORCHID)}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = ACCENT)}
                     onMouseLeave={(e) => (e.currentTarget.style.color = "#ffffff")}
                   >
                     <span className="text-[11px] tracking-[0.3em] uppercase text-white/30 transition-colors self-center"
@@ -141,7 +141,7 @@ export function Header({ activeHref }: Props) {
                         className="text-[10px] tracking-widest uppercase text-white/40 hover:text-white transition-colors"
                         style={{ fontFamily: BODY }}>
                         {s.label}
-                        {s.code && <span className="ml-2" style={{ color: ORCHID }}>( {s.code} )</span>}
+                        {s.code && <span className="ml-2" style={{ color: ACCENT }}>( {s.code} )</span>}
                       </Link>
                     </li>
                   ))}
@@ -157,7 +157,7 @@ export function Header({ activeHref }: Props) {
                           className="text-[10px] tracking-widest uppercase text-white/40 hover:text-white transition-colors"
                           style={{ fontFamily: BODY }}>
                           {p.label}
-                          <span className="ml-2" style={{ color: ORCHID }}>( {p.code} )</span>
+                          <span className="ml-2" style={{ color: ACCENT }}>( {p.code} )</span>
                         </Link>
                       </li>
                     ))}

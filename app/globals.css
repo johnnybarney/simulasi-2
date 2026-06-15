@@ -1,16 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── Xizt exact design tokens ─────────────────────────────── */
-  --color-bg:             #141414;
-  --color-bg-section:     #161616;
-  --color-bg-card:        #0f0f0f;
-  --color-orchid:         #b64cf7;
-  --color-orchid-dark:    #c5013c;
+  --color-bg:             #000000;
+  --color-bg-section:     #0a0a0a;
+  --color-bg-card:        #050505;
+  --color-accent:         #00c5cd;
+  --color-accent-dark:    #545454;
   --color-white:          #ffffff;
-  --color-dark-grey:      #a1a1a1;
+  --color-grey-mid:       #999999;
+  --color-grey-dark:      #545454;
 
-  /* ── Fonts ────────────────────────────────────────────────── */
   --font-display: 'Clash Display', sans-serif;
   --font-body:    var(--font-chakra), 'Chakra Petch', sans-serif;
 }
@@ -18,7 +17,6 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    /* Xizt viewport-based font size */
     font-size: 1.111vw;
   }
 
@@ -31,7 +29,7 @@
   }
 
   body {
-    background-color: #141414;
+    background-color: #000000;
     color: #ffffff;
     font-family: var(--font-body);
     font-weight: 500;
@@ -52,28 +50,25 @@
 }
 
 @layer utilities {
-  /* ── Xizt gradient: crimson → orchid ─────────────────────── */
   .text-gradient {
-    background: linear-gradient(135deg, #c5013c, #b64cf7);
+    background: linear-gradient(135deg, #545454, #00c5cd);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .bg-gradient-brand {
-    background: linear-gradient(135deg, #c5013c, #b64cf7);
+    background: linear-gradient(135deg, #545454, #00c5cd);
   }
 
-  /* ── Xizt card background ─────────────────────────────────── */
   .card-bg {
-    background-image: linear-gradient(339deg, rgba(114,111,119,0.05) 18%, rgba(255,255,255,0.05) 77%);
+    background-image: linear-gradient(339deg, rgba(0,197,205,0.04) 18%, rgba(84,84,84,0.08) 77%);
     border-radius: 9px;
   }
 
-  /* ── Xizt glow blob ───────────────────────────────────────── */
-  .glow-orchid {
+  .glow-accent {
     filter: blur(80px);
-    background: linear-gradient(#c5013c, #b64cf7);
+    background: linear-gradient(#545454, #00c5cd);
     border-radius: 100%;
   }
 }
@@ -97,7 +92,7 @@
   left: 0;
   width: 8px;
   height: 8px;
-  background: #b64cf7;
+  background: #00c5cd;
   border-radius: 50%;
   z-index: 99999;
   transform: translate(-50%, -50%);
@@ -111,7 +106,7 @@
   left: 0;
   width: 32px;
   height: 32px;
-  border: 1px solid rgba(182, 76, 247, 0.4);
+  border: 1px solid rgba(0, 197, 205, 0.4);
   border-radius: 50%;
   z-index: 99998;
   transform: translate(-50%, -50%);

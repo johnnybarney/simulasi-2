@@ -3,11 +3,11 @@ import { homeContent } from "@/lib/constants/home";
 
 const DISPLAY = "'Clash Display', sans-serif";
 const BODY    = "var(--font-chakra), 'Chakra Petch', sans-serif";
-const ORCHID  = "#b64cf7";
-const CRIMSON = "#c5013c";
+const ACCENT  = "#00c5cd";
+const ACCENT2 = "#545454";
 
 const gradStyle = {
-  background: `linear-gradient(135deg, ${CRIMSON}, ${ORCHID})`,
+  background: `linear-gradient(135deg, ${ACCENT2}, ${ACCENT})`,
   WebkitBackgroundClip: "text" as const,
   WebkitTextFillColor: "transparent" as const,
   backgroundClip: "text" as const,
@@ -26,7 +26,7 @@ export function CriticalInsightSection() {
               <span style={gradStyle}>/ Insight /</span>
             </h2>
           </div>
-          <div className="border-l-2 pl-10" style={{ borderColor: `${ORCHID}33` }}>
+          <div className="border-l-2 pl-10" style={{ borderColor: `${ACCENT}33` }}>
             <h3 className="mb-4 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(1rem, 1.5vw, 1.25rem)" }}>
               {criticalInsight.title}
             </h3>

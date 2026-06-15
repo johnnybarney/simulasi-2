@@ -11,20 +11,20 @@ import { homeContent } from "@/lib/constants/home";
 /* ── Xizt design tokens ──────────────────────────────────────── */
 const DISPLAY = "'Clash Display', sans-serif";
 const BODY    = "var(--font-chakra), 'Chakra Petch', sans-serif";
-const ORCHID  = "#b64cf7";
-const CRIMSON = "#c5013c";
+const ACCENT  = "#00c5cd";
+const ACCENT2 = "#545454";
 
 const gradStyle = {
-  background: `linear-gradient(135deg, ${CRIMSON}, ${ORCHID})`,
+  background: `linear-gradient(135deg, ${ACCENT2}, ${ACCENT})`,
   WebkitBackgroundClip: "text" as const,
   WebkitTextFillColor: "transparent" as const,
   backgroundClip: "text" as const,
 };
 
 /* ── Xizt card backgrounds ───────────────────────────────────── */
-const ABOUT_CARD_BG   = "linear-gradient(339deg, rgba(114,111,119,0.05) 18%, rgba(255,255,255,0.05) 77%)";
-const NEEDS_CARD_BG   = "linear-gradient(145deg, rgba(114,110,119,0.15) 32%, rgba(255,255,255,0.15) 73%)";
-const SECTION_BG      = "linear-gradient(300deg, #161616, #0f0f0f 56%, #1a1919)";
+const ABOUT_CARD_BG   = "linear-gradient(339deg, rgba(0,197,205,0.04) 18%, rgba(84,84,84,0.08) 77%)";
+const NEEDS_CARD_BG   = "linear-gradient(145deg, rgba(0,197,205,0.08) 32%, rgba(84,84,84,0.12) 73%)";
+const SECTION_BG      = "linear-gradient(300deg, #050505, #000000 56%, #080808)";
 
 /* ── page data ───────────────────────────────────────────────── */
 const aboutItems = [
@@ -106,9 +106,9 @@ export default function HomePage() {
 
         {/* ─── Hero ─────────────────────────────────────────────── */}
         <section className="relative flex min-h-screen items-end overflow-hidden pb-20 pt-20">
-          {/* Xizt-style orchid glow blob */}
+          {/* Xizt-style ACCENT glow blob */}
           <div className="pointer-events-none absolute -top-40 left-1/4 h-[600px] w-[600px] rounded-full opacity-15 blur-[120px]"
-            style={{ background: `radial-gradient(circle, ${ORCHID} 0%, transparent 65%)` }} aria-hidden="true" />
+            style={{ background: `radial-gradient(circle, ${ACCENT} 0%, transparent 65%)` }} aria-hidden="true" />
           {/* watermark */}
           <span className="pointer-events-none absolute bottom-0 right-0 select-none font-bold leading-none text-white/[0.03]"
             style={{ fontFamily: DISPLAY, fontSize: "clamp(8rem, 28vw, 24rem)", lineHeight: 1 }}>
@@ -177,7 +177,7 @@ export default function HomePage() {
             {[...marqueeItems, ...marqueeItems].map((item, i) => (
               <span key={i} className="mx-10 text-[11px] tracking-[0.3em] uppercase text-white/20"
                 style={{ fontFamily: BODY }}>
-                {item} <span style={{ color: ORCHID }}>✦</span>
+                {item} <span style={{ color: ACCENT }}>✦</span>
               </span>
             ))}
           </div>
@@ -217,7 +217,7 @@ export default function HomePage() {
                   <ScrollReveal key={item.num} delay={i * 0.08}>
                     <div className="p-6 transition-all duration-500 hover:scale-[1.02]"
                       style={{ backgroundImage: ABOUT_CARD_BG, borderRadius: "9px" }}>
-                      <span className="block text-sm font-semibold mb-4" style={{ color: ORCHID, fontFamily: BODY }}>
+                      <span className="block text-sm font-semibold mb-4" style={{ color: ACCENT, fontFamily: BODY }}>
                         {item.num}
                       </span>
                       <h3 className="font-semibold text-white mb-3"
@@ -227,7 +227,7 @@ export default function HomePage() {
                       <div className="space-y-1">
                         {item.lines.map((line) => (
                           <p key={line} className="text-xs text-white/40" style={{ fontFamily: BODY }}>
-                            <span style={{ color: ORCHID }}>/</span> {line}
+                            <span style={{ color: ACCENT }}>/</span> {line}
                           </p>
                         ))}
                       </div>
@@ -240,7 +240,7 @@ export default function HomePage() {
         </section>
 
         {/* ─── divider ──────────────────────────────────────────── */}
-        <div className="h-px w-full" style={{ background: `linear-gradient(90deg, transparent, ${CRIMSON} 40%, ${ORCHID}, ${CRIMSON} 60%, transparent)` }} />
+        <div className="h-px w-full" style={{ background: `linear-gradient(90deg, transparent, ${ACCENT2} 40%, ${ACCENT}, ${ACCENT2} 60%, transparent)` }} />
 
         {/* ─── you need to ──────────────────────────────────────── */}
         <section className="relative py-32">
@@ -268,9 +268,9 @@ export default function HomePage() {
                   className="group relative overflow-hidden transition-all duration-500 hover:scale-[1.02]"
                   style={{ backgroundImage: NEEDS_CARD_BG, borderRadius: "9px", padding: "3em 2.5em" }}>
                   <div className="pointer-events-none absolute bottom-0 left-0 h-48 w-48 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity"
-                    style={{ background: `linear-gradient(${CRIMSON}, ${ORCHID})`, borderRadius: "100%" }} aria-hidden="true" />
+                    style={{ background: `linear-gradient(${ACCENT2}, ${ACCENT})`, borderRadius: "100%" }} aria-hidden="true" />
                   <span className="relative block font-bold leading-none mb-6"
-                    style={{ fontFamily: DISPLAY, fontSize: "3rem", color: "rgba(182,76,247,0.3)" }}>
+                    style={{ fontFamily: DISPLAY, fontSize: "3rem", color: "rgba(0,197,205,0.3)" }}>
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <h3 className="relative font-semibold text-white mb-4"
@@ -280,7 +280,7 @@ export default function HomePage() {
                   <div className="relative space-y-2">
                     {item.lines.map((line) => (
                       <p key={line} className="text-xs text-white/50" style={{ fontFamily: BODY }}>
-                        <span style={{ color: ORCHID }}>/</span> {line}
+                        <span style={{ color: ACCENT }}>/</span> {line}
                       </p>
                     ))}
                   </div>
@@ -361,9 +361,9 @@ export default function HomePage() {
                     <Link href={s.href}
                       className="group relative flex items-center justify-between gap-8 py-7 transition-all overflow-hidden">
                       <span className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"
-                        style={{ background: `linear-gradient(90deg, rgba(182,76,247,0.06) 0%, transparent 100%)` }} />
+                        style={{ background: `linear-gradient(90deg, rgba(0,197,205,0.06) 0%, transparent 100%)` }} />
                       <div className="relative flex items-center gap-8">
-                        <span className="w-12 shrink-0 text-sm font-semibold" style={{ color: ORCHID, fontFamily: BODY }}>/ {s.num}</span>
+                        <span className="w-12 shrink-0 text-sm font-semibold" style={{ color: ACCENT, fontFamily: BODY }}>/ {s.num}</span>
                         <div>
                           <h3 className="font-semibold text-white group-hover:text-white transition-all"
                             style={{ fontFamily: DISPLAY, fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}>
@@ -394,7 +394,7 @@ export default function HomePage() {
                 <h2 className="font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
                   CD-X Platform
                 </h2>
-                <p className="mt-3 text-xs tracking-widest uppercase" style={{ color: ORCHID, fontFamily: BODY }}>
+                <p className="mt-3 text-xs tracking-widest uppercase" style={{ color: ACCENT, fontFamily: BODY }}>
                   Cyber Exercise Command & Control ( CE-C2 )
                 </p>
                 <p className="mt-6 text-sm leading-relaxed text-white/40" style={{ fontFamily: BODY }}>
@@ -414,8 +414,8 @@ export default function HomePage() {
                   { num: "/ 03", text: "Automated after-action report generation — no manual assembly, no lost data." },
                 ].map((item) => (
                   <ScrollReveal key={item.num}>
-                    <div className="border-l-2 pl-6" style={{ borderColor: `${ORCHID}33` }}>
-                      <p className="mb-2 text-sm font-semibold" style={{ color: ORCHID, fontFamily: BODY }}>{item.num}</p>
+                    <div className="border-l-2 pl-6" style={{ borderColor: `${ACCENT}33` }}>
+                      <p className="mb-2 text-sm font-semibold" style={{ color: ACCENT, fontFamily: BODY }}>{item.num}</p>
                       <p className="text-sm leading-relaxed text-white/40" style={{ fontFamily: BODY }}>{item.text}</p>
                     </div>
                   </ScrollReveal>
@@ -437,7 +437,7 @@ export default function HomePage() {
               <h2 className="font-bold text-white mb-3" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
                 MNI-X 3D Kit
               </h2>
-              <p className="mb-12 text-xs tracking-widest uppercase" style={{ color: ORCHID, fontFamily: BODY }}>
+              <p className="mb-12 text-xs tracking-widest uppercase" style={{ color: ACCENT, fontFamily: BODY }}>
                 Physical Cyber Warfare Visualization
               </p>
             </ScrollReveal>
@@ -451,7 +451,7 @@ export default function HomePage() {
                 <ScrollReveal key={i} delay={i * 0.1}>
                   <div className="p-8 hover:scale-[1.02] transition-all duration-500"
                     style={{ backgroundImage: ABOUT_CARD_BG, borderRadius: "9px" }}>
-                    <p className="mb-4 font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "3rem", color: `${ORCHID}40` }}>
+                    <p className="mb-4 font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "3rem", color: `${ACCENT}40` }}>
                       {String(i + 1).padStart(2, "0")}
                     </p>
                     <h3 className="mb-3 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1.125rem" }}>
@@ -522,7 +522,7 @@ export default function HomePage() {
               {cases.map((c, i) => (
                 <ScrollReveal key={c.num} delay={i * 0.06}>
                   <li className="group grid grid-cols-[4rem_1fr] gap-8 py-10 md:grid-cols-[5rem_1fr_auto]">
-                    <span className="text-sm font-semibold" style={{ color: ORCHID, fontFamily: BODY }}>/ {c.num}</span>
+                    <span className="text-sm font-semibold" style={{ color: ACCENT, fontFamily: BODY }}>/ {c.num}</span>
                     <div>
                       <p className="mb-2 text-[10px] tracking-widest uppercase text-white/30" style={{ fontFamily: BODY }}>{c.tag}</p>
                       <h3 className="mb-3 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}>
@@ -544,7 +544,7 @@ export default function HomePage() {
         {/* ─── Hey! We are ready to / help you!!! / ─────────────── */}
         <section className="relative overflow-hidden border-t border-white/8 py-32" style={{ backgroundImage: SECTION_BG }}>
           <div className="pointer-events-none absolute inset-0"
-            style={{ background: `radial-gradient(ellipse 80% 50% at 50% 100%, ${ORCHID}18 0%, transparent 70%)` }} />
+            style={{ background: `radial-gradient(ellipse 80% 50% at 50% 100%, ${ACCENT}18 0%, transparent 70%)` }} />
           <Container className="relative">
             <div className="grid gap-20 lg:grid-cols-2">
               <ScrollReveal>

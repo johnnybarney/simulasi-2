@@ -21,25 +21,25 @@ const partnerLogos = [
 
 const DISPLAY = "'Clash Display', sans-serif";
 const BODY    = "var(--font-chakra), 'Chakra Petch', sans-serif";
-const ORCHID  = "#b64cf7";
-const CRIMSON = "#c5013c";
+const ACCENT  = "#00c5cd";
+const ACCENT2 = "#545454";
 
 const gradStyle = {
-  background: `linear-gradient(135deg, ${CRIMSON}, ${ORCHID})`,
+  background: `linear-gradient(135deg, ${ACCENT2}, ${ACCENT})`,
   WebkitBackgroundClip: "text" as const,
   WebkitTextFillColor: "transparent" as const,
   backgroundClip: "text" as const,
 };
 
-const CARD_BG    = "linear-gradient(339deg, rgba(114,111,119,0.05) 18%, rgba(255,255,255,0.05) 77%)";
-const SECTION_BG = "linear-gradient(300deg, #161616, #0f0f0f 56%, #1a1919)";
+const CARD_BG    = "linear-gradient(339deg, rgba(0,197,205,0.04) 18%, rgba(84,84,84,0.08) 77%)";
+const SECTION_BG = "linear-gradient(300deg, #050505, #000000 56%, #080808)";
 
 /* ── Hero ─────────────────────────────────────────────────── */
 export function CdXHero() {
   return (
     <section className="relative flex min-h-[80vh] items-end overflow-hidden pb-20 pt-32">
       <div className="pointer-events-none absolute -top-40 left-1/4 h-[600px] w-[600px] rounded-full opacity-12 blur-[120px]"
-        style={{ background: `radial-gradient(circle, ${ORCHID} 0%, transparent 65%)` }} aria-hidden="true" />
+        style={{ background: `radial-gradient(circle, ${ACCENT} 0%, transparent 65%)` }} aria-hidden="true" />
       <span className="pointer-events-none absolute bottom-0 right-0 select-none font-bold leading-none text-white/[0.025]"
         style={{ fontFamily: DISPLAY, fontSize: "clamp(6rem, 22vw, 20rem)", lineHeight: 1 }}>
         CD-X
@@ -50,7 +50,7 @@ export function CdXHero() {
           <h1 className="font-bold leading-[0.92] tracking-tight" style={{ fontFamily: DISPLAY, fontSize: "clamp(4rem, 12vw, 10rem)" }}>
             <span style={gradStyle}>CD-X</span>
           </h1>
-          <p className="mt-3 text-xs tracking-[0.3em] uppercase" style={{ color: ORCHID, fontFamily: BODY }}>
+          <p className="mt-3 text-xs tracking-[0.3em] uppercase" style={{ color: ACCENT, fontFamily: BODY }}>
             Cyber Exercise Command &amp; Control ( CE-C2 )
           </p>
           <p className="mt-6 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(1.25rem, 2vw, 1.75rem)" }}>
@@ -67,7 +67,7 @@ export function CdXHero() {
             </Link>
             <Link href={routes.contact}
               className="border px-8 py-3 text-[11px] tracking-[0.3em] uppercase transition-all duration-300"
-              style={{ borderColor: `${ORCHID}60`, color: ORCHID, fontFamily: BODY }}>
+              style={{ borderColor: `${ACCENT}60`, color: ACCENT, fontFamily: BODY }}>
               Mission Briefing /
             </Link>
           </div>
@@ -104,8 +104,8 @@ export function CyberDrillsSection() {
               { num: "/ 02", text: "Multi-team role management with live inject delivery synchronized across all participants." },
               { num: "/ 03", text: "Automated after-action report generation — no manual assembly, no lost data." },
             ].map((item) => (
-              <div key={item.num} className="border-l-2 pl-6" style={{ borderColor: `${ORCHID}33` }}>
-                <p className="mb-1 text-sm font-semibold" style={{ color: ORCHID, fontFamily: BODY }}>{item.num}</p>
+              <div key={item.num} className="border-l-2 pl-6" style={{ borderColor: `${ACCENT}33` }}>
+                <p className="mb-1 text-sm font-semibold" style={{ color: ACCENT, fontFamily: BODY }}>{item.num}</p>
                 <p className="text-sm text-white/40" style={{ fontFamily: BODY }}>{item.text}</p>
               </div>
             ))}
@@ -152,7 +152,7 @@ export function ValueDeliveryTable() {
                 <tr key={row.pillar} className="group border-b border-white/8 hover:border-white/20 transition-colors">
                   <td className="py-6 pr-8">
                     <div className="flex items-center gap-4">
-                      <span className="shrink-0 text-xs font-semibold" style={{ color: ORCHID, fontFamily: BODY }}>/ {String(i + 1).padStart(2, "0")}</span>
+                      <span className="shrink-0 text-xs font-semibold" style={{ color: ACCENT, fontFamily: BODY }}>/ {String(i + 1).padStart(2, "0")}</span>
                       <span className="font-semibold text-white" style={{ fontFamily: DISPLAY }}>{row.pillar}</span>
                     </div>
                   </td>

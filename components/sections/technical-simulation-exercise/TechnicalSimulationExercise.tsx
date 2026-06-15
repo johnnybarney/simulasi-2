@@ -2,25 +2,25 @@ import { Container } from "@/components/layout/Container";
 
 const DISPLAY = "'Clash Display', sans-serif";
 const BODY    = "var(--font-chakra), 'Chakra Petch', sans-serif";
-const ORCHID  = "#b64cf7";
-const CRIMSON = "#c5013c";
+const ACCENT  = "#00c5cd";
+const ACCENT2 = "#545454";
 
 const gradStyle = {
-  background: `linear-gradient(135deg, ${CRIMSON}, ${ORCHID})`,
+  background: `linear-gradient(135deg, ${ACCENT2}, ${ACCENT})`,
   WebkitBackgroundClip: "text" as const,
   WebkitTextFillColor: "transparent" as const,
   backgroundClip: "text" as const,
 };
 
-const CARD_BG   = "linear-gradient(339deg, rgba(114,111,119,0.05) 18%, rgba(255,255,255,0.05) 77%)";
-const SECTION_BG = "linear-gradient(300deg, #161616, #0f0f0f 56%, #1a1919)";
+const CARD_BG   = "linear-gradient(339deg, rgba(0,197,205,0.04) 18%, rgba(84,84,84,0.08) 77%)";
+const SECTION_BG = "linear-gradient(300deg, #050505, #000000 56%, #080808)";
 
 /* ── Hero ─────────────────────────────────────────────────── */
 export function TechnicalSimulationExerciseHero() {
   return (
     <section className="relative flex min-h-[70vh] items-end overflow-hidden pb-20 pt-32">
       <div className="pointer-events-none absolute -top-40 right-1/4 h-[500px] w-[500px] rounded-full opacity-10 blur-[120px]"
-        style={{ background: `radial-gradient(circle, ${ORCHID} 0%, transparent 65%)` }} aria-hidden="true" />
+        style={{ background: `radial-gradient(circle, ${ACCENT} 0%, transparent 65%)` }} aria-hidden="true" />
       <span className="pointer-events-none absolute bottom-0 right-0 select-none font-bold leading-none text-white/[0.025]"
         style={{ fontFamily: DISPLAY, fontSize: "clamp(6rem, 22vw, 20rem)", lineHeight: 1 }}>
         TSX
@@ -37,7 +37,7 @@ export function TechnicalSimulationExerciseHero() {
         <p className="mt-8 max-w-xl text-sm leading-relaxed text-white/40" style={{ fontFamily: BODY }}>
           Attack Simulation Against Your Defenses with Real-World Custom-Crafted Techniques, Tactics and Procedures.
         </p>
-        <p className="mt-4 text-xs tracking-[0.3em] uppercase" style={{ color: ORCHID, fontFamily: BODY }}>
+        <p className="mt-4 text-xs tracking-[0.3em] uppercase" style={{ color: ACCENT, fontFamily: BODY }}>
           ( TSX )
         </p>
       </Container>
@@ -87,13 +87,13 @@ export function TechnicalSimulationExerciseMethodologySection() {
               </div>
               <div className="p-8">
                 <div className="mb-4 flex items-center gap-4">
-                  <span className="text-sm font-semibold" style={{ color: ORCHID, fontFamily: BODY }}>/ {card.num}</span>
+                  <span className="text-sm font-semibold" style={{ color: ACCENT, fontFamily: BODY }}>/ {card.num}</span>
                   <h3 className="font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1.25rem" }}>{card.title}</h3>
                 </div>
                 <div className="space-y-3">
                   {card.points.map((p) => (
                     <p key={p.label} className="text-sm text-white/50" style={{ fontFamily: BODY }}>
-                      <span style={{ color: ORCHID }}>/ </span>
+                      <span style={{ color: ACCENT }}>/ </span>
                       <span className="text-white/70">{p.label}:</span> {p.text}
                     </p>
                   ))}
@@ -142,14 +142,14 @@ export function TechnicalSimulationExerciseBenefitsSection() {
           {items.map((item, i) => (
             <div key={item.num} className="p-8 transition-all duration-500 hover:scale-[1.02]"
               style={{ backgroundImage: CARD_BG, borderRadius: "9px" }}>
-              <span className="block mb-6 font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "3rem", color: `${ORCHID}40` }}>
+              <span className="block mb-6 font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "3rem", color: `${ACCENT}40` }}>
                 {item.num}
               </span>
               <h3 className="mb-4 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1.125rem" }}>{item.title}</h3>
               <div className="space-y-2">
                 {item.points.map((p) => (
                   <p key={p} className="text-xs text-white/50" style={{ fontFamily: BODY }}>
-                    <span style={{ color: ORCHID }}>/</span> {p}
+                    <span style={{ color: ACCENT }}>/</span> {p}
                   </p>
                 ))}
               </div>
@@ -187,7 +187,7 @@ export function TechnicalSimulationExerciseLifecycleSection() {
         <ul className="divide-y divide-white/8">
           {steps.map((step) => (
             <li key={step.num} className="group flex items-start gap-8 py-8 transition-all">
-              <span className="w-12 shrink-0 text-sm font-semibold" style={{ color: ORCHID, fontFamily: BODY }}>/ {step.num}</span>
+              <span className="w-12 shrink-0 text-sm font-semibold" style={{ color: ACCENT, fontFamily: BODY }}>/ {step.num}</span>
               <div>
                 <h3 className="font-semibold text-white group-hover:text-white transition-all"
                   style={{ fontFamily: DISPLAY, fontSize: "clamp(1rem, 1.5vw, 1.25rem)" }}>
