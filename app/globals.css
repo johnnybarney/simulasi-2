@@ -113,6 +113,22 @@
   transition: transform 0.15s ease, width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
 }
 
+/* ── cd-x compat aliases (used by ContactForm, Button, GradientBorder) ── */
+@layer utilities {
+  .bg-cyber-bg      { background-color: #000000; }
+  .text-cyan-neon   { color: #00c5cd; }
+  .border-cyan-neon { border-color: #00c5cd; }
+  .focus\:border-cyan-neon:focus { border-color: #00c5cd; }
+
+  .gradient-cyan-magenta {
+    background: linear-gradient(135deg, #545454, #00c5cd);
+  }
+
+  .border-glow-cyan-magenta {
+    box-shadow: 0 0 0 1px rgba(0,197,205,0.35), 0 0 24px rgba(0,197,205,0.15);
+  }
+}
+
 /* ── Scroll reveal ─────────────────────────────────────────────── */
 .reveal {
   opacity: 0;
