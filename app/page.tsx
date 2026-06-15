@@ -261,18 +261,16 @@ export default function HomePage() {
             </ScrollReveal>
           </Container>
 
-          {/* horizontal scroll — pr ensures last card is fully visible */}
-          <div className="overflow-x-auto pl-6 pr-6 lg:pl-12 lg:pr-12" style={{ scrollbarWidth: "none" }}>
-            <ul className="flex gap-6 pb-4" style={{ width: "max-content" }}>
+          <Container className="relative">
+            <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {needItems.map((item, i) => (
                 <li key={i}
-                  className="group relative shrink-0 overflow-hidden transition-all duration-500 hover:scale-[1.02]"
-                  style={{ backgroundImage: NEEDS_CARD_BG, borderRadius: "9px", width: "27.5em", maxWidth: "320px", padding: "4em 2.5em 4em 4em" }}>
-                  {/* Xizt glow inside card */}
+                  className="group relative overflow-hidden transition-all duration-500 hover:scale-[1.02]"
+                  style={{ backgroundImage: NEEDS_CARD_BG, borderRadius: "9px", padding: "3em 2.5em" }}>
                   <div className="pointer-events-none absolute bottom-0 left-0 h-48 w-48 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity"
                     style={{ background: `linear-gradient(${CRIMSON}, ${ORCHID})`, borderRadius: "100%" }} aria-hidden="true" />
                   <span className="relative block font-bold leading-none mb-6"
-                    style={{ fontFamily: DISPLAY, fontSize: "3.5rem", color: "rgba(182,76,247,0.3)" }}>
+                    style={{ fontFamily: DISPLAY, fontSize: "3rem", color: "rgba(182,76,247,0.3)" }}>
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <h3 className="relative font-semibold text-white mb-4"
@@ -289,7 +287,7 @@ export default function HomePage() {
                 </li>
               ))}
             </ul>
-          </div>
+          </Container>
         </section>
 
         {/* ─── lets talk CTA ────────────────────────────────────── */}

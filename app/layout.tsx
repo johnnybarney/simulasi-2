@@ -17,7 +17,11 @@ export const metadata: Metadata = {
   title: { default: "Simulasi", template: "%s | Simulasi" },
   description: "Transforming artificial threats into digital dominance. The premier dashboard for full-spectrum cyber exercise management and military cyber defense.",
   metadataBase: new URL("https://simulasi.org"),
-  icons: { icon: "/images/rpmy3.png" },
+  icons: {
+    icon: [{ url: "/images/rpmy3.png", type: "image/png" }],
+    shortcut: "/images/rpmy3.png",
+    apple: "/images/rpmy3.png",
+  },
   openGraph: {
     type: "website",
     siteName: "Simulasi",

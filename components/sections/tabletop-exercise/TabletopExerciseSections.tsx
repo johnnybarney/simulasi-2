@@ -108,25 +108,23 @@ export function TabletopWhyChooseSection() {
           Mission&nbsp;<span style={gradStyle}>/ Assurance /</span>
         </h2>
 
-        <div className="overflow-x-auto pr-6 lg:pr-12" style={{ scrollbarWidth: "none" }}>
-          <div className="flex gap-6 pb-4" style={{ width: "max-content" }}>
-            {whyChoose.map((item, i) => (
-              <div key={item.title}
-                className="group relative shrink-0 overflow-hidden transition-all duration-500 hover:scale-[1.02]"
-                style={{ backgroundImage: NEEDS_BG, borderRadius: "9px", width: "22rem", padding: "3.5em 2.5em" }}>
-                <div className="pointer-events-none absolute bottom-0 left-0 h-40 w-40 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity"
-                  style={{ background: `linear-gradient(${CRIMSON}, ${ORCHID})`, borderRadius: "100%" }} aria-hidden="true" />
-                <span className="relative block font-bold leading-none mb-6"
-                  style={{ fontFamily: DISPLAY, fontSize: "3rem", color: `${ORCHID}40` }}>
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="relative font-semibold text-white mb-3" style={{ fontFamily: DISPLAY, fontSize: "1.125rem" }}>
-                  {item.title}
-                </h3>
-                <p className="relative text-xs leading-relaxed text-white/50" style={{ fontFamily: BODY }}>{item.description}</p>
-              </div>
-            ))}
-          </div>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {whyChoose.map((item, i) => (
+            <div key={item.title}
+              className="group relative overflow-hidden transition-all duration-500 hover:scale-[1.02]"
+              style={{ backgroundImage: NEEDS_BG, borderRadius: "9px", padding: "3em 2.5em" }}>
+              <div className="pointer-events-none absolute bottom-0 left-0 h-40 w-40 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity"
+                style={{ background: `linear-gradient(${CRIMSON}, ${ORCHID})`, borderRadius: "100%" }} aria-hidden="true" />
+              <span className="relative block font-bold leading-none mb-6"
+                style={{ fontFamily: DISPLAY, fontSize: "3rem", color: `${ORCHID}40` }}>
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="relative font-semibold text-white mb-3" style={{ fontFamily: DISPLAY, fontSize: "1.125rem" }}>
+                {item.title}
+              </h3>
+              <p className="relative text-xs leading-relaxed text-white/50" style={{ fontFamily: BODY }}>{item.description}</p>
+            </div>
+          ))}
         </div>
       </Container>
     </section>
