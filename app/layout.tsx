@@ -41,8 +41,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" className={`${chakraPetch.variable} h-full`}>
       <head>
-        <link rel="icon" href="/images/rpmylagi.png" type="image/png" sizes="any" />
-        <link rel="shortcut icon" href="/images/rpmylagi.png" type="image/png" />
         {/* Clash Display from Fontshare — Xizt's display/heading font */}
         <link rel="preconnect" href="https://api.fontshare.com" />
         <link
