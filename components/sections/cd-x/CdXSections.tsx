@@ -3,6 +3,22 @@ import { Container } from "@/components/layout/Container";
 import { routes } from "@/lib/navigation";
 import Link from "next/link";
 
+const partnerLogos = [
+  { src: "/images/petronas2.png",        alt: "Petronas" },
+  { src: "/images/kaf-logo.png",         alt: "KAF" },
+  { src: "/images/kwap.png",             alt: "KWAP" },
+  { src: "/images/kklw.png",             alt: "KKLW" },
+  { src: "/images/malaysiaairports.png", alt: "Malaysia Airports" },
+  { src: "/images/raya.png",             alt: "Raya Airways" },
+  { src: "/images/sepang2.png",          alt: "Sepang Aircraft Engineering" },
+  { src: "/images/ssm.png",              alt: "SSM" },
+  { src: "/images/umw.png",              alt: "UMW" },
+  { src: "/images/universiti.png",       alt: "Universiti Malaya" },
+  { src: "/images/airbus.png",           alt: "Airbus" },
+  { src: "/images/coway.png",            alt: "Coway" },
+  { src: "/images/heitech.png",          alt: "HeiTech" },
+];
+
 const DISPLAY = "'Clash Display', sans-serif";
 const BODY    = "var(--font-chakra), 'Chakra Petch', sans-serif";
 const ORCHID  = "#b64cf7";
@@ -154,11 +170,7 @@ export function ValueDeliveryTable() {
 
 /* ── Partners ─────────────────────────────────────────────── */
 export function PartnersSection() {
-  const logos = [
-    "Petronas", "HalTech", "Airbus", "Sepang Aircraft Engineering",
-    "Raya Airways", "UMW", "KAF", "KWAP", "Coway", "Universiti Malaya",
-  ];
-  const track = [...logos, ...logos];
+  const track = [...partnerLogos, ...partnerLogos];
 
   return (
     <section className="border-t border-white/8 py-20" style={{ backgroundImage: SECTION_BG }}>
@@ -167,13 +179,17 @@ export function PartnersSection() {
           / We secured the best
         </p>
         <div className="overflow-hidden">
-          <div className="marquee-track flex whitespace-nowrap" style={{ animationDuration: "28s" }}>
-            {track.map((name, i) => (
-              <span key={i}
-                className="mx-8 flex h-14 w-44 shrink-0 items-center justify-center border border-white/8 px-3 text-center text-xs font-medium text-white/40 transition-colors hover:border-white/20 hover:text-white/60"
-                style={{ fontFamily: BODY }}>
-                {name}
-              </span>
+          <div className="marquee-track flex items-center whitespace-nowrap" style={{ animationDuration: "35s" }}>
+            {track.map((logo, i) => (
+              <div key={i} className="mx-8 flex h-14 w-36 shrink-0 items-center justify-center">
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={144}
+                  height={56}
+                  className="h-10 w-auto object-contain opacity-40 grayscale hover:opacity-70 hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
             ))}
           </div>
         </div>
