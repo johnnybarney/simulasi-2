@@ -120,6 +120,100 @@ export default function HomePage() {
           </div>
         </div>
 
+        {/* ─── Our Strategic Capabilities ──────────────────────── */}
+        {(() => {
+          const { servicePillars } = homeContent;
+          const pillarRoutes = [
+            routes.reconIntel,
+            routes.tsx,
+            routes.attackSimulation,
+            routes.ittx,
+            routes.asx,
+            "https://rp.my/training",
+          ];
+          return (
+            <section className="relative py-32">
+              <SideTag label="/ capabilities" />
+              <span className="pointer-events-none absolute -right-10 top-1/2 -translate-y-1/2 select-none font-bold text-white/[0.025]"
+                style={{ fontFamily: DISPLAY, fontSize: "clamp(6rem, 20vw, 18rem)", lineHeight: 1 }}>
+                services
+              </span>
+              <Container className="relative">
+                <ScrollReveal>
+                  <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>
+                    / strategic capabilities
+                  </p>
+                  <div className="mb-16 flex items-end justify-between gap-8">
+                    <h2 className="font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 5vw, 3.5rem)" }}>
+                      Our&nbsp;<span style={gradStyle}>/ Strategic /</span><br />Capabilities
+                    </h2>
+                    <Link href={routes.tsx}
+                      className="hidden shrink-0 text-[10px] tracking-[0.3em] uppercase text-white/30 hover:text-white transition-colors md:block"
+                      style={{ fontFamily: BODY }}>
+                      View All →
+                    </Link>
+                  </div>
+                </ScrollReveal>
+
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  {servicePillars.items.map((item, i) => (
+                    <ScrollReveal key={item.title} delay={i * 0.08}>
+                      <Link href={pillarRoutes[i]}
+                        className="group relative flex flex-col overflow-hidden transition-all duration-500 hover:scale-[1.02]"
+                        style={{ backgroundImage: NEEDS_CARD_BG, borderRadius: "9px", minHeight: "280px" }}>
+                        {/* hover glow */}
+                        <div className="pointer-events-none absolute bottom-0 left-0 h-48 w-48 blur-[60px] opacity-0 group-hover:opacity-60 transition-opacity"
+                          style={{ background: ACCENT, borderRadius: "100%" }} aria-hidden="true" />
+
+                        <div className="relative flex flex-1 flex-col p-8">
+                          {/* number + icon row */}
+                          <div className="mb-6 flex items-start justify-between">
+                            <span className="font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "2.5rem", color: `${ACCENT}35` }}>
+                              {String(i + 1).padStart(2, "0")}
+                            </span>
+                            <Image
+                              src={item.iconSrc}
+                              alt={item.title}
+                              width={48}
+                              height={48}
+                              className="rounded object-cover opacity-60 group-hover:opacity-90 transition-opacity"
+                            />
+                          </div>
+
+                          {/* title + code */}
+                          <h3 className="mb-1 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "1rem", letterSpacing: "0.02em" }}>
+                            {item.title}
+                          </h3>
+                          {item.titleCode && (
+                            <p className="mb-4 text-[10px] tracking-[0.25em] uppercase" style={{ color: ACCENT, fontFamily: BODY }}>
+                              ( {item.titleCode} )
+                            </p>
+                          )}
+
+                          {/* description */}
+                          <p className="flex-1 text-xs leading-relaxed text-white/40" style={{ fontFamily: BODY }}>
+                            {item.description}
+                          </p>
+
+                          {/* strategic value badge */}
+                          <div className="mt-6 flex items-center justify-between border-t pt-4" style={{ borderColor: `${ACCENT}20` }}>
+                            <span className="text-[9px] tracking-[0.2em] uppercase text-white/25" style={{ fontFamily: BODY }}>
+                              Strategic Value
+                            </span>
+                            <span className="text-[9px] tracking-[0.15em] uppercase font-medium" style={{ color: ACCENT, fontFamily: BODY }}>
+                              {item.strategicValue}
+                            </span>
+                          </div>
+                        </div>
+                      </Link>
+                    </ScrollReveal>
+                  ))}
+                </div>
+              </Container>
+            </section>
+          );
+        })()}
+
         {/* ─── About / simulasi ─────────────────────────────────── */}
         <section className="relative overflow-hidden py-32" style={{ backgroundImage: SECTION_BG }}>
           <SideTag label="/ simulasi" />
