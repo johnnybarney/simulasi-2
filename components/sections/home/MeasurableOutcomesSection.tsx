@@ -1,72 +1,47 @@
-import { Section } from "@/components/layout/Section";
-import { IconTextColumn } from "@/components/ui/IconTextColumn";
+import { Container } from "@/components/layout/Container";
 import { homeContent } from "@/lib/constants/home";
 
-function OutcomeIcon({ index }: { index: number }) {
-  const paths = [
-    "M3 3v18h18M7 16l4-4 4 4 6-6",
-    "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z",
-    "M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM8 12h8",
-  ];
-  const gradientId = `outcome-gradient-${index}`;
+const DISPLAY = "'Clash Display', sans-serif";
+const BODY    = "var(--font-chakra), 'Chakra Petch', sans-serif";
+const ORCHID  = "#b64cf7";
+const CRIMSON = "#c5013c";
 
-  return (
-    <svg
-      width="56"
-      height="56"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke={`url(#${gradientId})`}
-      strokeWidth="1.25"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <defs>
-        <linearGradient id={gradientId} x1="0" y1="0" x2="24" y2="24">
-          <stop offset="0%" stopColor="#00e5ff" />
-          <stop offset="100%" stopColor="#ff00ff" />
-        </linearGradient>
-      </defs>
-      <path d={paths[index % paths.length]} />
-    </svg>
-  );
-}
+const gradStyle = {
+  background: `linear-gradient(135deg, ${CRIMSON}, ${ORCHID})`,
+  WebkitBackgroundClip: "text" as const,
+  WebkitTextFillColor: "transparent" as const,
+  backgroundClip: "text" as const,
+};
+
+const CARD_BG = "linear-gradient(339deg, rgba(114,111,119,0.05) 18%, rgba(255,255,255,0.05) 77%)";
 
 export function MeasurableOutcomesSection() {
   const { measurableOutcomes } = homeContent;
 
   return (
-    <Section
-      ariaLabelledby="outcomes-heading"
-      className="relative overflow-hidden pb-32"
-    >
-      <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-80 overflow-hidden"
-        aria-hidden="true"
-      >
-        <div className="synthwave-horizon absolute inset-x-[10%] top-8" />
-        <div className="synthwave-grid absolute inset-x-0 bottom-0 h-72 w-full opacity-70" />
-      </div>
-      <div className="relative">
-        <h2
-          id="outcomes-heading"
-          className="mb-14 text-center font-headline text-2xl font-bold text-white md:text-3xl"
-        >
-          {measurableOutcomes.title}
+    <section className="relative overflow-hidden py-32">
+      <span className="pointer-events-none absolute -left-10 top-1/2 -translate-y-1/2 select-none font-bold text-white/[0.025]"
+        style={{ fontFamily: DISPLAY, fontSize: "clamp(6rem, 18vw, 16rem)", lineHeight: 1 }}>
+        outcomes
+      </span>
+      <Container className="relative">
+        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ what you get</p>
+        <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+          <span style={gradStyle}>/ Measurable /</span> Outcomes
         </h2>
-        <ul className="grid gap-12 md:grid-cols-3">
-          {measurableOutcomes.items.map((item, index) => (
-            <li key={item.title}>
-              <IconTextColumn
-                icon={<OutcomeIcon index={index} />}
-                title={item.title}
-                description={item.description}
-              />
-            </li>
+        <div className="grid gap-6 md:grid-cols-3">
+          {measurableOutcomes.items.map((item, i) => (
+            <div key={item.title} className="p-8 transition-all duration-500 hover:scale-[1.02]"
+              style={{ backgroundImage: CARD_BG, borderRadius: "9px" }}>
+              <span className="block mb-6 font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "3rem", color: `${ORCHID}40` }}>
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mb-3 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1.125rem" }}>{item.title}</h3>
+              <p className="text-sm leading-relaxed text-white/50" style={{ fontFamily: BODY }}>{item.description}</p>
+            </div>
           ))}
-        </ul>
-      </div>
-    </Section>
+        </div>
+      </Container>
+    </section>
   );
 }

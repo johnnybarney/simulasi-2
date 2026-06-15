@@ -1,103 +1,78 @@
 import Image from "next/image";
 import { Container } from "@/components/layout/Container";
-import { GradientText } from "@/components/ui/GradientText";
 
-const iconKnockoutStyle = { mixBlendMode: "screen" as const, filter: "contrast(1.6) brightness(1.3) saturate(1.4)" };
+const DISPLAY = "'Clash Display', sans-serif";
+const BODY    = "var(--font-chakra), 'Chakra Petch', sans-serif";
+const ORCHID  = "#b64cf7";
+const CRIMSON = "#c5013c";
 
-/* ── 1. Hero ─────────────────────────────────────────────────── */
+const gradStyle = {
+  background: `linear-gradient(135deg, ${CRIMSON}, ${ORCHID})`,
+  WebkitBackgroundClip: "text" as const,
+  WebkitTextFillColor: "transparent" as const,
+  backgroundClip: "text" as const,
+};
 
+const CARD_BG    = "linear-gradient(339deg, rgba(114,111,119,0.05) 18%, rgba(255,255,255,0.05) 77%)";
+const SECTION_BG = "linear-gradient(300deg, #161616, #0f0f0f 56%, #1a1919)";
+
+/* ── Hero ─────────────────────────────────────────────────── */
 export function OffensiveOperationsHero() {
   return (
-    <section className="py-20 md:py-28">
-      <Container className="max-w-3xl text-center">
-        <h1 className="font-headline text-4xl font-bold leading-tight sm:text-5xl lg:text-[3.25rem]">
-          <GradientText as="span">Offensive Operations</GradientText>
-          <span className="mt-1 block text-4xl sm:text-5xl lg:text-[3.25rem]">
-            <GradientText as="span">( Attack Simulation )</GradientText>
-          </span>
+    <section className="relative flex min-h-[70vh] items-end overflow-hidden pb-20 pt-32">
+      <div className="pointer-events-none absolute -top-40 left-1/4 h-[500px] w-[500px] rounded-full opacity-10 blur-[120px]"
+        style={{ background: `radial-gradient(circle, ${ORCHID} 0%, transparent 65%)` }} aria-hidden="true" />
+      <span className="pointer-events-none absolute bottom-0 right-0 select-none font-bold leading-none text-white/[0.025]"
+        style={{ fontFamily: DISPLAY, fontSize: "clamp(4rem, 15vw, 14rem)", lineHeight: 1 }}>
+        offensive
+      </span>
+      <Container className="relative">
+        <p className="mb-4 text-[11px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>
+          / Offensive Operations
+        </p>
+        <h1 className="font-bold leading-[0.92] tracking-tight" style={{ fontFamily: DISPLAY, fontSize: "clamp(2.5rem, 8vw, 7rem)" }}>
+          <span className="block text-white">Offensive</span>
+          <span className="block"><span style={gradStyle}>/ Operations /</span></span>
         </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/90 md:text-lg">
-          Simulate real-world adversaries to uncover hidden vulnerabilities and
-          fortify your defenses against sophisticated threats.
+        <p className="mt-6 max-w-xl text-sm leading-relaxed text-white/40" style={{ fontFamily: BODY }}>
+          Simulate real-world adversaries to uncover hidden vulnerabilities and fortify your defenses against sophisticated threats.
+        </p>
+        <p className="mt-4 text-xs tracking-[0.3em] uppercase" style={{ color: ORCHID, fontFamily: BODY }}>
+          ( Attack Simulation )
         </p>
       </Container>
     </section>
   );
 }
 
-/* ── 2. Methodology ──────────────────────────────────────────── */
-
+/* ── Methodology ──────────────────────────────────────────── */
 export function OffensiveOperationsMethodologySection() {
   const steps = [
-    { title: "Planning",         iconSrc: "/images/mapsurface.jpg" },
-    { title: "Reconnaissance",   iconSrc: "/images/Ai probes.jpg" },
-    { title: "Attack Simulation",iconSrc: "/images/attacksimulation.jpg" },
-    { title: "Reporting",        iconSrc: "/images/reporting.jpg" },
-    { title: "Remediation",      iconSrc: "/images/skill gap.jpg" },
+    { num: "01", title: "Planning",          desc: "Scope definition and rules of engagement." },
+    { num: "02", title: "Reconnaissance",    desc: "OSINT and attack surface discovery." },
+    { num: "03", title: "Attack Simulation", desc: "Custom TTPs matched to target environment." },
+    { num: "04", title: "Reporting",         desc: "Evidence-backed findings with risk ratings." },
+    { num: "05", title: "Remediation",       desc: "Prioritized fix guidance and re-testing." },
   ];
 
   return (
-    <section className="py-16 md:py-20">
+    <section className="border-y border-white/8 py-32" style={{ backgroundImage: SECTION_BG }}>
       <Container>
-        <h2 className="mb-12 text-center font-headline text-2xl font-bold text-white">
-          Our Methodology
+        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ methodology</p>
+        <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+          Our&nbsp;<span style={gradStyle}>/ Methodology /</span>
         </h2>
-        <ol className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
+        <ul className="divide-y divide-white/8">
           {steps.map((step) => (
-            <li key={step.title} className="flex flex-col items-center text-center">
-              <div className="relative mb-4 h-16 w-16 shrink-0 rounded-lg bg-black">
-                <Image
-                  src={step.iconSrc}
-                  alt={step.title}
-                  fill
-                  sizes="64px"
-                  className="object-contain"
-                  style={iconKnockoutStyle}
-                />
+            <li key={step.num} className="group flex items-center gap-8 py-8 transition-all">
+              <span className="w-12 shrink-0 text-sm font-semibold" style={{ color: ORCHID, fontFamily: BODY }}>/ {step.num}</span>
+              <div className="flex-1">
+                <h3 className="font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(1rem, 1.5vw, 1.25rem)" }}>
+                  {step.title}
+                </h3>
+                <p className="mt-1 text-sm text-white/40" style={{ fontFamily: BODY }}>{step.desc}</p>
               </div>
-              <h3 className="font-headline text-lg font-bold text-cyan-neon md:text-xl">{step.title}</h3>
-            </li>
-          ))}
-        </ol>
-      </Container>
-    </section>
-  );
-}
-
-/* ── 3. Benefits ─────────────────────────────────────────────── */
-
-export function OffensiveOperationsBenefitsSection() {
-  const items = [
-    { title: "Uncover Hidden Vulnerabilities",  description: "Identify and address critical weaknesses.",                        iconSrc: "/images/uncover.jpg" },
-    { title: "Strengthen Incident Response",    description: "Improve your team's readiness and response procedures.",           iconSrc: "/images/strengthen.jpg" },
-    { title: "Improve Compliance",              description: "Meet industry standards and regulatory requirements.",              iconSrc: "/images/regulation.jpg" },
-    { title: "Enhance Cyber Resilience",        description: "Build a stronger, more adaptable security posture.",               iconSrc: "/images/enhance.jpg" },
-    { title: "Reduce Risk",                     description: "Proactively mitigate potential threats and financial loss.",        iconSrc: "/images/reduce.jpg" },
-  ];
-
-  return (
-    <section className="py-16 md:py-20">
-      <Container>
-        <h2 className="mb-12 text-center font-headline text-2xl font-bold text-white">
-          Key Benefits
-        </h2>
-        <ul className="grid gap-8 sm:grid-cols-2">
-          {items.map((item) => (
-            <li key={item.title} className="flex gap-4">
-              <div className="relative h-14 w-14 shrink-0 rounded-lg bg-black">
-                <Image
-                  src={item.iconSrc}
-                  alt={item.title}
-                  fill
-                  sizes="56px"
-                  className="object-contain"
-                  style={iconKnockoutStyle}
-                />
-              </div>
-              <div>
-                <h3 className="font-headline font-bold text-cyan-neon">{item.title}</h3>
-                <p className="mt-1 text-sm text-white/80">{item.description}</p>
-              </div>
+              <span className="shrink-0 text-sm text-white/20 group-hover:text-white/50 transition-colors" style={{ fontFamily: BODY }}>→</span>
             </li>
           ))}
         </ul>
@@ -106,33 +81,73 @@ export function OffensiveOperationsBenefitsSection() {
   );
 }
 
-/* ── 4. Comparison ───────────────────────────────────────────── */
+/* ── Benefits ─────────────────────────────────────────────── */
+export function OffensiveOperationsBenefitsSection() {
+  const items = [
+    { title: "Uncover Hidden Vulnerabilities",  description: "Identify and address critical weaknesses before adversaries do." },
+    { title: "Strengthen Incident Response",    description: "Improve your team's readiness and response procedures." },
+    { title: "Improve Compliance",              description: "Meet industry standards and regulatory requirements." },
+    { title: "Enhance Cyber Resilience",        description: "Build a stronger, more adaptable security posture." },
+    { title: "Reduce Risk",                     description: "Proactively mitigate potential threats and financial loss." },
+  ];
 
+  return (
+    <section className="relative overflow-hidden py-32">
+      <span className="pointer-events-none absolute -right-10 top-1/2 -translate-y-1/2 select-none font-bold text-white/[0.025]"
+        style={{ fontFamily: DISPLAY, fontSize: "clamp(6rem, 18vw, 16rem)", lineHeight: 1 }}>
+        benefits
+      </span>
+      <Container className="relative">
+        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ key benefits</p>
+        <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+          What You&nbsp;<span style={gradStyle}>/ Gain /</span>
+        </h2>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {items.map((item, i) => (
+            <div key={item.title} className="p-8 transition-all duration-500 hover:scale-[1.02]"
+              style={{ backgroundImage: CARD_BG, borderRadius: "9px" }}>
+              <span className="block mb-6 font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "3rem", color: `${ORCHID}40` }}>
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mb-3 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1.125rem" }}>{item.title}</h3>
+              <p className="text-sm leading-relaxed text-white/50" style={{ fontFamily: BODY }}>{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+/* ── Red Teaming vs Pen Test ──────────────────────────────── */
 export function OffensiveOperationsComparisonSection() {
   return (
-    <section className="py-16 md:py-20">
+    <section className="border-t border-white/8 py-32" style={{ backgroundImage: SECTION_BG }}>
       <Container>
-        <h2 className="mb-12 text-center font-headline text-2xl font-bold text-white">
-          Red Teaming vs. Penetration Testing
+        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ comparison</p>
+        <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+          Red Teaming vs&nbsp;<span style={gradStyle}>/ Penetration Testing /</span>
         </h2>
-        <div className="grid grid-cols-2 items-stretch gap-6">
-          <div className="relative h-80 w-full">
-            <Image
-              src="/images/penat3.png"
-              alt="Penetration Testing"
-              fill
-              sizes="50vw"
-              className="object-contain"
-            />
+        <div className="grid grid-cols-2 gap-8">
+          <div className="overflow-hidden border border-white/8" style={{ borderRadius: "9px" }}>
+            <div className="relative aspect-[4/3] w-full">
+              <Image src="/images/penat3.png" alt="Penetration Testing" fill sizes="50vw" className="object-contain p-4" />
+            </div>
+            <div className="border-t border-white/8 p-6">
+              <p className="text-xs tracking-[0.3em] uppercase text-white/40" style={{ fontFamily: BODY }}>/ 01</p>
+              <p className="mt-2 font-semibold text-white" style={{ fontFamily: DISPLAY }}>Penetration Testing</p>
+              <p className="mt-2 text-xs leading-relaxed text-white/40" style={{ fontFamily: BODY }}>Structured, time-boxed testing of specific systems and attack vectors within agreed scope.</p>
+            </div>
           </div>
-          <div className="relative h-80 w-full">
-            <Image
-              src="/images/red3.png"
-              alt="Red Teaming"
-              fill
-              sizes="50vw"
-              className="object-contain"
-            />
+          <div className="overflow-hidden border border-white/8" style={{ borderRadius: "9px" }}>
+            <div className="relative aspect-[4/3] w-full">
+              <Image src="/images/red3.png" alt="Red Teaming" fill sizes="50vw" className="object-contain p-4" />
+            </div>
+            <div className="border-t border-white/8 p-6">
+              <p className="text-xs tracking-[0.3em] uppercase" style={{ color: ORCHID, fontFamily: BODY }}>/ 02</p>
+              <p className="mt-2 font-semibold text-white" style={{ fontFamily: DISPLAY }}>Red Teaming</p>
+              <p className="mt-2 text-xs leading-relaxed text-white/40" style={{ fontFamily: BODY }}>Goal-based adversary simulation across people, process, and technology — no scope limits.</p>
+            </div>
           </div>
         </div>
       </Container>

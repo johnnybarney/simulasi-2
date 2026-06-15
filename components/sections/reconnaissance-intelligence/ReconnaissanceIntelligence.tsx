@@ -1,383 +1,192 @@
-import Image from "next/image";
-import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/layout/Container";
-import { GradientBorder } from "@/components/ui/GradientBorder";
-import { GradientText } from "@/components/ui/GradientText";
-import { cn } from "@/lib/cn";
-import { routes } from "@/lib/navigation";
 
-const osintIcons = {
-  automatedSensemaking: "/images/virus.jpg",
-  aiProbes: "/images/Ai probes.jpg",
-  skillGapMitigation: "/images/skill gap.jpg",
-  githubScraping: "/images/github.jpg",
-  socialMediaMonitoring: "/images/socialmedia.jpg",
-  metaSearchEngines: "/images/metsearch.jpg",
-  customWebScraping: "/images/customweb.jpg",
-  apiConnectors: "/images/api.jpg",
-  secureDataStorage: "/images/securedata.jpg",
-  attackSurfaceMapping: "/images/mapsurface.jpg",
-  breachedDataDiscovery: "/images/breachdata.jpg",
-  automatedReconnaissance: "/images/automated.jpg",
-  deepDarkWebAnalysis: "/images/deep.jpg",
-  humintDigitization: "/images/humint.jpg",
-  businessIntelligence: "/images/business.jpg",
-  scalability: "/images/scala.jpg",
-  passiveSafe: "/images/passive.jpg",
-  actionableInsights: "/images/action.jpg",
-} as const;
+const DISPLAY = "'Clash Display', sans-serif";
+const BODY    = "var(--font-chakra), 'Chakra Petch', sans-serif";
+const ORCHID  = "#b64cf7";
+const CRIMSON = "#c5013c";
 
-function SectionVideo({
-  src,
-  alt,
-  className,
-}: {
-  src: string;
-  alt: string;
-  className?: string;
-}) {
-  return (
-    <div className={cn("relative overflow-hidden", className)}>
-      <video
-        src={src}
-        autoPlay
-        loop
-        muted
-        playsInline
-        aria-label={alt}
-        className="h-full w-full object-cover"
-      />
-    </div>
-  );
-}
+const gradStyle = {
+  background: `linear-gradient(135deg, ${CRIMSON}, ${ORCHID})`,
+  WebkitBackgroundClip: "text" as const,
+  WebkitTextFillColor: "transparent" as const,
+  backgroundClip: "text" as const,
+};
 
-const iconKnockoutStyle = { mixBlendMode: "screen" as const, filter: "contrast(1.6) brightness(1.3) saturate(1.4)" };
+const CARD_BG    = "linear-gradient(339deg, rgba(114,111,119,0.05) 18%, rgba(255,255,255,0.05) 77%)";
+const SECTION_BG = "linear-gradient(300deg, #161616, #0f0f0f 56%, #1a1919)";
 
-function SectionIcon({
-  src,
-  alt,
-  className,
-  noBg,
-}: {
-  src?: string;
-  alt: string;
-  className?: string;
-  noBg?: boolean;
-}) {
-  return (
-    <div className={cn("relative mx-auto h-16 w-16 shrink-0", !noBg && "rounded-lg bg-black", className)}>
-      {src ? (
-        <Image
-          src={src}
-          alt={alt}
-          fill
-          sizes="64px"
-          className="object-contain"
-          style={iconKnockoutStyle}
-        />
-      ) : (
-        <span className="block h-full w-full bg-cyan-neon/10" aria-hidden="true" />
-      )}
-    </div>
-  );
-}
-
-function FeatureRow({
-  title,
-  description,
-  iconSrc,
-}: {
-  title: string;
-  description: string;
-  iconSrc?: string;
-}) {
-  return (
-    <li className="flex gap-4">
-      <SectionIcon src={iconSrc} alt={title} className="mx-0 h-12 w-12" />
-      <div>
-        <h3 className="font-headline text-sm font-bold text-cyan-neon">{title}</h3>
-        <p className="mt-1 text-sm leading-relaxed text-white/80">{description}</p>
-      </div>
-    </li>
-  );
-}
-
-function CapabilityChip({
-  label,
-  border,
-  iconSrc,
-}: {
-  label: string;
-  border: "cyan" | "magenta";
-  iconSrc?: string;
-}) {
-  return (
-    <div
-      className={cn(
-        "flex flex-col items-center justify-center rounded-lg border-gradient-cyan-magenta bg-cyber-bg px-4 py-6 text-center",
-      )}
-    >
-      <SectionIcon src={iconSrc} alt={label} className="mb-3 h-14 w-14" />
-      <p
-        className={cn(
-          "font-headline text-sm font-bold",
-          border === "magenta" ? "text-magenta-neon" : "text-cyan-neon",
-        )}
-      >
-        {label}
-      </p>
-    </div>
-  );
-}
-
-/* ── 1. Hero ─────────────────────────────────────────────── */
-
+/* ── Hero ─────────────────────────────────────────────────── */
 export function ReconnaissanceIntelligenceHero() {
   return (
-    <section className="relative py-20 md:py-28">
-      <div
-        className="pointer-events-none absolute inset-0 opacity-25"
-        aria-hidden="true"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 50% 40%, rgba(0,229,255,0.15) 0%, transparent 55%), radial-gradient(circle at 70% 60%, rgba(255,0,255,0.1) 0%, transparent 50%)",
-        }}
-      />
-      <Container className="relative text-center">
-        <h1 className="font-headline text-4xl font-bold sm:text-5xl lg:text-[3.25rem]">
-          <GradientText as="span">Reconnaissance Intelligence</GradientText>
-          <span className="mt-2 block text-4xl sm:text-5xl lg:text-[3.25rem]">
-            <GradientText as="span">( Recon Intel )</GradientText>
-          </span>
-        </h1>
-        <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-white/90 md:text-lg">
-          Transform raw data into actionable military and cyber intelligence. Accelerate
-          decision-making with automated sensemaking and predictive insights.
-        </p>
-        <div className="mt-8">
-          <Button href={routes.reconIntel} variant="outline">
-            Explore Our Platform
-          </Button>
+    <section className="relative flex min-h-[70vh] items-end overflow-hidden pb-20 pt-32">
+      <div className="pointer-events-none absolute -top-40 right-1/3 h-[500px] w-[500px] rounded-full opacity-10 blur-[120px]"
+        style={{ background: `radial-gradient(circle, ${ORCHID} 0%, transparent 65%)` }} aria-hidden="true" />
+      <span className="pointer-events-none absolute bottom-0 right-0 select-none font-bold leading-none text-white/[0.025]"
+        style={{ fontFamily: DISPLAY, fontSize: "clamp(4rem, 14vw, 12rem)", lineHeight: 1 }}>
+        recon
+      </span>
+      <Container className="relative z-10 grid items-end gap-12 lg:grid-cols-2">
+        <div>
+          <p className="mb-4 text-[11px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>
+            / Reconnaissance Intelligence
+          </p>
+          <h1 className="font-bold leading-[0.92] tracking-tight" style={{ fontFamily: DISPLAY, fontSize: "clamp(2.5rem, 7vw, 6rem)" }}>
+            <span className="block text-white">Reconnaissance</span>
+            <span className="block"><span style={gradStyle}>/ Intelligence /</span></span>
+          </h1>
+          <p className="mt-6 max-w-lg text-sm leading-relaxed text-white/40" style={{ fontFamily: BODY }}>
+            Transform raw data into actionable military and cyber intelligence. Accelerate decision-making with automated sensemaking and predictive insights.
+          </p>
+          <p className="mt-4 text-xs tracking-[0.3em] uppercase" style={{ color: ORCHID, fontFamily: BODY }}>
+            ( Recon Intel )
+          </p>
         </div>
-        <GradientBorder
-          rounded="lg"
-          glow
-          className="mx-auto mt-12 w-full max-w-[340px] sm:max-w-[420px] md:max-w-[500px] lg:max-w-[560px]"
-          innerClassName="overflow-hidden"
-        >
-          <div className="aspect-square w-full">
-            <video
-              src="/images/jellybrain.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              aria-label="Reconnaissance intelligence visualization"
-              className="h-full w-full object-cover"
-            />
-          </div>
-        </GradientBorder>
+        <div className="overflow-hidden border border-white/8" style={{ borderRadius: "9px" }}>
+          <video src="/images/jellybrain.mp4" autoPlay loop muted playsInline
+            className="aspect-square w-full object-cover"
+            aria-label="Reconnaissance intelligence visualization" />
+        </div>
       </Container>
     </section>
   );
 }
 
-/* ── 2. AI-Augmented Investigations ─────────────────────── */
-
+/* ── AI-Augmented Investigations ─────────────────────────── */
 export function ReconnaissanceIntelligenceInvestigationsSection() {
   const features = [
-    {
-      title: "Automated Sensemaking",
-      description: "Synthesize vast datasets and identify patterns automatically.",
-      iconSrc: osintIcons.automatedSensemaking,
-    },
-    {
-      title: "AI Probes",
-      description: "Conduct deep, autonomous inquiries and test hypotheses.",
-      iconSrc: osintIcons.aiProbes,
-    },
-    {
-      title: "Skill Gap Mitigation",
-      description: "Augment human capabilities and accelerate learning curves.",
-      iconSrc: osintIcons.skillGapMitigation,
-    },
+    { num: "01", title: "Automated Sensemaking", description: "Synthesize vast datasets and identify patterns automatically using Large Language Models." },
+    { num: "02", title: "AI Probes",              description: "Conduct deep, autonomous inquiries and test hypotheses across multiple data sources." },
+    { num: "03", title: "Skill Gap Mitigation",   description: "Augment human capabilities and accelerate analyst learning curves with AI assistance." },
   ];
 
-  const magentaCapabilities = [
-    { label: "GitHub Scraping", iconSrc: osintIcons.githubScraping },
-    { label: "Social Media Monitoring", iconSrc: osintIcons.socialMediaMonitoring },
-  ];
-
-  const cyanCapabilities = [
-    { label: "Meta-Search Engines", iconSrc: osintIcons.metaSearchEngines },
-    { label: "Custom Web Scraping", iconSrc: osintIcons.customWebScraping },
-    { label: "API Connectors", iconSrc: osintIcons.apiConnectors },
-    { label: "Secure Data Storage", iconSrc: osintIcons.secureDataStorage },
+  const capabilities = [
+    "GitHub Scraping", "Social Media Monitoring", "Meta-Search Engines",
+    "Custom Web Scraping", "API Connectors", "Secure Data Storage",
   ];
 
   return (
-    <section className="py-16 md:py-20">
+    <section className="py-32" style={{ backgroundImage: SECTION_BG }}>
       <Container>
-        <h2 className="mb-12 text-center font-headline text-2xl font-bold text-white md:text-3xl">
-          AI-Augmented Investigations: Bridging the Socio-Technical Gap
+        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ ai-augmented</p>
+        <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+          AI-Augmented&nbsp;<span style={gradStyle}>/ Investigations /</span>
         </h2>
 
-        <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-12">
-          <div className="overflow-hidden rounded-lg border-gradient-cyan-magenta bg-cyber-bg">
-            <SectionVideo
-              src="/images/aimove.mp4"
-              alt="Human Analyst to LLMs and AI Models in a complex data environment"
-              className="aspect-[4/3] w-full"
-            />
+        <div className="grid items-start gap-12 lg:grid-cols-2">
+          <div className="overflow-hidden border border-white/8" style={{ borderRadius: "9px" }}>
+            <video src="/images/aimove.mp4" autoPlay loop muted playsInline
+              className="aspect-video w-full object-cover"
+              aria-label="AI analysis visualization" />
           </div>
-
           <div>
-            <p className="mb-6 text-white/90">
-              Leveraging <strong className="text-white">Large Language Models</strong> to bridge
-              the socio-technical gap.
+            <p className="mb-8 text-sm leading-relaxed text-white/50" style={{ fontFamily: BODY }}>
+              Leveraging <span className="text-white/80">Large Language Models</span> to bridge the socio-technical gap in intelligence operations.
             </p>
-            <ul className="space-y-6">
-              {features.map((feature) => (
-                <FeatureRow key={feature.title} {...feature} />
+            <div className="space-y-6">
+              {features.map((f) => (
+                <div key={f.num} className="border-l-2 pl-6" style={{ borderColor: `${ORCHID}33` }}>
+                  <p className="mb-1 text-sm font-semibold" style={{ color: ORCHID, fontFamily: BODY }}>/ {f.num}</p>
+                  <h3 className="mb-1 font-semibold text-white" style={{ fontFamily: DISPLAY }}>{f.title}</h3>
+                  <p className="text-xs text-white/50" style={{ fontFamily: BODY }}>{f.description}</p>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          <div className="grid gap-4 sm:grid-cols-2">
-            {magentaCapabilities.map((item) => (
-              <CapabilityChip
-                key={item.label}
-                label={item.label}
-                border="magenta"
-                iconSrc={item.iconSrc}
-              />
-            ))}
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {cyanCapabilities.map((item) => (
-              <CapabilityChip
-                key={item.label}
-                label={item.label}
-                border="cyan"
-                iconSrc={item.iconSrc}
-              />
-            ))}
-          </div>
+        <div className="mt-16 grid grid-cols-2 gap-3 sm:grid-cols-3">
+          {capabilities.map((cap, i) => (
+            <div key={cap} className="p-4 text-center transition-all hover:scale-[1.02]"
+              style={{ backgroundImage: CARD_BG, borderRadius: "9px" }}>
+              <p className="text-[10px] tracking-widest uppercase" style={{ color: ORCHID, fontFamily: BODY }}>/ {String(i + 1).padStart(2, "0")}</p>
+              <p className="mt-2 text-xs text-white/70" style={{ fontFamily: BODY }}>{cap}</p>
+            </div>
+          ))}
         </div>
       </Container>
     </section>
   );
 }
 
-/* ── 3. Automated Vulnerability Assessment ──────────────── */
-
+/* ── Automated Vulnerability Assessment ──────────────────── */
 export function ReconnaissanceIntelligenceVulnerabilitySection() {
-  const cards: {
-    title: string;
-    description: string;
-    iconSrc: string;
-  }[] = [
+  const cards = [
     {
       title: "Attack Surface Mapping",
-      description:
-        "Continuous discovery and mapping of external assets, exposed services, and entry points across your digital footprint.",
-      iconSrc: osintIcons.attackSurfaceMapping,
+      description: "Continuous discovery and mapping of external assets, exposed services, and entry points across your digital footprint.",
     },
     {
       title: "Breached Data Discovery",
-      description:
-        "Search the deep and dark web for leaked credentials, exposed databases, and compromised organizational data.",
-      iconSrc: osintIcons.breachedDataDiscovery,
+      description: "Search the deep and dark web for leaked credentials, exposed databases, and compromised organizational data.",
     },
     {
       title: "Automated Reconnaissance",
-      description:
-        "Zero-touch continuous monitoring using tools like Nmap and SpiderFoot to maintain real-time situational awareness.",
-      iconSrc: osintIcons.automatedReconnaissance,
+      description: "Zero-touch continuous monitoring using tools like Nmap and SpiderFoot to maintain real-time situational awareness.",
     },
   ];
 
   return (
-    <section className="py-16 md:py-20">
-      <Container>
-        <h2 className="mb-12 text-center font-headline text-2xl font-bold text-white md:text-3xl">
-          Automated Vulnerability Assessment: Zero-Touch Reconnaissance
+    <section className="relative overflow-hidden py-32">
+      <span className="pointer-events-none absolute -right-10 top-1/2 -translate-y-1/2 select-none font-bold text-white/[0.025]"
+        style={{ fontFamily: DISPLAY, fontSize: "clamp(6rem, 18vw, 16rem)", lineHeight: 1 }}>
+        recon
+      </span>
+      <Container className="relative">
+        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ zero-touch reconnaissance</p>
+        <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+          Automated&nbsp;<span style={gradStyle}>/ Vulnerability Assessment /</span>
         </h2>
-        <ul className="grid gap-6 md:grid-cols-3">
-          {cards.map((card) => (
-            <li
-              key={card.title}
-              className="rounded-lg border-gradient-cyan-magenta bg-cyber-bg p-6 text-center"
-            >
-              <SectionIcon src={card.iconSrc} alt={card.title} className="mb-4 h-24 w-24" />
-              <h3 className="mb-3 font-headline text-lg font-bold text-cyan-neon">{card.title}</h3>
-              <p className="text-sm leading-relaxed text-white/80">{card.description}</p>
-            </li>
+        <div className="grid gap-6 md:grid-cols-3">
+          {cards.map((card, i) => (
+            <div key={card.title} className="p-8 transition-all duration-500 hover:scale-[1.02]"
+              style={{ backgroundImage: CARD_BG, borderRadius: "9px" }}>
+              <span className="block mb-6 font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "3rem", color: `${ORCHID}40` }}>
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mb-3 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1.125rem" }}>{card.title}</h3>
+              <p className="text-sm leading-relaxed text-white/50" style={{ fontFamily: BODY }}>{card.description}</p>
+            </div>
           ))}
-        </ul>
+        </div>
       </Container>
     </section>
   );
 }
 
-/* ── 4. Digital Forensics & Investigations ──────────────── */
-
+/* ── Digital Forensics ────────────────────────────────────── */
 export function ReconnaissanceIntelligenceForensicsSection() {
   const items = [
     {
       title: "Deep/Dark Web Analysis",
-      description:
-        "Monitor underground forums, marketplaces, and hidden services for threats targeting your organization.",
-      iconSrc: osintIcons.deepDarkWebAnalysis,
+      description: "Monitor underground forums, marketplaces, and hidden services for threats targeting your organization.",
     },
     {
       title: "HUMINT Digitization",
-      description:
-        "Structure human intelligence into searchable, actionable data with AI-assisted classification and linking.",
-      iconSrc: osintIcons.humintDigitization,
+      description: "Structure human intelligence into searchable, actionable data with AI-assisted classification and linking.",
     },
     {
       title: "Business Intelligence",
-      description:
-        "Competitive and strategic insights from open-source data to inform executive and operational decisions.",
-      iconSrc: osintIcons.businessIntelligence,
+      description: "Competitive and strategic insights from open-source data to inform executive and operational decisions.",
     },
   ];
 
   return (
-    <section className="relative py-16 md:py-24">
-      <div
-        className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute inset-0 opacity-30"
-        aria-hidden="true"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(90deg, rgba(0,229,255,0.06) 0px, rgba(0,229,255,0.06) 1px, transparent 1px, transparent 48px)",
-        }}
-      />
-      <Container className="relative">
-        <h2 className="mb-12 text-center font-headline text-2xl font-bold text-white md:text-3xl">
-          Digital Forensics &amp; Investigations: Uncover Hidden Threats
+    <section className="border-y border-white/8 py-32" style={{ backgroundImage: SECTION_BG }}>
+      <Container>
+        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ digital forensics</p>
+        <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+          Uncover&nbsp;<span style={gradStyle}>/ Hidden Threats /</span>
         </h2>
-        <ul className="grid gap-6 md:grid-cols-3">
-          {items.map((item) => (
-            <li
-              key={item.title}
-              className="rounded-lg border-gradient-cyan-magenta-muted p-6 text-center backdrop-blur-sm"
-            >
-              <SectionIcon
-                src={item.iconSrc}
-                alt={item.title}
-                className="mb-4"
-                noBg
-              />
-              <h3 className="mb-3 font-headline text-lg font-bold text-cyan-neon">{item.title}</h3>
-              <p className="text-sm leading-relaxed text-white/80">{item.description}</p>
+        <ul className="divide-y divide-white/8">
+          {items.map((item, i) => (
+            <li key={item.title} className="group flex items-start gap-8 py-10">
+              <span className="w-12 shrink-0 text-sm font-semibold" style={{ color: ORCHID, fontFamily: BODY }}>/ {String(i + 1).padStart(2, "0")}</span>
+              <div>
+                <h3 className="font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(1rem, 1.5vw, 1.25rem)" }}>
+                  {item.title}
+                </h3>
+                <p className="mt-2 max-w-xl text-sm leading-relaxed text-white/50" style={{ fontFamily: BODY }}>{item.description}</p>
+              </div>
             </li>
           ))}
         </ul>
@@ -386,45 +195,46 @@ export function ReconnaissanceIntelligenceForensicsSection() {
   );
 }
 
-/* ── 5. Why Choose Simulasi for Reconnaissance Intelligence ─────────── */
-
+/* ── Why Choose ───────────────────────────────────────────── */
 export function ReconnaissanceIntelligenceWhyChooseSection() {
   const items = [
     {
       title: "Scalability",
-      description:
-        "Handle massive datasets across multiple sources simultaneously without compromising analysis depth or speed.",
-      iconSrc: osintIcons.scalability,
+      description: "Handle massive datasets across multiple sources simultaneously without compromising analysis depth or speed.",
     },
     {
       title: "Passive & Safe (Zero-Touch)",
-      description:
-        "Remain undetected during investigations with passive collection methods that protect your operational security.",
-      iconSrc: osintIcons.passiveSafe,
+      description: "Remain undetected during investigations with passive collection methods that protect your operational security.",
     },
     {
       title: "Actionable Insights",
-      description:
-        "Turn raw information into strategic advantage with prioritized, decision-ready intelligence deliverables.",
-      iconSrc: osintIcons.actionableInsights,
+      description: "Turn raw information into strategic advantage with prioritized, decision-ready intelligence deliverables.",
     },
   ];
 
   return (
-    <section className="py-16 md:py-20">
-      <Container>
-        <h2 className="mb-12 text-center font-headline text-2xl font-bold text-white md:text-3xl">
-          Why Choose Simulasi for Reconnaissance Intelligence ( Recon Intel )
+    <section className="relative overflow-hidden py-32">
+      <span className="pointer-events-none absolute -left-10 top-1/2 -translate-y-1/2 select-none font-bold text-white/[0.025]"
+        style={{ fontFamily: DISPLAY, fontSize: "clamp(6rem, 18vw, 16rem)", lineHeight: 1 }}>
+        intel
+      </span>
+      <Container className="relative">
+        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ why simulasi</p>
+        <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+          Why Choose&nbsp;<span style={gradStyle}>/ Simulasi /</span>
         </h2>
-        <ul className="grid gap-10 md:grid-cols-3">
-          {items.map((item) => (
-            <li key={item.title} className="text-center">
-              <SectionIcon src={item.iconSrc} alt={item.title} className="mb-4" />
-              <h3 className="mb-3 font-headline text-lg font-bold text-cyan-neon">{item.title}</h3>
-              <p className="text-sm leading-relaxed text-white/80">{item.description}</p>
-            </li>
+        <div className="grid gap-6 md:grid-cols-3">
+          {items.map((item, i) => (
+            <div key={item.title} className="p-8 transition-all duration-500 hover:scale-[1.02]"
+              style={{ backgroundImage: CARD_BG, borderRadius: "9px" }}>
+              <span className="block mb-6 font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "3rem", color: `${ORCHID}40` }}>
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mb-3 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1.125rem" }}>{item.title}</h3>
+              <p className="text-sm leading-relaxed text-white/50" style={{ fontFamily: BODY }}>{item.description}</p>
+            </div>
           ))}
-        </ul>
+        </div>
       </Container>
     </section>
   );

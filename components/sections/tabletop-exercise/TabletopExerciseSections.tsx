@@ -1,130 +1,132 @@
-import Image from "next/image";
-import { GradientText } from "@/components/ui/GradientText";
 import { Container } from "@/components/layout/Container";
-
-const iconKnockoutStyle = { mixBlendMode: "screen" as const, filter: "contrast(1.6) brightness(1.3) saturate(1.4)" };
 import {
   cyberExerciseSharedContent,
-  type CyberOffering,
-  type CyberOfferingBlock,
 } from "@/lib/constants/cyber-exercise-content";
-function OfferingBlockContent({ block }: { block: CyberOfferingBlock }) {
-  return (
-    <div className="flex flex-col items-center text-center">
-      {block.iconSrc && (
-        <div className="relative mb-4 h-32 w-32 shrink-0 rounded-lg bg-black">
-          <Image
-            src={block.iconSrc}
-            alt={block.iconAlt ?? block.label}
-            fill
-            sizes="128px"
-            className="object-contain"
-            style={iconKnockoutStyle}
-          />
-        </div>
-      )}
-      <p className="mb-2 text-base font-bold text-cyan-neon">{block.label}</p>
-      <p className="text-sm leading-relaxed text-white/90">{block.text}</p>
-    </div>
-  );
-}
 
-function OfferingCard({ offering }: { offering: CyberOffering }) {
-  const hasIcons = offering.blocks.some((block) => block.iconSrc);
+const DISPLAY = "'Clash Display', sans-serif";
+const BODY    = "var(--font-chakra), 'Chakra Petch', sans-serif";
+const ORCHID  = "#b64cf7";
+const CRIMSON = "#c5013c";
 
-  return (
-    <li className="gradient-cyan-magenta border-glow-cyan-magenta rounded-lg p-px">
-      <div className="h-full rounded-lg bg-cyber-bg p-6">
-        <h3 className="mb-6 flex min-h-[4.5rem] items-center justify-center text-center font-headline text-lg font-bold">
-          <GradientText as="span">{offering.title}</GradientText>
-        </h3>
-        <div className={hasIcons && offering.blocks.length > 1 ? "grid grid-cols-2 gap-6" : hasIcons ? "flex justify-center" : "space-y-6"}>
-          {offering.blocks.map((block) => (
-            <OfferingBlockContent key={block.label} block={block} />
-          ))}
-        </div>
-      </div>
-    </li>
-  );
-}
+const gradStyle = {
+  background: `linear-gradient(135deg, ${CRIMSON}, ${ORCHID})`,
+  WebkitBackgroundClip: "text" as const,
+  WebkitTextFillColor: "transparent" as const,
+  backgroundClip: "text" as const,
+};
 
+const CARD_BG    = "linear-gradient(339deg, rgba(114,111,119,0.05) 18%, rgba(255,255,255,0.05) 77%)";
+const NEEDS_BG   = "linear-gradient(145deg, rgba(114,110,119,0.15) 32%, rgba(255,255,255,0.15) 73%)";
+const SECTION_BG = "linear-gradient(300deg, #161616, #0f0f0f 56%, #1a1919)";
+
+/* ── Hero ─────────────────────────────────────────────────── */
 export function TabletopExerciseHero() {
   const { tagline, heroDescription, heroVideo } = cyberExerciseSharedContent;
 
   return (
-    <section className="py-16 md:py-24">
-      <Container className="grid items-center gap-12 lg:grid-cols-2">
+    <section className="relative flex min-h-[70vh] items-end overflow-hidden pb-20 pt-32">
+      <div className="pointer-events-none absolute -top-40 left-1/3 h-[500px] w-[500px] rounded-full opacity-10 blur-[120px]"
+        style={{ background: `radial-gradient(circle, ${ORCHID} 0%, transparent 65%)` }} aria-hidden="true" />
+      <span className="pointer-events-none absolute bottom-0 right-0 select-none font-bold leading-none text-white/[0.025]"
+        style={{ fontFamily: DISPLAY, fontSize: "clamp(5rem, 18vw, 16rem)", lineHeight: 1 }}>
+        iTTX
+      </span>
+      <Container className="relative z-10 grid items-end gap-12 lg:grid-cols-2">
         <div>
-          <h1 className="font-headline text-4xl font-bold sm:text-5xl lg:text-[3.25rem]">
-            <GradientText as="span">Interactive Tabletop Exercise ( iTTX )</GradientText>
+          <p className="mb-4 text-[11px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>
+            / Interactive Tabletop Exercise
+          </p>
+          <h1 className="font-bold leading-[0.92] tracking-tight" style={{ fontFamily: DISPLAY, fontSize: "clamp(2.5rem, 7vw, 6rem)" }}>
+            <span className="block text-white">Interactive</span>
+            <span className="block"><span style={gradStyle}>/ Tabletop /</span></span>
+            <span className="block text-white">Exercise</span>
           </h1>
-          <p className="mt-4 font-headline text-xl font-bold text-white">{tagline}</p>
-          <p className="mt-6 text-base leading-relaxed text-white/90 md:text-lg">{heroDescription}</p>
+          <p className="mt-6 text-sm font-semibold text-white/70" style={{ fontFamily: BODY }}>{tagline}</p>
+          <p className="mt-4 max-w-lg text-sm leading-relaxed text-white/40" style={{ fontFamily: BODY }}>{heroDescription}</p>
+          <p className="mt-4 text-xs tracking-[0.3em] uppercase" style={{ color: ORCHID, fontFamily: BODY }}>( iTTX )</p>
         </div>
-        <div className="aspect-[4/3] w-full overflow-hidden rounded-lg border-gradient-cyan-magenta bg-cyber-bg">
-          <video
-            src={heroVideo.src}
-            aria-label={heroVideo.alt}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="h-full w-full object-cover"
-          />
+        <div className="overflow-hidden border border-white/8" style={{ borderRadius: "9px" }}>
+          <video src={heroVideo.src} aria-label={heroVideo.alt} autoPlay loop muted playsInline
+            className="aspect-video w-full object-cover" />
         </div>
       </Container>
     </section>
   );
 }
 
+/* ── Core Offerings ───────────────────────────────────────── */
 export function TabletopCoreOfferingsSection() {
   const { offerings } = cyberExerciseSharedContent;
 
   return (
-    <section className="py-16 md:py-20">
+    <section className="py-32" style={{ backgroundImage: SECTION_BG }}>
       <Container>
-        <h2 className="mb-12 text-center font-headline text-2xl font-bold text-white md:text-3xl">
-          Strategy & Tactical Solutions
+        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ offerings</p>
+        <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+          Strategy &amp;&nbsp;<span style={gradStyle}>/ Tactical Solutions /</span>
         </h2>
-        <ul className="grid gap-6 lg:grid-cols-3">
-          {offerings.map((item) => (
-            <OfferingCard key={item.title} offering={item} />
+        <div className="grid gap-6 lg:grid-cols-3">
+          {offerings.map((item, i) => (
+            <div key={item.title} className="p-8 transition-all duration-500 hover:scale-[1.02]"
+              style={{ backgroundImage: CARD_BG, borderRadius: "9px" }}>
+              <span className="block mb-6 font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "3rem", color: `${ORCHID}40` }}>
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mb-4 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1.125rem" }}>
+                {item.title}
+              </h3>
+              <div className="space-y-2">
+                {item.blocks.map((block) => (
+                  <p key={block.label} className="text-xs text-white/50" style={{ fontFamily: BODY }}>
+                    <span style={{ color: ORCHID }}>/</span> <span className="text-white/70">{block.label}:</span> {block.text}
+                  </p>
+                ))}
+              </div>
+            </div>
           ))}
-        </ul>
+        </div>
       </Container>
     </section>
   );
 }
 
+/* ── Why Choose / Mission Assurance ──────────────────────── */
 export function TabletopWhyChooseSection() {
   const { whyChoose } = cyberExerciseSharedContent;
 
   return (
-    <section className="py-16 md:py-20">
-      <Container>
-        <h2 className="mb-12 text-center font-headline text-2xl font-bold text-white md:text-3xl">
-          Mission Assurance
+    <section className="relative overflow-hidden py-32">
+      <span className="pointer-events-none absolute -right-10 top-1/2 -translate-y-1/2 select-none font-bold text-white/[0.025]"
+        style={{ fontFamily: DISPLAY, fontSize: "clamp(6rem, 18vw, 16rem)", lineHeight: 1 }}>
+        mission
+      </span>
+      <Container className="relative">
+        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ why choose us</p>
+        <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+          Mission&nbsp;<span style={gradStyle}>/ Assurance /</span>
         </h2>
-        <ul className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          {whyChoose.map((item) => (
-            <li key={item.title} className="text-center">
-              <div className="relative mx-auto mb-4 h-20 w-20 rounded-lg bg-black">
-                <Image
-                  src={item.iconSrc}
-                  alt={item.iconAlt}
-                  fill
-                  sizes="80px"
-                  className="object-contain"
-                  style={iconKnockoutStyle}
-                />
+
+        <div className="overflow-x-auto" style={{ scrollbarWidth: "none" }}>
+          <div className="flex gap-6 pb-4" style={{ width: "max-content" }}>
+            {whyChoose.map((item, i) => (
+              <div key={item.title}
+                className="group relative shrink-0 overflow-hidden transition-all duration-500 hover:scale-[1.02]"
+                style={{ backgroundImage: NEEDS_BG, borderRadius: "9px", width: "22rem", padding: "3.5em 2.5em" }}>
+                <div className="pointer-events-none absolute bottom-0 left-0 h-40 w-40 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity"
+                  style={{ background: `linear-gradient(${CRIMSON}, ${ORCHID})`, borderRadius: "100%" }} aria-hidden="true" />
+                <span className="relative block font-bold leading-none mb-6"
+                  style={{ fontFamily: DISPLAY, fontSize: "3rem", color: `${ORCHID}40` }}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="relative font-semibold text-white mb-3" style={{ fontFamily: DISPLAY, fontSize: "1.125rem" }}>
+                  {item.title}
+                </h3>
+                <p className="relative text-xs leading-relaxed text-white/50" style={{ fontFamily: BODY }}>{item.description}</p>
               </div>
-              <h3 className="mb-2 font-headline text-base font-bold text-cyan-neon">{item.title}</h3>
-              <p className="text-sm text-white/80">{item.description}</p>
-            </li>
-          ))}
-        </ul>
+            ))}
+          </div>
+        </div>
       </Container>
     </section>
   );
 }
-

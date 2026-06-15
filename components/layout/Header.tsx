@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/cn";
 import { routes } from "@/lib/navigation";
@@ -50,14 +51,17 @@ export function Header({ activeHref }: Props) {
           <Link
             href="/"
             onClick={() => setOpen(false)}
-            className="font-bold tracking-tight text-white text-xl"
+            className="flex items-center gap-2 font-bold tracking-tight text-white text-xl"
             style={{ fontFamily: DISPLAY }}
           >
-            simulasi<span style={{
-              background: `linear-gradient(135deg,#c5013c,${ORCHID})`,
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}>.</span>
+            <Image
+              src="/images/rpmy3.png"
+              alt="RP.MY logo"
+              width={32}
+              height={32}
+              className="object-contain"
+            />
+            Simulasi
           </Link>
 
           <button

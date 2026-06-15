@@ -1,61 +1,51 @@
-import { Section } from "@/components/layout/Section";
-import { IconTextColumn } from "@/components/ui/IconTextColumn";
+import { Container } from "@/components/layout/Container";
 import { homeContent } from "@/lib/constants/home";
 
-function FeatureIcon({ index }: { index: number }) {
-  const paths = [
-    "M12 2a10 10 0 1 0 10 10M12 6v6l4 2",
-    "M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z",
-    "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z",
-    "M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44L2 14M14 2l6 6M14 8l6-6",
-  ];
-  const gradientId = `feature-gradient-${index}`;
+const DISPLAY = "'Clash Display', sans-serif";
+const BODY    = "var(--font-chakra), 'Chakra Petch', sans-serif";
+const ORCHID  = "#b64cf7";
+const CRIMSON = "#c5013c";
 
-  return (
-    <svg
-      width="52"
-      height="52"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke={`url(#${gradientId})`}
-      strokeWidth="1.25"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <defs>
-        <linearGradient id={gradientId} x1="0" y1="0" x2="24" y2="24">
-          <stop offset="0%" stopColor="#00e5ff" />
-          <stop offset="100%" stopColor="#ff00ff" />
-        </linearGradient>
-      </defs>
-      <path d={paths[index % paths.length]} />
-    </svg>
-  );
-}
+const gradStyle = {
+  background: `linear-gradient(135deg, ${CRIMSON}, ${ORCHID})`,
+  WebkitBackgroundClip: "text" as const,
+  WebkitTextFillColor: "transparent" as const,
+  backgroundClip: "text" as const,
+};
+
+const CARD_BG = "linear-gradient(339deg, rgba(114,111,119,0.05) 18%, rgba(255,255,255,0.05) 77%)";
 
 export function WhyChooseSection() {
   const { whyChoose } = homeContent;
 
   return (
-    <Section ariaLabelledby="why-choose-heading">
-      <h2
-        id="why-choose-heading"
-        className="mb-14 text-center font-headline text-2xl font-bold text-white md:text-3xl"
-      >
-        {whyChoose.title}
-      </h2>
-      <ul className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
-        {whyChoose.items.map((item, index) => (
-          <li key={item.title}>
-            <IconTextColumn
-              icon={<FeatureIcon index={index} />}
-              title={item.title}
-              description={item.description}
-            />
-          </li>
-        ))}
-      </ul>
-    </Section>
+    <section className="relative overflow-hidden py-32" style={{ background: "linear-gradient(300deg, #161616, #0f0f0f 56%, #1a1919)" }}>
+      <span className="pointer-events-none absolute -right-10 top-1/2 -translate-y-1/2 select-none font-bold text-white/[0.025]"
+        style={{ fontFamily: DISPLAY, fontSize: "clamp(6rem, 18vw, 16rem)", lineHeight: 1 }}>
+        why
+      </span>
+      <Container className="relative">
+        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ our advantages</p>
+        <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+          {whyChoose.title.split("Simulasi.org").map((part, i, arr) =>
+            i < arr.length - 1
+              ? <span key={i}>{part}<span style={gradStyle}>/ Simulasi /</span></span>
+              : <span key={i}>{part}</span>
+          )}
+        </h2>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {whyChoose.items.map((item, i) => (
+            <div key={item.title} className="p-8 transition-all duration-500 hover:scale-[1.02]"
+              style={{ backgroundImage: CARD_BG, borderRadius: "9px" }}>
+              <span className="block mb-6 font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "3rem", color: `${ORCHID}40` }}>
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mb-3 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1rem" }}>{item.title}</h3>
+              <p className="text-xs leading-relaxed text-white/50" style={{ fontFamily: BODY }}>{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </section>
   );
 }
