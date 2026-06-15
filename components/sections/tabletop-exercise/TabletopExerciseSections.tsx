@@ -95,18 +95,20 @@ export function TabletopWhyChooseSection() {
   const { whyChoose } = cyberExerciseSharedContent;
 
   return (
-    <section className="relative overflow-hidden py-32">
-      <span className="pointer-events-none absolute -right-10 top-1/2 -translate-y-1/2 select-none font-bold text-white/[0.025]"
-        style={{ fontFamily: DISPLAY, fontSize: "clamp(6rem, 18vw, 16rem)", lineHeight: 1 }}>
-        mission
-      </span>
+    <section className="relative py-32">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <span className="absolute -right-10 top-1/2 -translate-y-1/2 select-none font-bold text-white/[0.025]"
+          style={{ fontFamily: DISPLAY, fontSize: "clamp(6rem, 18vw, 16rem)", lineHeight: 1 }}>
+          mission
+        </span>
+      </div>
       <Container className="relative">
         <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ why choose us</p>
         <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
           Mission&nbsp;<span style={gradStyle}>/ Assurance /</span>
         </h2>
 
-        <div className="overflow-x-auto" style={{ scrollbarWidth: "none" }}>
+        <div className="overflow-x-auto pr-6 lg:pr-12" style={{ scrollbarWidth: "none" }}>
           <div className="flex gap-6 pb-4" style={{ width: "max-content" }}>
             {whyChoose.map((item, i) => (
               <div key={item.title}

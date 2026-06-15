@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Container } from "@/components/layout/Container";
@@ -64,7 +65,21 @@ const cases = [
 
 const techLogos  = ["NIST", "ISO 27001", "MITRE ATT&CK", "OSINT", "Red Team", "Zero Trust"];
 const marqueeItems = ["Cyber Resilience", "Attack Simulation", "Threat Intelligence", "Mission Assurance", "War Gaming", "Recon Intel", "Capacity Building", "CE-C2"];
-const partners   = ["Ministry of Defence", "CISA Framework", "MITRE", "AWS", "Azure", "Google Cloud", "Palo Alto", "CrowdStrike"];
+const partnerLogos = [
+  { src: "/images/petronas2.png",       alt: "Petronas" },
+  { src: "/images/kaf-logo.png",        alt: "KAF" },
+  { src: "/images/kwap.png",            alt: "KWAP" },
+  { src: "/images/kklw.png",            alt: "KKLW" },
+  { src: "/images/malaysiaairports.png",alt: "Malaysia Airports" },
+  { src: "/images/raya.png",            alt: "Raya Airways" },
+  { src: "/images/sepang2.png",         alt: "Sepang Aircraft Engineering" },
+  { src: "/images/ssm.png",             alt: "SSM" },
+  { src: "/images/umw.png",             alt: "UMW" },
+  { src: "/images/universiti.png",      alt: "Universiti Malaya" },
+  { src: "/images/airbus.png",          alt: "Airbus" },
+  { src: "/images/coway.png",           alt: "Coway" },
+  { src: "/images/heitech.png",         alt: "HeiTech" },
+];
 const budgetRanges = ["1 – 5K", "5 – 10K", "10 – 20K", "20 – 50K", "> 50K"];
 
 /* ── vertical side label ─────────────────────────────────────── */
@@ -228,12 +243,15 @@ export default function HomePage() {
         <div className="h-px w-full" style={{ background: `linear-gradient(90deg, transparent, ${CRIMSON} 40%, ${ORCHID}, ${CRIMSON} 60%, transparent)` }} />
 
         {/* ─── you need to ──────────────────────────────────────── */}
-        <section className="relative overflow-hidden py-32">
+        <section className="relative py-32">
           <SideTag label="/ you need to" />
-          <span className="pointer-events-none absolute -left-10 top-1/2 -translate-y-1/2 select-none font-bold text-white/[0.03]"
-            style={{ fontFamily: DISPLAY, fontSize: "clamp(6rem, 20vw, 18rem)", lineHeight: 1 }}>
-            needs
-          </span>
+          {/* watermark clipped separately so it doesn't block scroll */}
+          <div className="pointer-events-none absolute inset-0 overflow-hidden">
+            <span className="absolute -left-10 top-1/2 -translate-y-1/2 select-none font-bold text-white/[0.03]"
+              style={{ fontFamily: DISPLAY, fontSize: "clamp(6rem, 20vw, 18rem)", lineHeight: 1 }}>
+              needs
+            </span>
+          </div>
           <Container className="relative mb-12">
             <ScrollReveal>
               <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ when you need to</p>
@@ -243,8 +261,8 @@ export default function HomePage() {
             </ScrollReveal>
           </Container>
 
-          {/* Xizt: horizontal scroll, each card has gradient bg + border-radius 9px */}
-          <div className="overflow-x-auto pl-6 lg:pl-12" style={{ scrollbarWidth: "none" }}>
+          {/* horizontal scroll — pr ensures last card is fully visible */}
+          <div className="overflow-x-auto pl-6 pr-6 lg:pl-12 lg:pr-12" style={{ scrollbarWidth: "none" }}>
             <ul className="flex gap-6 pb-4" style={{ width: "max-content" }}>
               {needItems.map((item, i) => (
                 <li key={i}
@@ -470,12 +488,17 @@ export default function HomePage() {
               / Trusted Frameworks &amp; Partners
             </p>
             <div className="overflow-hidden">
-              <div className="marquee-track flex whitespace-nowrap" style={{ animationDuration: "30s" }}>
-                {[...partners, ...partners].map((p, i) => (
-                  <span key={i} className="mx-10 text-xs font-medium tracking-widest uppercase text-white/25"
-                    style={{ fontFamily: BODY }}>
-                    {p}
-                  </span>
+              <div className="marquee-track flex items-center whitespace-nowrap" style={{ animationDuration: "35s" }}>
+                {[...partnerLogos, ...partnerLogos].map((logo, i) => (
+                  <div key={i} className="mx-10 flex h-12 w-32 shrink-0 items-center justify-center">
+                    <Image
+                      src={logo.src}
+                      alt={logo.alt}
+                      width={128}
+                      height={48}
+                      className="h-10 w-auto object-contain opacity-40 grayscale hover:opacity-70 hover:grayscale-0 transition-all duration-300"
+                    />
+                  </div>
                 ))}
               </div>
             </div>
