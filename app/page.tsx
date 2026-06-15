@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Container } from "@/components/layout/Container";
 import { LoadingScreen } from "@/components/ui/LoadingScreen";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { HeroAnimated } from "@/components/sections/home/HeroAnimated";
 import { routes } from "@/lib/navigation";
 import { homeContent } from "@/lib/constants/home";
 
@@ -105,71 +106,7 @@ export default function HomePage() {
       <main className="flex-1">
 
         {/* ─── Hero ─────────────────────────────────────────────── */}
-        <section className="relative flex min-h-screen items-end overflow-hidden pb-20 pt-20">
-          {/* Xizt-style ACCENT glow blob */}
-          <div className="pointer-events-none absolute -top-40 left-1/4 h-[600px] w-[600px] rounded-full opacity-15 blur-[120px]"
-            style={{ background: `radial-gradient(circle, ${ACCENT} 0%, transparent 65%)` }} aria-hidden="true" />
-          {/* watermark */}
-          <span className="pointer-events-none absolute bottom-0 right-0 select-none font-bold leading-none text-white/[0.03]"
-            style={{ fontFamily: DISPLAY, fontSize: "clamp(8rem, 28vw, 24rem)", lineHeight: 1 }}>
-            simulasi
-          </span>
-
-          <Container className="relative">
-            <ScrollReveal delay={0.1}>
-              <p className="mb-6 text-[11px] tracking-[0.35em] uppercase text-white/40"
-                style={{ fontFamily: BODY }}>
-                / Cyber Resilience &amp; Simulation Platform
-              </p>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.15}>
-              {/* Xizt layout: small tagline above hero */}
-              <p className="mb-4 text-sm text-white/50" style={{ fontFamily: BODY }}>
-                Professional cyber simulation experts, providing a full package of resilience services and solutions
-              </p>
-              <p className="mb-6 text-xs tracking-widest uppercase text-white/30" style={{ fontFamily: BODY }}>
-                Innovation at every turn
-              </p>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.2}>
-              <h1 className="font-bold leading-[0.92] tracking-tight"
-                style={{ fontFamily: DISPLAY, fontSize: "clamp(3.5rem, 12vw, 10rem)" }}>
-                <span className="block text-white">Turn Threats</span>
-                <span className="block">
-                  <span className="text-white">into&nbsp;</span>
-                  <span style={gradStyle}>/ Dominance /</span>
-                </span>
-              </h1>
-            </ScrollReveal>
-
-            {/* cloud-provider-style logos (Xizt has AWS / Azure / Google Cloud) */}
-            <ScrollReveal delay={0.35}>
-              <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3">
-                {techLogos.map((logo) => (
-                  <span key={logo} className="text-xs tracking-[0.2em] uppercase text-white/25 border border-white/8 px-3 py-1.5"
-                    style={{ fontFamily: BODY }}>
-                    {logo}
-                  </span>
-                ))}
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.5}>
-              <div className="mt-14 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-                <p className="max-w-md text-sm leading-relaxed text-white/40" style={{ fontFamily: BODY }}>
-                  {homeContent.hero.subtitle}
-                </p>
-                <Link href={routes.contact}
-                  className="inline-block border border-white/20 px-10 py-4 text-[11px] tracking-[0.3em] uppercase text-white/60 hover:border-white hover:text-white transition-all duration-300 self-start"
-                  style={{ fontFamily: BODY }}>
-                  lets talk /
-                </Link>
-              </div>
-            </ScrollReveal>
-          </Container>
-        </section>
+        <HeroAnimated />
 
         {/* ─── Marquee ──────────────────────────────────────────── */}
         <div className="overflow-hidden border-y border-white/8 py-5">
