@@ -18,9 +18,9 @@ export const metadata: Metadata = {
   description: "Transforming artificial threats into digital dominance. The premier dashboard for full-spectrum cyber exercise management and military cyber defense.",
   metadataBase: new URL("https://simulasi.org"),
   icons: {
-    icon: [{ url: "/images/rpmy3.png", type: "image/png" }],
-    shortcut: "/images/rpmy3.png",
-    apple: "/images/rpmy3.png",
+    icon: [{ url: "/images/rpmylagi.png", type: "image/png" }],
+    shortcut: "/images/rpmylagi.png",
+    apple: "/images/rpmylagi.png",
   },
   openGraph: {
     type: "website",
@@ -41,8 +41,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" className={`${chakraPetch.variable} h-full`}>
       <head>
-        <link rel="icon" href="/images/rpmy3.png" type="image/png" sizes="any" />
-        <link rel="shortcut icon" href="/images/rpmy3.png" type="image/png" />
+        <link rel="icon" href="/images/rpmylagi.png" type="image/png" sizes="any" />
+        <link rel="shortcut icon" href="/images/rpmylagi.png" type="image/png" />
         {/* Clash Display from Fontshare — Xizt's display/heading font */}
         <link rel="preconnect" href="https://api.fontshare.com" />
         <link
