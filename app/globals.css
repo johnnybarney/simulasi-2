@@ -1,26 +1,131 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* ── Xizt exact design tokens ─────────────────────────────── */
+  --color-bg:             #141414;
+  --color-bg-section:     #161616;
+  --color-bg-card:        #0f0f0f;
+  --color-orchid:         #b64cf7;
+  --color-orchid-dark:    #c5013c;
+  --color-white:          #ffffff;
+  --color-dark-grey:      #a1a1a1;
+
+  /* ── Fonts ────────────────────────────────────────────────── */
+  --font-display: 'Clash Display', sans-serif;
+  --font-body:    var(--font-chakra), 'Chakra Petch', sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Xizt viewport-based font size */
+    font-size: 1.111vw;
+  }
+
+  @media (min-width: 1440px) {
+    html { font-size: 16px; }
+  }
+
+  @media (max-width: 768px) {
+    html { font-size: 14px; }
+  }
+
+  body {
+    background-color: #141414;
+    color: #ffffff;
+    font-family: var(--font-body);
+    font-weight: 500;
+    line-height: 106.5%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    cursor: none;
+    margin: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 600;
+    line-height: 1.05;
+  }
+
+  a, button { cursor: none; }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  /* ── Xizt gradient: crimson → orchid ─────────────────────── */
+  .text-gradient {
+    background: linear-gradient(135deg, #c5013c, #b64cf7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-brand {
+    background: linear-gradient(135deg, #c5013c, #b64cf7);
+  }
+
+  /* ── Xizt card background ─────────────────────────────────── */
+  .card-bg {
+    background-image: linear-gradient(339deg, rgba(114,111,119,0.05) 18%, rgba(255,255,255,0.05) 77%);
+    border-radius: 9px;
+  }
+
+  /* ── Xizt glow blob ───────────────────────────────────────── */
+  .glow-orchid {
+    filter: blur(80px);
+    background: linear-gradient(#c5013c, #b64cf7);
+    border-radius: 100%;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ── Marquee ──────────────────────────────────────────────────── */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marquee 20s linear infinite;
+  will-change: transform;
+}
+
+/* ── Custom Cursor ─────────────────────────────────────────────── */
+.cursor-dot {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: #b64cf7;
+  border-radius: 50%;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease, opacity 0.2s ease;
+}
+
+.cursor-ring {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(182, 76, 247, 0.4);
+  border-radius: 50%;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease, width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
+}
+
+/* ── Scroll reveal ─────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
 }
