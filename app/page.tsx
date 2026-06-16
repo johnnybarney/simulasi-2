@@ -502,11 +502,11 @@ export default function HomePage() {
         </section>
 
         {/* ─── Partners marquee ─────────────────────────────────── */}
-        <section className="border-y border-white/8 py-12" style={{ backgroundColor: "#999999" }}>
+        <section className="border-y border-white/8 py-12" style={{ backgroundColor: "#545454" }}>
           <Container>
-            <p className="mb-8 text-center text-[10px] tracking-[0.35em] uppercase text-black/40"
+            <p className="mb-8 text-center text-[10px] tracking-[0.35em] uppercase text-white/60"
               style={{ fontFamily: BODY }}>
-              / Our Valued Client
+              / Our Valued Clients
             </p>
             <div className="overflow-hidden">
               <div className="marquee-track flex items-center whitespace-nowrap" style={{ animationDuration: "35s" }}>
@@ -517,7 +517,7 @@ export default function HomePage() {
                       alt={logo.alt}
                       width={128}
                       height={48}
-                      className="h-10 w-auto object-contain opacity-80 brightness-0"
+                      className="h-10 w-auto object-contain opacity-70"
                     />
                   </div>
                 ))}
