@@ -80,6 +80,8 @@ const partnerLogos = [
   { src: "/images/airbus.png",          alt: "Airbus" },
   { src: "/images/coway.png",           alt: "Coway" },
   { src: "/images/heitech.png",         alt: "HeiTech" },
+  { src: "/images/pidm.png",            alt: "PIDM" },
+  { src: "/images/lhdn.png",            alt: "LHDN" },
 ];
 
 /* ── vertical side label ─────────────────────────────────────── */
