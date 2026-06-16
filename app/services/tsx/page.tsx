@@ -1,10 +1,10 @@
 import { PageShell } from "@/components/layout/PageShell";
 import {
   TechnicalSimulationExerciseBenefitsSection,
-  TechnicalSimulationExerciseHero,
   TechnicalSimulationExerciseLifecycleSection,
   TechnicalSimulationExerciseMethodologySection,
 } from "@/components/sections/technical-simulation-exercise/TechnicalSimulationExercise";
+import { TsxHeroAnimated } from "@/components/sections/technical-simulation-exercise/TsxHeroAnimated";
 import { routes } from "@/lib/navigation";
 
 export default function TsxServicePage() {
@@ -14,7 +14,7 @@ export default function TsxServicePage() {
       footerVariant="technical-simulation-exercise"
       activeHref={routes.tsx}
     >
-      <TechnicalSimulationExerciseHero />
+      <TsxHeroAnimated />
       <TechnicalSimulationExerciseMethodologySection />
       <TechnicalSimulationExerciseBenefitsSection />
       <TechnicalSimulationExerciseLifecycleSection />
