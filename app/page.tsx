@@ -74,7 +74,7 @@ const partnerLogos = [
   { src: "/images/malaysiaairports.png",alt: "Malaysia Airports" },
   { src: "/images/raya.png",            alt: "Raya Airways" },
   { src: "/images/sepang2.png",         alt: "Sepang Aircraft Engineering" },
-  { src: "/images/ssm3.png",            alt: "SSM" },
+  { src: "/images/ssm.png",             alt: "SSM" },
   { src: "/images/umw.png",             alt: "UMW" },
   { src: "/images/universiti.png",      alt: "Universiti Malaya" },
   { src: "/images/airbus.png",          alt: "Airbus" },
