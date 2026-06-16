@@ -513,13 +513,14 @@ export default function HomePage() {
             <div className="overflow-hidden">
               <div className="marquee-track flex items-center whitespace-nowrap" style={{ animationDuration: "40s" }}>
                 {[...partnerLogos, ...partnerLogos].map((logo, i) => (
-                  <div key={i} className="mx-6 flex h-16 w-40 shrink-0 items-center justify-center rounded-lg bg-white px-5 py-3">
+                  <div key={i} className="relative mx-5 h-16 w-44 shrink-0 overflow-hidden rounded-lg"
+                    style={{ backgroundColor: "#f0f0f0", padding: "10px 16px" }}>
                     <Image
                       src={logo.src}
                       alt={logo.alt}
-                      width={128}
-                      height={48}
-                      className="h-9 w-auto object-contain"
+                      fill
+                      className="object-contain p-2"
+                      sizes="176px"
                     />
                   </div>
                 ))}
