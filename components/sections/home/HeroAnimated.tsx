@@ -22,7 +22,6 @@ const gradStyle: React.CSSProperties = {
 /* 3 headline lines */
 const L1 = "AI-DRIVEN";
 const L2 = "WARFARE SIMULATION";
-const L3 = "";
 
 /* blinking cursor — defined outside component so React doesn't recreate it */
 function TypeCursor() {
@@ -49,7 +48,6 @@ export function HeroAnimated() {
   const [phase,  setPhase]  = useState(0);
   const [chars1, setChars1] = useState(0);
   const [chars2, setChars2] = useState(0);
-  const [chars3, setChars3] = useState(0);
 
   useEffect(() => {
     /* video fade-in — triggered by onCanPlay instead of a fixed timer */
@@ -69,19 +67,14 @@ export function HeroAnimated() {
       }, SPD);
     }
 
-    /* chain: welcome → L1 → L2 → L3 → done */
+    /* chain: welcome → L1 → L2 → done */
     const p0 = setTimeout(() => {
       setPhase(1);
       typeString(L1.length, setChars1, () => {
         setTimeout(() => {
           setPhase(2);
           typeString(L2.length, setChars2, () => {
-            setTimeout(() => {
-              setPhase(3);
-              typeString(L3.length, setChars3, () => {
-                setTimeout(() => setPhase(4), 400);
-              });
-            }, 160);
+            setTimeout(() => setPhase(4), 400);
           });
         }, 200);
       });
@@ -164,13 +157,6 @@ export function HeroAnimated() {
             {phase === 2 && <TypeCursor />}
           </span>
 
-          {/* L3: empty — hidden */}
-          {L3 && (
-            <span className="block text-white">
-              {L3.slice(0, chars3)}
-              {phase === 3 && <TypeCursor />}
-            </span>
-          )}
         </h1>
 
         {/* ── divider line ── */}

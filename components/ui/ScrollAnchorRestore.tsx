@@ -15,7 +15,7 @@ export function ScrollAnchorRestore() {
     sessionStorage.removeItem(SESSION_KEY);
 
     function tryScroll(attemptsLeft: number) {
-      const el = document.getElementById(anchorId);
+      const el = document.getElementById(anchorId as string);
       if (el) {
         el.scrollIntoView({ behavior: "smooth", block: "center" });
       } else if (attemptsLeft > 0) {
