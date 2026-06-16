@@ -67,9 +67,9 @@ const cases = [
 const techLogos  = ["NIST", "ISO 27001", "MITRE ATT&CK", "OSINT", "Red Team", "Zero Trust"];
 const marqueeItems = ["Cyber Resilience", "Attack Simulation", "Threat Intelligence", "Mission Assurance", "War Gaming", "Recon Intel", "Capacity Building", "CE-C2"];
 const partnerLogos = [
-  { src: "/images/petronas2.png",       alt: "Petronas" },
+  { src: "/images/petronas.png",        alt: "Petronas" },
   { src: "/images/kaf-logo.png",        alt: "KAF" },
-  { src: "/images/kwap.png",            alt: "KWAP" },
+  { src: "/images/kwap1.png",           alt: "KWAP" },
   { src: "/images/kklw.png",            alt: "KKLW" },
   { src: "/images/malaysiaairports.png",alt: "Malaysia Airports" },
   { src: "/images/raya.png",            alt: "Raya Airways" },
