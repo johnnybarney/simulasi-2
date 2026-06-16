@@ -82,6 +82,9 @@
 .marquee-track {
   animation: marquee 20s linear infinite;
   will-change: transform;
+  width: max-content;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 /* ── Custom Cursor ─────────────────────────────────────────────── */

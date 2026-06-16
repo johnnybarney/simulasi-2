@@ -511,7 +511,7 @@ export default function HomePage() {
               / Our Valued Clients
             </p>
             <div className="overflow-hidden">
-              <div className="marquee-track flex items-center whitespace-nowrap" style={{ animationDuration: "40s" }}>
+              <div className="marquee-track flex items-center whitespace-nowrap" style={{ animationDuration: "50s" }}>
                 {[...partnerLogos, ...partnerLogos].map((logo, i) => (
                   <div key={i} className="mx-5 shrink-0 flex items-center justify-center rounded-lg"
                     style={{ backgroundColor: "#c8c8c8", width: "160px", height: "80px", padding: "12px 16px" }}>
