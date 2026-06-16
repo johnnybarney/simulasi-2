@@ -20,9 +20,9 @@ const gradStyle: React.CSSProperties = {
 };
 
 /* 3 headline lines */
-const L1 = "CYBER COMMAND:";
-const L2 = "AI-DRIVEN";
-const L3 = "WARFARE SIMULATION";
+const L1 = "AI-DRIVEN";
+const L2 = "WARFARE SIMULATION";
+const L3 = "";
 
 /* blinking cursor — defined outside component so React doesn't recreate it */
 function TypeCursor() {
@@ -52,8 +52,8 @@ export function HeroAnimated() {
   const [chars3, setChars3] = useState(0);
 
   useEffect(() => {
-    /* video fade-in */
-    const vt = setTimeout(() => setShowVideo(true), 100);
+    /* video fade-in — triggered by onCanPlay instead of a fixed timer */
+    const vt = setTimeout(() => setShowVideo(true), 100); // fallback
 
     /* helper: type a string then run a callback */
     function typeString(
@@ -91,20 +91,23 @@ export function HeroAnimated() {
   }, []);
 
   return (
-    <section className="relative flex min-h-screen items-end overflow-hidden">
+    <section className="relative flex h-screen items-end overflow-hidden">
 
       {/* ── video background ── */}
       <video
-        src="/images/landing.mp4"
         autoPlay loop muted playsInline
+        preload="auto"
+        onCanPlay={() => setShowVideo(true)}
         className="absolute inset-0 h-full w-full object-cover transition-opacity duration-[1800ms]"
-        style={{ opacity: showVideo ? 0.38 : 0 }}
-      />
+        style={{ opacity: showVideo ? 0.85 : 0, objectPosition: "center center" }}
+      >
+        <source src="/images/adult.mp4" type="video/mp4" />
+      </video>
 
       {/* ── overlays ── */}
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: "linear-gradient(to top, #000000 40%, rgba(0,0,0,0.6) 68%, rgba(0,0,0,0.2) 100%)" }}
+        style={{ background: "linear-gradient(to top, rgba(0,0,0,0.85) 20%, rgba(0,0,0,0.3) 55%, rgba(0,0,0,0.1) 100%)" }}
       />
       {/* teal glow blob */}
       <div
@@ -145,27 +148,29 @@ export function HeroAnimated() {
             fontSize: "clamp(2.4rem, 7.5vw, 6rem)",
           }}
         >
-          {/* L1: CYBER COMMAND: */}
-          <span className="block text-white mb-1">
-            {L1.slice(0, chars1)}
+          {/* L1: AI-DRIVEN — gradient accent */}
+          <span className="block mb-1" style={{ minHeight: "1.05em" }}>
+            {chars1 > 0 && (
+              <span style={gradStyle}>
+                {L1.slice(0, chars1)}
+              </span>
+            )}
             {phase === 1 && <TypeCursor />}
           </span>
 
-          {/* L2: AI-DRIVEN — gradient accent */}
-          <span className="block mb-1" style={{ minHeight: "1.05em" }}>
-            {chars2 > 0 && (
-              <span style={gradStyle}>
-                {L2.slice(0, chars2)}
-              </span>
-            )}
+          {/* L2: WARFARE SIMULATION — white */}
+          <span className="block text-white mb-1">
+            {L2.slice(0, chars2)}
             {phase === 2 && <TypeCursor />}
           </span>
 
-          {/* L3: WARFARE SIMULATION */}
-          <span className="block text-white">
-            {L3.slice(0, chars3)}
-            {phase === 3 && <TypeCursor />}
-          </span>
+          {/* L3: empty — hidden */}
+          {L3 && (
+            <span className="block text-white">
+              {L3.slice(0, chars3)}
+              {phase === 3 && <TypeCursor />}
+            </span>
+          )}
         </h1>
 
         {/* ── divider line ── */}

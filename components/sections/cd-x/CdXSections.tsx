@@ -175,9 +175,6 @@ export function PartnersSection() {
   return (
     <section className="border-t border-white/8 py-20" style={{ backgroundImage: SECTION_BG }}>
       <Container>
-        <p className="mb-8 text-center text-[10px] tracking-[0.35em] uppercase text-white/20" style={{ fontFamily: BODY }}>
-          / We secured the best
-        </p>
         <div className="overflow-hidden">
           <div className="marquee-track flex items-center whitespace-nowrap" style={{ animationDuration: "35s" }}>
             {track.map((logo, i) => (

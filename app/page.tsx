@@ -6,6 +6,8 @@ import { Container } from "@/components/layout/Container";
 import { LoadingScreen } from "@/components/ui/LoadingScreen";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { HeroAnimated } from "@/components/sections/home/HeroAnimated";
+import { ServiceLink } from "@/components/ui/ServiceLink";
+import { ScrollAnchorRestore } from "@/components/ui/ScrollAnchorRestore";
 import { routes } from "@/lib/navigation";
 import { homeContent } from "@/lib/constants/home";
 
@@ -105,6 +107,7 @@ export default function HomePage() {
       <Header activeHref="/" />
 
       <main className="flex-1">
+        <ScrollAnchorRestore />
 
         {/* ─── Hero ─────────────────────────────────────────────── */}
         <HeroAnimated />
@@ -382,8 +385,8 @@ export default function HomePage() {
             <ul className="divide-y divide-white/8">
               {serviceList.map((s, i) => (
                 <ScrollReveal key={s.num} delay={i * 0.05}>
-                  <li>
-                    <Link href={s.href}
+                  <li id={`service-${s.num}`}>
+                    <ServiceLink href={s.href} anchorId={`service-${s.num}`}
                       className="group relative flex items-center justify-between gap-8 py-7 transition-all overflow-hidden">
                       <span className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"
                         style={{ background: `linear-gradient(90deg, rgba(0,197,205,0.06) 0%, transparent 100%)` }} />
@@ -398,7 +401,7 @@ export default function HomePage() {
                         </div>
                       </div>
                       <span className="relative shrink-0 text-sm text-white/20 group-hover:text-white/60 transition-colors" style={{ fontFamily: BODY }}>→</span>
-                    </Link>
+                    </ServiceLink>
                   </li>
                 </ScrollReveal>
               ))}

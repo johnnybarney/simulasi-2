@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Container } from "@/components/layout/Container";
+import { BackButton } from "@/components/ui/BackButton";
 
 const DISPLAY = "'Clash Display', sans-serif";
 const BODY    = "var(--font-chakra), 'Chakra Petch', sans-serif";
@@ -67,6 +68,26 @@ export function TsxHeroAnimated() {
 
   return (
     <section className="relative flex min-h-[80vh] items-end overflow-hidden pb-20 pt-32">
+
+      {/* back button */}
+      <div className="absolute top-24 left-0 z-10 px-6 md:px-12 lg:px-20">
+        <BackButton />
+      </div>
+
+      {/* video background */}
+      <video
+        autoPlay loop muted playsInline
+        preload="auto"
+        className="absolute inset-0 h-full w-full object-cover"
+        style={{ opacity: 0.45, objectPosition: "center center" }}
+      >
+        <source src="/images/technical.mp4" type="video/mp4" />
+      </video>
+
+      {/* gradient overlay */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: "linear-gradient(to top, rgba(0,0,0,0.92) 25%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.15) 100%)" }}
+      />
 
       {/* teal glow — top right */}
       <div className="pointer-events-none absolute -top-40 right-1/4 h-[500px] w-[500px] rounded-full opacity-10 blur-[130px]"
