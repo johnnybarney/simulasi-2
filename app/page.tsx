@@ -502,9 +502,9 @@ export default function HomePage() {
         </section>
 
         {/* ─── Partners marquee ─────────────────────────────────── */}
-        <section className="border-y border-white/8 py-12" style={{ backgroundColor: "#545454" }}>
+        <section className="border-y border-white/8 py-12" style={{ backgroundImage: SECTION_BG }}>
           <Container>
-            <p className="mb-8 text-center text-[10px] tracking-[0.35em] uppercase text-white/60"
+            <p className="mb-8 text-center text-[10px] tracking-[0.35em] uppercase text-white/30"
               style={{ fontFamily: BODY }}>
               / Our Valued Clients
             </p>
@@ -517,7 +517,7 @@ export default function HomePage() {
                       alt={logo.alt}
                       width={128}
                       height={48}
-                      className="h-10 w-auto object-contain opacity-70"
+                      className="h-10 w-auto object-contain opacity-100 drop-shadow-[0_0_8px_rgba(255,255,255,0.15)]"
                     />
                   </div>
                 ))}
