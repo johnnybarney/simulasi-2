@@ -1,4 +1,5 @@
 import { Container } from "@/components/layout/Container";
+import { CustomThreatModelingCard, SdWafInjectionCard } from "./TsxAttackCards";
 
 const DISPLAY = "'Clash Display', sans-serif";
 const BODY    = "var(--font-chakra), 'Chakra Petch', sans-serif";
@@ -47,29 +48,6 @@ export function TechnicalSimulationExerciseHero() {
 
 /* ── Methodology ──────────────────────────────────────────── */
 export function TechnicalSimulationExerciseMethodologySection() {
-  const cards = [
-    {
-      num: "01",
-      title: "Custom Threat Modeling",
-      videoSrc: "/images/customthreat.mp4",
-      points: [
-        { label: "Payload Engineering", text: "Crafting multi-stage, bespoke exploits." },
-        { label: "Stealth & Evasion",   text: "Bypassing advanced threat detection and sandboxes." },
-        { label: "Attack Vector Analysis", text: "Mapping organization-specific weaknesses." },
-      ],
-    },
-    {
-      num: "02",
-      title: "SD-WAF Injection Delivery",
-      videoSrc: "/images/sdwaf.mp4",
-      points: [
-        { label: "Advanced Obfuscation",   text: "Evading web application firewalls." },
-        { label: "Targeted Injection Points", text: "Exploiting API and application logic flaws." },
-        { label: "Protocol Manipulation",  text: "Leveraging non-standard communication channels." },
-      ],
-    },
-  ];
-
   return (
     <section className="py-32" style={{ backgroundImage: SECTION_BG }}>
       <Container>
@@ -78,29 +56,8 @@ export function TechnicalSimulationExerciseMethodologySection() {
           Tailored&nbsp;<span style={gradStyle}>/ Attack Simulation /</span>
         </h2>
         <div className="grid gap-8 lg:grid-cols-2">
-          {cards.map((card) => (
-            <div key={card.num} className="overflow-hidden transition-all duration-500 hover:scale-[1.01]"
-              style={{ backgroundImage: CARD_BG, borderRadius: "9px" }}>
-              <div className="overflow-hidden" style={{ borderRadius: "9px 9px 0 0" }}>
-                <video src={card.videoSrc} autoPlay loop muted playsInline
-                  className="aspect-video w-full object-cover" aria-label={card.title} />
-              </div>
-              <div className="p-8">
-                <div className="mb-4 flex items-center gap-4">
-                  <span className="text-sm font-semibold" style={{ color: ACCENT, fontFamily: BODY }}>/ {card.num}</span>
-                  <h3 className="font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1.25rem" }}>{card.title}</h3>
-                </div>
-                <div className="space-y-3">
-                  {card.points.map((p) => (
-                    <p key={p.label} className="text-sm text-white/50" style={{ fontFamily: BODY }}>
-                      <span style={{ color: ACCENT }}>/ </span>
-                      <span className="text-white/70">{p.label}:</span> {p.text}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
+          <CustomThreatModelingCard />
+          <SdWafInjectionCard />
         </div>
       </Container>
     </section>

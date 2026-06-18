@@ -94,7 +94,7 @@ export function HeroAnimated() {
         className="absolute inset-0 h-full w-full object-cover transition-opacity duration-[1800ms]"
         style={{ opacity: showVideo ? 0.85 : 0, objectPosition: "center center" }}
       >
-        <source src="/images/adult.mp4" type="video/mp4" />
+        <source src="/images/landing4k.mp4" type="video/mp4" />
       </video>
 
       {/* ── overlays ── */}
@@ -166,7 +166,7 @@ export function HeroAnimated() {
         >
           <div className="flex items-center gap-4">
             <div className="h-px w-16" style={{ background: `linear-gradient(90deg, ${ACCENT}, transparent)` }} />
-            <span className="text-[9px] tracking-[0.5em] uppercase text-white/20" style={{ fontFamily: BODY }}>
+            <span className="text-[9px] tracking-[0.5em] uppercase text-white/60" style={{ fontFamily: BODY }}>
               EST. 2026
             </span>
           </div>
@@ -181,7 +181,7 @@ export function HeroAnimated() {
           }}
         >
           <p
-            className="max-w-2xl text-sm leading-relaxed text-white/40 mb-10"
+            className="max-w-2xl text-sm leading-relaxed text-white/75 mb-10"
             style={{ fontFamily: BODY }}
           >
             {homeContent.hero.subtitle}
@@ -192,7 +192,7 @@ export function HeroAnimated() {
             {["NIST", "ISO 27001", "MITRE ATT&CK", "OSINT", "Red Team", "Zero Trust"].map((tag) => (
               <span
                 key={tag}
-                className="text-[9px] tracking-[0.25em] uppercase text-white/20 border border-white/8 px-3 py-1"
+                className="text-[9px] tracking-[0.25em] uppercase text-white/70 border border-white/30 px-3 py-1"
                 style={{ fontFamily: BODY }}
               >
                 {tag}

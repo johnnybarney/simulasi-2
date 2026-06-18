@@ -8,6 +8,7 @@ export const routes = {
   training: "https://rp.my/training",
   cdX: "/products/cd-x",
   mniX3dKit: "/products/mni-x-3d-kit",
+  cyberPulse: "/products/cyber-pulse",
   contact: "/about-us#contact",
   aboutUs: "/about-us",
   privacy: "/#privacy",
@@ -22,6 +23,7 @@ export type HeaderVariant =
   | "advance-simulation"
   | "cd-x"
   | "mni-x"
+  | "cyber-pulse"
   | "technical-simulation-exercise"
   | "reconnaissance-intelligence"
   | "offensive-operations";
@@ -32,6 +34,7 @@ export type FooterVariant =
   | "advance-simulation"
   | "cd-x"
   | "mni-x"
+  | "cyber-pulse"
   | "technical-simulation-exercise"
   | "reconnaissance-intelligence"
   | "offensive-operations";
@@ -80,6 +83,7 @@ const homeNavItems: NavItem[] = [
     hasDropdown: true,
     children: productPages,
   },
+  { label: "Cyber Pulse", href: routes.cyberPulse },
   { label: "News", href: "/news" },
   { label: "About Us", href: routes.aboutUs },
 ];
@@ -90,6 +94,7 @@ export const headerConfigs: Record<HeaderVariant, NavItem[]> = {
   "tabletop-exercise": homeNavItems,
   "advance-simulation": homeNavItems,
   "cd-x": homeNavItems,
+  "cyber-pulse": homeNavItems,
   "technical-simulation-exercise": homeNavItems,
   "reconnaissance-intelligence": homeNavItems,
   "offensive-operations": homeNavItems,
@@ -169,6 +174,13 @@ export const footerConfigs: Record<FooterVariant, FooterConfig> = {
   },
   "mni-x": {
     variant: "mni-x",
+    copyright: sharedCopyright,
+    links: [],
+    layout: "centered",
+    showLogo: false,
+  },
+  "cyber-pulse": {
+    variant: "cyber-pulse",
     copyright: sharedCopyright,
     links: [],
     layout: "centered",

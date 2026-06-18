@@ -84,6 +84,9 @@ const partnerLogos = [
   { src: "/images/heitech.png",         alt: "HeiTech" },
   { src: "/images/pidm.png",            alt: "PIDM" },
   { src: "/images/lhdn.png",            alt: "LHDN" },
+  { src: "/images/jpj.png",             alt: "JPJ" },
+  { src: "/images/kdn.png",             alt: "KDN" },
+  { src: "/images/tudm.png",            alt: "TUDM" },
 ];
 
 /* ── vertical side label ─────────────────────────────────────── */
@@ -116,7 +119,7 @@ export default function HomePage() {
         <div className="overflow-hidden border-y border-white/8 py-5">
           <div className="marquee-track flex whitespace-nowrap">
             {[...marqueeItems, ...marqueeItems].map((item, i) => (
-              <span key={i} className="mx-10 text-[11px] tracking-[0.3em] uppercase text-white/20"
+              <span key={i} className="mx-10 text-[11px] tracking-[0.3em] uppercase text-white/60"
                 style={{ fontFamily: BODY }}>
                 {item} <span style={{ color: ACCENT }}>✦</span>
               </span>
@@ -531,19 +534,26 @@ export default function HomePage() {
           </Container>
         </section>
 
-        {/* ─── our / cases / ───────────────────────────────────── */}
+        {/* ─── cyber / pulse ───────────────────────────────────── */}
         <section className="relative overflow-hidden py-32">
-          <SideTag label="/ cases" />
+          <SideTag label="/ pulse" />
           <span className="pointer-events-none absolute -right-10 top-0 select-none font-bold text-white/[0.03]"
             style={{ fontFamily: DISPLAY, fontSize: "clamp(6rem, 20vw, 18rem)", lineHeight: 1 }}>
-            cases
+            PULSE
           </span>
           <Container className="relative">
             <ScrollReveal>
-              <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ our cases</p>
-              <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 5vw, 3.5rem)" }}>
-                our&nbsp;<span style={gradStyle}>/ cases /</span>
-              </h2>
+              <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ cyber pulse</p>
+              <div className="mb-16 flex items-end justify-between gap-4">
+                <h2 className="font-bold" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 5vw, 3.5rem)" }}>
+                  <span style={{ color: ACCENT }}>cyber</span>&nbsp;<span className="text-white">/ pulse /</span>
+                </h2>
+                <Link href="/products/cyber-pulse"
+                  className="hidden shrink-0 text-[10px] tracking-[0.3em] uppercase text-white/30 hover:text-white transition-colors md:block"
+                  style={{ fontFamily: BODY }}>
+                  View all →
+                </Link>
+              </div>
             </ScrollReveal>
 
             <ul className="divide-y divide-white/8">

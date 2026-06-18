@@ -37,9 +37,15 @@ function TypeCursor() {
 }
 
 function MniXHeroAnimated() {
-  const [phase,  setPhase]  = useState(0);
-  const [chars1, setChars1] = useState(0);
-  const [chars2, setChars2] = useState(0);
+  const [phase,     setPhase]     = useState(0);
+  const [chars1,    setChars1]    = useState(0);
+  const [chars2,    setChars2]    = useState(0);
+  const [showVideo, setShowVideo] = useState(false);
+
+  useEffect(() => {
+    const vt = setTimeout(() => setShowVideo(true), 300);
+    return () => clearTimeout(vt);
+  }, []);
 
   useEffect(() => {
     function typeString(length: number, setter: (n: number) => void, onDone: () => void) {
@@ -76,16 +82,18 @@ function MniXHeroAnimated() {
 
       {/* video background */}
       <video
-        autoPlay muted loop playsInline
-        className="absolute inset-0 h-full w-full object-cover"
-        style={{ opacity: 0.35 }}
+        autoPlay muted loop playsInline preload="auto"
+        onCanPlay={() => setShowVideo(true)}
+        className="absolute inset-0 h-full w-full object-cover transition-opacity duration-[1800ms]"
+        style={{ opacity: showVideo ? 0.85 : 0, objectPosition: "center center" }}
       >
         <source src="/images/mini.mp4" type="video/mp4" />
       </video>
 
       {/* gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: "linear-gradient(to top, rgba(0,0,0,0.85) 20%, rgba(0,0,0,0.3) 55%, rgba(0,0,0,0.1) 100%)" }}
+      />
 
       {/* teal glow */}
       <div className="pointer-events-none absolute -top-40 right-1/4 h-[500px] w-[500px] rounded-full opacity-10 blur-[130px]"

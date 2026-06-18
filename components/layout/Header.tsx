@@ -26,10 +26,11 @@ const productLinks = [
 ];
 
 const mainLinks = [
-  { label: "Services",  href: routes.tsx,     sub: "services" as const },
-  { label: "Products",  href: routes.cdX,     sub: "products" as const },
-  { label: "About Us",  href: routes.aboutUs, sub: null },
-  { label: "Contact",   href: routes.contact, sub: null },
+  { label: "Services",    href: routes.tsx,        sub: "services" as const },
+  { label: "Products",    href: routes.cdX,        sub: "products" as const },
+  { label: "Cyber Pulse", href: routes.cyberPulse, sub: null },
+  { label: "About Us",    href: routes.aboutUs,    sub: null },
+  { label: "Contact",     href: routes.contact,    sub: null },
 ];
 
 type Sub = "services" | "products" | null;

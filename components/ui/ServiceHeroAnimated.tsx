@@ -43,10 +43,16 @@ export function ServiceHeroAnimated({ eyebrow, lines, watermark, description, co
   const l2 = lines[1].text;
   const l3 = lines[2]?.text ?? "";
 
-  const [phase,  setPhase]  = useState(0);
-  const [chars1, setChars1] = useState(0);
-  const [chars2, setChars2] = useState(0);
-  const [chars3, setChars3] = useState(0);
+  const [phase,     setPhase]     = useState(0);
+  const [chars1,    setChars1]    = useState(0);
+  const [chars2,    setChars2]    = useState(0);
+  const [chars3,    setChars3]    = useState(0);
+  const [showVideo, setShowVideo] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setShowVideo(true), 300);
+    return () => clearTimeout(t);
+  }, []);
 
   useEffect(() => {
     function typeString(length: number, setter: (n: number) => void, onDone: () => void) {
@@ -93,13 +99,14 @@ export function ServiceHeroAnimated({ eyebrow, lines, watermark, description, co
         <>
           <video
             autoPlay loop muted playsInline preload="auto"
-            className="absolute inset-0 h-full w-full object-cover"
-            style={{ opacity: 0.45, objectPosition: "center center" }}
+            onCanPlay={() => setShowVideo(true)}
+            className="absolute inset-0 h-full w-full object-cover transition-opacity duration-[1800ms]"
+            style={{ opacity: showVideo ? 0.85 : 0, objectPosition: "center center" }}
           >
             <source src={video} type="video/mp4" />
           </video>
           <div className="absolute inset-0 pointer-events-none"
-            style={{ background: "linear-gradient(to top, rgba(0,0,0,0.92) 25%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.15) 100%)" }}
+            style={{ background: "linear-gradient(to top, rgba(0,0,0,0.85) 20%, rgba(0,0,0,0.3) 55%, rgba(0,0,0,0.1) 100%)" }}
           />
         </>
       )}

@@ -31,10 +31,16 @@ function TypeCursor() {
 }
 
 export function TsxHeroAnimated() {
-  const [phase,  setPhase]  = useState(0);
-  const [chars1, setChars1] = useState(0);
-  const [chars2, setChars2] = useState(0);
-  const [chars3, setChars3] = useState(0);
+  const [phase,     setPhase]     = useState(0);
+  const [chars1,    setChars1]    = useState(0);
+  const [chars2,    setChars2]    = useState(0);
+  const [chars3,    setChars3]    = useState(0);
+  const [showVideo, setShowVideo] = useState(false);
+
+  useEffect(() => {
+    const vt = setTimeout(() => setShowVideo(true), 300);
+    return () => clearTimeout(vt);
+  }, []);
 
   useEffect(() => {
     function typeString(length: number, setter: (n: number) => void, onDone: () => void) {
@@ -76,17 +82,17 @@ export function TsxHeroAnimated() {
 
       {/* video background */}
       <video
-        autoPlay loop muted playsInline
-        preload="auto"
-        className="absolute inset-0 h-full w-full object-cover"
-        style={{ opacity: 0.45, objectPosition: "center center" }}
+        autoPlay loop muted playsInline preload="auto"
+        onCanPlay={() => setShowVideo(true)}
+        className="absolute inset-0 h-full w-full object-cover transition-opacity duration-[1800ms]"
+        style={{ opacity: showVideo ? 0.85 : 0, objectPosition: "center center" }}
       >
         <source src="/images/technical.mp4" type="video/mp4" />
       </video>
 
       {/* gradient overlay */}
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: "linear-gradient(to top, rgba(0,0,0,0.92) 25%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.15) 100%)" }}
+        style={{ background: "linear-gradient(to top, rgba(0,0,0,0.85) 20%, rgba(0,0,0,0.3) 55%, rgba(0,0,0,0.1) 100%)" }}
       />
 
       {/* teal glow — top right */}
