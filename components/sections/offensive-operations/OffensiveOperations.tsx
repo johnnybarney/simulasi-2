@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { PenTestAnimation } from "./PenTestAnimation";
 import { Container } from "@/components/layout/Container";
 
 const DISPLAY = "'Clash Display', sans-serif";
@@ -56,7 +57,7 @@ export function OffensiveOperationsMethodologySection() {
   ];
 
   return (
-    <section className="border-y border-white/8 py-32" style={{ backgroundImage: SECTION_BG }}>
+    <section className="theme-section-bg border-y border-white/8 py-32" style={{ backgroundImage: SECTION_BG }}>
       <Container>
         <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ methodology</p>
         <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
@@ -122,7 +123,7 @@ export function OffensiveOperationsBenefitsSection() {
 /* ── Red Teaming vs Pen Test ──────────────────────────────── */
 export function OffensiveOperationsComparisonSection() {
   return (
-    <section className="border-t border-white/8 py-32" style={{ backgroundImage: SECTION_BG }}>
+    <section className="theme-section-bg border-t border-white/8 py-32" style={{ backgroundImage: SECTION_BG }}>
       <Container>
         <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ comparison</p>
         <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
@@ -130,9 +131,7 @@ export function OffensiveOperationsComparisonSection() {
         </h2>
         <div className="grid grid-cols-2 gap-8">
           <div className="overflow-hidden border border-white/8" style={{ borderRadius: "9px" }}>
-            <div className="relative aspect-[4/3] w-full">
-              <Image src="/images/penat3.png" alt="Penetration Testing" fill sizes="50vw" className="object-contain p-4" />
-            </div>
+            <PenTestAnimation />
             <div className="border-t border-white/8 p-6">
               <p className="text-xs tracking-[0.3em] uppercase text-white/40" style={{ fontFamily: BODY }}>/ 01</p>
               <p className="mt-2 font-semibold text-white" style={{ fontFamily: DISPLAY }}>Penetration Testing</p>

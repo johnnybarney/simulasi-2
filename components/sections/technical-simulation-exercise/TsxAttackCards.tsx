@@ -11,7 +11,7 @@ const CARD_BG = "linear-gradient(339deg, rgba(0,197,205,0.04) 18%, rgba(84,84,84
 ────────────────────────────────────────────────────────────── */
 function PlaceholderPanel({ watermark, label }: { watermark: string; label: string }) {
   return (
-    <div className="relative aspect-video w-full overflow-hidden"
+    <div className="theme-section-bg relative aspect-video w-full overflow-hidden"
       style={{ background: "#050505", borderRadius: "9px 9px 0 0" }}>
 
       {/* top teal accent line */}

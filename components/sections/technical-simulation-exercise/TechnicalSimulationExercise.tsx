@@ -49,7 +49,7 @@ export function TechnicalSimulationExerciseHero() {
 /* ── Methodology ──────────────────────────────────────────── */
 export function TechnicalSimulationExerciseMethodologySection() {
   return (
-    <section className="py-32" style={{ backgroundImage: SECTION_BG }}>
+    <section className="theme-section-bg py-32" style={{ backgroundImage: SECTION_BG }}>
       <Container>
         <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ methodology</p>
         <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
@@ -131,7 +131,7 @@ export function TechnicalSimulationExerciseLifecycleSection() {
   ];
 
   return (
-    <section className="relative overflow-hidden border-t border-white/8 py-32" style={{ backgroundImage: SECTION_BG }}>
+    <section className="theme-section-bg relative overflow-hidden border-t border-white/8 py-32" style={{ backgroundImage: SECTION_BG }}>
       <span className="pointer-events-none absolute -left-10 top-1/4 select-none font-bold text-white/[0.025]"
         style={{ fontFamily: DISPLAY, fontSize: "clamp(6rem, 18vw, 16rem)", lineHeight: 1 }}>
         lifecycle

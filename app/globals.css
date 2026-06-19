@@ -14,6 +14,39 @@
   --font-body:    var(--font-chakra), 'Chakra Petch', sans-serif;
 }
 
+/* ── Theme CSS variables ────────────────────────────────────── */
+:root, [data-theme="dark"] {
+  --theme-bg:           #000000;
+  --theme-bg-section:   #0a0a0a;
+  --theme-bg-card:      #0d0d0d;
+  --theme-bg-elevated:  #111111;
+  --theme-text:         #ffffff;
+  --theme-text-sec:     rgba(255,255,255,0.65);
+  --theme-text-muted:   rgba(255,255,255,0.40);
+  --theme-text-dim:     rgba(255,255,255,0.20);
+  --theme-border:       rgba(255,255,255,0.08);
+  --theme-border-mid:   rgba(255,255,255,0.15);
+  --theme-surface:      rgba(255,255,255,0.04);
+  --theme-accent:       #00c5cd;
+  --theme-header-bg:    rgba(0,0,0,0.95);
+}
+
+[data-theme="light"] {
+  --theme-bg:           #f4f5f7;
+  --theme-bg-section:   #e8eaed;
+  --theme-bg-card:      #ffffff;
+  --theme-bg-elevated:  #f0f1f4;
+  --theme-text:         #0d0d0d;
+  --theme-text-sec:     rgba(0,0,0,0.65);
+  --theme-text-muted:   rgba(0,0,0,0.45);
+  --theme-text-dim:     rgba(0,0,0,0.30);
+  --theme-border:       rgba(0,0,0,0.08);
+  --theme-border-mid:   rgba(0,0,0,0.15);
+  --theme-surface:      rgba(0,0,0,0.04);
+  --theme-accent:       #00a8af;
+  --theme-header-bg:    rgba(244,245,247,0.97);
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -29,8 +62,8 @@
   }
 
   body {
-    background-color: #000000;
-    color: #ffffff;
+    background-color: var(--theme-bg, #000000);
+    color: var(--theme-text, #ffffff);
     font-family: var(--font-body);
     font-weight: 500;
     line-height: 106.5%;
@@ -38,6 +71,7 @@
     -moz-osx-font-smoothing: grayscale;
     cursor: none;
     margin: 0;
+    transition: background-color 0.35s ease, color 0.35s ease;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -143,3 +177,98 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ── Light mode overrides ───────────────────────────────────────── */
+[data-theme="light"] {
+  /* header bar */
+  header[style*="background"] {
+    background-color: var(--theme-header-bg) !important;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+
+  /* text-white → dark (global, except inside .theme-hero) */
+  .text-white { color: #0d0d0d !important; }
+
+  /* white/opacity variants */
+  .text-white\/20 { color: rgba(0,0,0,0.25) !important; }
+  .text-white\/30 { color: rgba(0,0,0,0.35) !important; }
+  .text-white\/40 { color: rgba(0,0,0,0.45) !important; }
+  .text-white\/50 { color: rgba(0,0,0,0.55) !important; }
+  .text-white\/60 { color: rgba(0,0,0,0.65) !important; }
+  .text-white\/70 { color: rgba(0,0,0,0.70) !important; }
+  .text-white\/75 { color: rgba(0,0,0,0.75) !important; }
+  .text-white\/80 { color: rgba(0,0,0,0.80) !important; }
+
+  /* black backgrounds → light */
+  .bg-black        { background-color: #f4f5f7 !important; }
+  .bg-black\/80    { background-color: rgba(244,245,247,0.9) !important; }
+  .bg-white\/5     { background-color: rgba(0,0,0,0.04) !important; }
+  .bg-white\/8     { background-color: rgba(0,0,0,0.06) !important; }
+  .bg-white\/10    { background-color: rgba(0,0,0,0.08) !important; }
+
+  /* ── themed section bg override (beats inline styles) ── */
+  .theme-section-bg {
+    background: var(--theme-bg-section) !important;
+  }
+
+  /* card bg */
+  .card-bg {
+    background-image: linear-gradient(339deg, rgba(0,197,205,0.06) 18%, rgba(0,0,0,0.04) 77%);
+  }
+
+  /* border colours */
+  .border-white\/8  { border-color: rgba(0,0,0,0.08) !important; }
+  .border-white\/10 { border-color: rgba(0,0,0,0.10) !important; }
+  .border-white\/20 { border-color: rgba(0,0,0,0.20) !important; }
+
+  /* background tints */
+  .bg-cyber-bg { background-color: #f4f5f7 !important; }
+
+  /* menu/overlay */
+  .bg-\[\#050505\]  { background-color: #f4f5f7 !important; }
+  .bg-\[\#0a0a0a\]  { background-color: #e8eaed !important; }
+  .bg-\[\#000000\]  { background-color: #f4f5f7 !important; }
+}
+
+/* ── Light mode: additional utility overrides ─────────────────── */
+[data-theme="light"] {
+  /* cards with gradient bg (semi-transparent tints) — add light border */
+  [style*="rgba(0,197,205,0.04)"],
+  [style*="rgba(0,197,205,0.08)"] {
+    background-image: linear-gradient(339deg, rgba(0,197,205,0.08) 18%, rgba(0,0,0,0.04) 77%) !important;
+    border: 1px solid rgba(0,197,205,0.15);
+  }
+
+  /* label/eyebrow text that uses Tailwind opacity classes */
+  .text-white\/\[0\.025\]  { color: rgba(0,0,0,0.06) !important; }
+  .text-white\/\[0\.03\]   { color: rgba(0,0,0,0.07) !important; }
+  .text-white\/\[0\.10\]   { color: rgba(0,0,0,0.10) !important; }
+  .text-white\/15          { color: rgba(0,0,0,0.18) !important; }
+
+  /* border helpers */
+  .border-white\/5  { border-color: rgba(0,0,0,0.06) !important; }
+  .border-white\/8  { border-color: rgba(0,0,0,0.08) !important; }
+  .border-white\/10 { border-color: rgba(0,0,0,0.10) !important; }
+  .border-white\/15 { border-color: rgba(0,0,0,0.15) !important; }
+  .border-white\/20 { border-color: rgba(0,0,0,0.20) !important; }
+
+  /* divider lines */
+  .h-px.bg-white\/10,
+  .w-px.bg-white\/10 { background-color: rgba(0,0,0,0.10) !important; }
+}
+
+/* ── Hero section: always stays dark regardless of theme ──────── */
+[data-theme="light"] .theme-hero { background-color: #000000; }
+[data-theme="light"] .theme-hero .text-white        { color: #ffffff !important; }
+[data-theme="light"] .theme-hero .text-white\/20    { color: rgba(255,255,255,0.20) !important; }
+[data-theme="light"] .theme-hero .text-white\/30    { color: rgba(255,255,255,0.30) !important; }
+[data-theme="light"] .theme-hero .text-white\/40    { color: rgba(255,255,255,0.40) !important; }
+[data-theme="light"] .theme-hero .text-white\/50    { color: rgba(255,255,255,0.50) !important; }
+[data-theme="light"] .theme-hero .text-white\/60    { color: rgba(255,255,255,0.60) !important; }
+[data-theme="light"] .theme-hero .text-white\/70    { color: rgba(255,255,255,0.70) !important; }
+[data-theme="light"] .theme-hero .text-white\/75    { color: rgba(255,255,255,0.75) !important; }
+[data-theme="light"] .theme-hero .text-white\/80    { color: rgba(255,255,255,0.80) !important; }
+[data-theme="light"] .theme-hero .border-white\/15  { border-color: rgba(255,255,255,0.15) !important; }
+[data-theme="light"] .theme-hero .border-white\/40  { border-color: rgba(255,255,255,0.40) !important; }
+[data-theme="light"] .theme-hero .border-white\/8   { border-color: rgba(255,255,255,0.08) !important; }
+[data-theme="light"] .theme-hero .border-white\/30  { border-color: rgba(255,255,255,0.30) !important; }

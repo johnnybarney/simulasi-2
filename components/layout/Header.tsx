@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { cn } from "@/lib/cn";
 import { routes } from "@/lib/navigation";
 import { Container } from "@/components/layout/Container";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 const DISPLAY = "'Clash Display', sans-serif";
 const BODY    = "var(--font-chakra), 'Chakra Petch', sans-serif";
@@ -56,27 +57,30 @@ export function Header({ activeHref }: Props) {
   return (
     <>
       {/* ── top bar ──────────────────────────────────────────────── */}
-      <header className="fixed top-0 left-0 right-0 z-[200]" style={{ backgroundColor: "#000000" }}>
+      <header className="fixed top-0 left-0 right-0 z-[200]" style={{ backgroundColor: "var(--theme-header-bg, #000000)", transition: "background-color 0.35s ease" }}>
         <Container className="flex items-center justify-between py-6">
           <Link
             href="/"
             onClick={closeMenu}
-            className="flex items-center gap-2 font-bold tracking-tight text-white text-xl"
-            style={{ fontFamily: DISPLAY }}
+            className="flex items-center gap-2 font-bold tracking-tight text-xl"
+            style={{ fontFamily: DISPLAY, color: "var(--theme-text, #ffffff)" }}
           >
             <Image src="/images/rpmy3.png" alt="RP.MY logo" width={32} height={32} className="object-contain" />
             Simulasi
           </Link>
 
-          <button
-            onClick={() => setOpen((v) => !v)}
-            className="text-[11px] tracking-[0.35em] uppercase text-white transition-opacity hover:opacity-60"
-            style={{ fontFamily: BODY }}
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-          >
-            {open ? "/ Close" : "/ Menu"}
-          </button>
+          <div className="flex items-center gap-5">
+            <ThemeToggle />
+            <button
+              onClick={() => setOpen((v) => !v)}
+              className="text-[11px] tracking-[0.35em] uppercase transition-opacity hover:opacity-60"
+              style={{ fontFamily: BODY, color: "var(--theme-text, #ffffff)" }}
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+            >
+              {open ? "/ Close" : "/ Menu"}
+            </button>
+          </div>
         </Container>
       </header>
 
@@ -86,20 +90,20 @@ export function Header({ activeHref }: Props) {
           "fixed inset-0 z-[199] transition-all duration-500",
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none",
         )}
-        style={{ backgroundColor: "#000000" }}
+        style={{ backgroundColor: "var(--theme-bg, #000000)", transition: "background-color 0.35s ease" }}
       >
         <Container className="flex h-full flex-col justify-between py-28">
 
           {/* top: contact info */}
           <div className="flex flex-wrap gap-8 border-b border-white/8 pb-8">
             <a href="mailto:contact@simulasi.org"
-              className="text-[11px] tracking-[0.25em] uppercase text-white/40 hover:text-white transition-colors"
-              style={{ fontFamily: BODY }}>
+              className="text-[11px] tracking-[0.25em] uppercase transition-colors hover:opacity-100"
+              style={{ fontFamily: BODY, color: "var(--theme-text-muted, rgba(255,255,255,0.4))" }}>
               contact@simulasi.org
             </a>
             <a href="https://rp.my" target="_blank" rel="noopener noreferrer"
-              className="text-[11px] tracking-[0.25em] uppercase text-white/40 hover:text-white transition-colors"
-              style={{ fontFamily: BODY }}>
+              className="text-[11px] tracking-[0.25em] uppercase transition-colors hover:opacity-100"
+              style={{ fontFamily: BODY, color: "var(--theme-text-muted, rgba(255,255,255,0.4))" }}>
               rp.my
             </a>
           </div>
@@ -124,12 +128,18 @@ export function Header({ activeHref }: Props) {
                             fontSize: "clamp(2rem, 5vw, 4rem)",
                             letterSpacing: "0.04em",
                             textTransform: "uppercase",
-                            color: isActive ? ACCENT : "#ffffff",
+                            color: isActive ? ACCENT : "var(--theme-text, #ffffff)",
                           }}
-                          onMouseEnter={() => setHovered(link.sub)}
+                          onMouseEnter={(e) => {
+                            setHovered(link.sub);
+                            (e.currentTarget as HTMLElement).style.color = ACCENT;
+                          }}
+                          onMouseLeave={(e) => {
+                            if (!isActive) (e.currentTarget as HTMLElement).style.color = "var(--theme-text, #ffffff)";
+                          }}
                         >
-                          <span className="text-[11px] tracking-[0.3em] uppercase text-white/30 self-center"
-                            style={{ fontFamily: BODY, color: isActive ? `${ACCENT}88` : undefined }}>
+                          <span className="text-[11px] tracking-[0.3em] uppercase self-center"
+                            style={{ fontFamily: BODY, color: isActive ? `${ACCENT}88` : "var(--theme-text-muted, rgba(255,255,255,0.3))" }}>
                             / {String(i + 1).padStart(2, "0")}
                           </span>
                           {link.label}
@@ -140,27 +150,28 @@ export function Header({ activeHref }: Props) {
                           </span>
                         </button>
                       ) : (
-                        /* About Us / Contact — click directly */
+                        /* About Us / Contact / Cyber Pulse — click directly */
                         <Link
                           href={link.href}
                           onClick={closeMenu}
-                          className="group flex items-baseline gap-4 py-2 font-bold leading-tight text-white transition-colors duration-200"
+                          className="group flex items-baseline gap-4 py-2 font-bold leading-tight transition-colors duration-200"
                           style={{
                             fontFamily: DISPLAY,
                             fontSize: "clamp(2rem, 5vw, 4rem)",
                             letterSpacing: "0.04em",
                             textTransform: "uppercase",
+                            color: "var(--theme-text, #ffffff)",
                           }}
                           onMouseEnter={(e) => {
                             setHovered(null);
                             (e.currentTarget as HTMLElement).style.color = ACCENT;
                           }}
                           onMouseLeave={(e) => {
-                            (e.currentTarget as HTMLElement).style.color = "#ffffff";
+                            (e.currentTarget as HTMLElement).style.color = "var(--theme-text, #ffffff)";
                           }}
                         >
-                          <span className="text-[11px] tracking-[0.3em] uppercase text-white/30 self-center"
-                            style={{ fontFamily: BODY }}>
+                          <span className="text-[11px] tracking-[0.3em] uppercase self-center"
+                            style={{ fontFamily: BODY, color: "var(--theme-text-muted, rgba(255,255,255,0.3))" }}>
                             / {String(i + 1).padStart(2, "0")}
                           </span>
                           {link.label}
@@ -180,32 +191,68 @@ export function Header({ activeHref }: Props) {
                       / {hovered === "services" ? "our services" : "our products"}
                     </p>
                     <ul className="space-y-1">
-                      {subLinks.map((item) => (
-                        <li key={item.href}>
-                          <Link
-                            href={item.href}
-                            onClick={closeMenu}
-                            className="group flex items-center gap-3 py-2.5 border-b border-white/5 transition-all duration-200 hover:border-white/20"
-                          >
-                            <span className="text-[10px] tracking-[0.2em] uppercase transition-colors duration-200"
+                      {subLinks.map((item) => {
+                        const isExternal = item.href.startsWith("http");
+                        const baseColor = "var(--theme-text-sec, rgba(255,255,255,0.6))";
+                        const arrowColor = "var(--theme-text-dim, rgba(255,255,255,0.2))";
+
+                        function handleEnter(e: React.MouseEvent<HTMLElement>) {
+                          const el = e.currentTarget;
+                          el.querySelector<HTMLElement>("[data-label]")!.style.color = ACCENT;
+                          el.querySelector<HTMLElement>("[data-arrow]")!.style.color = ACCENT;
+                          el.style.borderBottomColor = "rgba(0,197,205,0.4)";
+                        }
+                        function handleLeave(e: React.MouseEvent<HTMLElement>) {
+                          const el = e.currentTarget;
+                          el.querySelector<HTMLElement>("[data-label]")!.style.color = baseColor;
+                          el.querySelector<HTMLElement>("[data-arrow]")!.style.color = arrowColor;
+                          el.style.borderBottomColor = "";
+                        }
+
+                        const inner = (
+                          <>
+                            <span className="text-[10px] tracking-[0.2em] uppercase"
                               style={{ color: ACCENT, fontFamily: BODY, minWidth: "3.5rem" }}>
                               {item.code ?? "→"}
                             </span>
-                            <span className="text-sm font-medium text-white/60 group-hover:text-white transition-colors duration-200"
-                              style={{ fontFamily: BODY, letterSpacing: "0.05em" }}>
+                            <span data-label className="text-sm font-medium transition-colors duration-200"
+                              style={{ fontFamily: BODY, letterSpacing: "0.05em", color: baseColor }}>
                               {item.label}
                             </span>
-                            <span className="ml-auto text-white/20 group-hover:text-white/60 transition-all duration-200 translate-x-0 group-hover:translate-x-1">
+                            <span data-arrow className="ml-auto transition-colors duration-200"
+                              style={{ color: arrowColor }}>
                               →
                             </span>
-                          </Link>
-                        </li>
-                      ))}
+                          </>
+                        );
+
+                        const sharedProps = {
+                          onClick: closeMenu,
+                          onMouseEnter: handleEnter,
+                          onMouseLeave: handleLeave,
+                          className: "flex items-center gap-3 py-2.5 border-b transition-all duration-200",
+                          style: { borderBottomColor: "var(--theme-border, rgba(255,255,255,0.05))" } as React.CSSProperties,
+                        };
+
+                        return (
+                          <li key={item.href}>
+                            {isExternal ? (
+                              <a href={item.href} target="_blank" rel="noopener noreferrer" {...sharedProps}>
+                                {inner}
+                              </a>
+                            ) : (
+                              <Link href={item.href} {...sharedProps}>
+                                {inner}
+                              </Link>
+                            )}
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
                 ) : (
                   /* idle state: subtle prompt */
-                  <p className="text-[10px] tracking-[0.35em] uppercase text-white/15" style={{ fontFamily: BODY }}>
+                  <p className="text-[10px] tracking-[0.35em] uppercase" style={{ fontFamily: BODY, color: "var(--theme-text-dim, rgba(255,255,255,0.15))" }}>
                     / hover a section to explore
                   </p>
                 )}

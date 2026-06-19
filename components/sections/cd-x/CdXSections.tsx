@@ -84,7 +84,7 @@ export function CdXHero() {
 /* ── Cyber Drills ─────────────────────────────────────────── */
 export function CyberDrillsSection() {
   return (
-    <section className="border-y border-white/8 py-32" style={{ backgroundImage: SECTION_BG }}>
+    <section className="theme-section-bg border-y border-white/8 py-32" style={{ backgroundImage: SECTION_BG }}>
       <Container className="grid items-center gap-16 lg:grid-cols-2">
         <div className="overflow-hidden border border-white/8" style={{ borderRadius: "9px" }}>
           <Image src="/images/national.png" alt="National Critical Infrastructure"
@@ -173,7 +173,7 @@ export function PartnersSection() {
   const track = [...partnerLogos, ...partnerLogos];
 
   return (
-    <section className="border-t border-white/8 py-20" style={{ backgroundImage: SECTION_BG }}>
+    <section className="theme-section-bg border-t border-white/8 py-20" style={{ backgroundImage: SECTION_BG }}>
       <Container>
         <div className="overflow-hidden">
           <div className="marquee-track flex items-center whitespace-nowrap" style={{ animationDuration: "35s" }}>

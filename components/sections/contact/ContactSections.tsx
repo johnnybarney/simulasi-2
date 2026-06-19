@@ -22,7 +22,7 @@ export function ContactMainSection({ embedded = false }: { embedded?: boolean })
 
   return (
     <section id={embedded ? "contact" : undefined}
-      className="relative overflow-hidden border-t border-white/8 py-32"
+      className="theme-section-bg relative overflow-hidden border-t border-white/8 py-32"
       style={{ backgroundImage: SECTION_BG }}>
       <div className="pointer-events-none absolute inset-0"
         style={{ background: `radial-gradient(ellipse 80% 50% at 50% 100%, ${ACCENT}18 0%, transparent 70%)` }} />

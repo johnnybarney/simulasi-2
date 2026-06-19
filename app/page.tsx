@@ -215,7 +215,7 @@ export default function HomePage() {
         })()}
 
         {/* ─── About / simulasi ─────────────────────────────────── */}
-        <section className="relative overflow-hidden py-32" style={{ backgroundImage: SECTION_BG }}>
+        <section className="theme-section-bg relative overflow-hidden py-32" style={{ backgroundImage: SECTION_BG }}>
           <SideTag label="/ simulasi" />
           <span className="pointer-events-none absolute -right-10 top-1/2 -translate-y-1/2 select-none font-bold text-white/[0.03]"
             style={{ fontFamily: DISPLAY, fontSize: "clamp(6rem, 20vw, 18rem)", lineHeight: 1 }}>
@@ -345,7 +345,7 @@ export default function HomePage() {
         </section>
 
         {/* ─── simulasi / platform spotlight ("devsecops" equivalent) ── */}
-        <section className="border-y border-white/8 py-24" style={{ backgroundImage: SECTION_BG }}>
+        <section className="theme-section-bg border-y border-white/8 py-24" style={{ backgroundImage: SECTION_BG }}>
           <Container>
             <div className="grid gap-16 lg:grid-cols-2">
               <ScrollReveal>
@@ -413,7 +413,7 @@ export default function HomePage() {
         </section>
 
         {/* ─── CD-X Platform (NetOps equivalent) ──────────────── */}
-        <section className="relative overflow-hidden border-t border-white/8 py-32" style={{ backgroundImage: SECTION_BG }}>
+        <section className="theme-section-bg relative overflow-hidden border-t border-white/8 py-32" style={{ backgroundImage: SECTION_BG }}>
           <span className="pointer-events-none absolute -right-10 top-1/2 -translate-y-1/2 select-none font-bold text-white/[0.025]"
             style={{ fontFamily: DISPLAY, fontSize: "clamp(6rem, 18vw, 16rem)", lineHeight: 1 }}>
             CD-X
@@ -510,7 +510,7 @@ export default function HomePage() {
         </section>
 
         {/* ─── Partners marquee ─────────────────────────────────── */}
-        <section className="border-y border-white/8 py-12" style={{ backgroundImage: SECTION_BG }}>
+        <section className="theme-section-bg border-y border-white/8 py-12" style={{ backgroundImage: SECTION_BG }}>
           <Container>
             <p className="mb-8 text-center text-[10px] tracking-[0.35em] uppercase text-white/30"
               style={{ fontFamily: BODY }}>

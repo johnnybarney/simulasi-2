@@ -84,7 +84,7 @@ export function HeroAnimated() {
   }, []);
 
   return (
-    <section className="relative flex h-screen items-end overflow-hidden">
+    <section className="theme-hero relative flex h-screen items-end overflow-hidden">
 
       {/* ── video background ── */}
       <video
@@ -212,11 +212,11 @@ export function HeroAnimated() {
             </Link>
             <Link
               href={routes.aboutUs}
-              className="inline-flex items-center gap-3 border border-white/15 px-10 py-4 text-[11px] tracking-[0.3em] uppercase text-white/50 hover:border-white/50 hover:text-white/80 transition-all duration-300"
+              className="inline-flex items-center gap-3 border border-white/40 px-10 py-4 text-[11px] tracking-[0.3em] uppercase text-white/75 hover:border-white/70 hover:text-white transition-all duration-300"
               style={{ fontFamily: BODY }}
             >
               Mission Briefing
-              <span className="text-base leading-none opacity-50">→</span>
+              <span className="text-base leading-none opacity-75">→</span>
             </Link>
           </div>
         </div>

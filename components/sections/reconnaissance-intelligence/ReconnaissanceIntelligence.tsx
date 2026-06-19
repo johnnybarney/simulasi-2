@@ -65,7 +65,7 @@ export function ReconnaissanceIntelligenceInvestigationsSection() {
   ];
 
   return (
-    <section className="py-32" style={{ backgroundImage: SECTION_BG }}>
+    <section className="theme-section-bg py-32" style={{ backgroundImage: SECTION_BG }}>
       <Container>
         <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ ai-augmented</p>
         <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
@@ -171,7 +171,7 @@ export function ReconnaissanceIntelligenceForensicsSection() {
   ];
 
   return (
-    <section className="border-y border-white/8 py-32" style={{ backgroundImage: SECTION_BG }}>
+    <section className="theme-section-bg border-y border-white/8 py-32" style={{ backgroundImage: SECTION_BG }}>
       <Container>
         <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ digital forensics</p>
         <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>

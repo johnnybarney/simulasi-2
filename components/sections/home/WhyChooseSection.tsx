@@ -19,7 +19,7 @@ export function WhyChooseSection() {
   const { whyChoose } = homeContent;
 
   return (
-    <section className="relative overflow-hidden py-32" style={{ background: "linear-gradient(300deg, #050505, #000000 56%, #080808)" }}>
+    <section className="theme-section-bg relative overflow-hidden py-32" style={{ background: "linear-gradient(300deg, #050505, #000000 56%, #080808)" }}>
       <span className="pointer-events-none absolute -right-10 top-1/2 -translate-y-1/2 select-none font-bold text-white/[0.025]"
         style={{ fontFamily: DISPLAY, fontSize: "clamp(6rem, 18vw, 16rem)", lineHeight: 1 }}>
         why

@@ -4,6 +4,7 @@ import "./globals.css";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { BackToTop } from "@/components/ui/BackToTop";
+import { ThemeProvider } from "@/components/ui/ThemeProvider";
 
 /* Chakra Petch — Xizt's body / mono font */
 const chakraPetch = Chakra_Petch({
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${chakraPetch.variable} h-full`}>
+    <html lang="en" className={`${chakraPetch.variable} h-full`} suppressHydrationWarning>
       <head>
         {/* Clash Display from Fontshare — Xizt's display/heading font */}
         <link rel="preconnect" href="https://api.fontshare.com" />
@@ -48,13 +49,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap"
         />
       </head>
-      <body className="flex min-h-full flex-col text-white antialiased" style={{ backgroundColor: "#000000", fontFamily: "var(--font-chakra), 'Chakra Petch', sans-serif" }}>
-        <CustomCursor />
-        <ScrollProgress />
-        <BackToTop />
-        <div className="pt-20">
-          {children}
-        </div>
+      <body className="flex min-h-full flex-col antialiased theme-body" style={{ fontFamily: "var(--font-chakra), 'Chakra Petch', sans-serif" }}>
+        <ThemeProvider>
+          <CustomCursor />
+          <ScrollProgress />
+          <BackToTop />
+          <div className="pt-20">
+            {children}
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -61,7 +61,7 @@ export function AsxOfferingsSection() {
   const { offerings } = asxContent;
 
   return (
-    <section className="py-32" style={{ backgroundImage: SECTION_BG }}>
+    <section className="theme-section-bg py-32" style={{ backgroundImage: SECTION_BG }}>
       <Container>
         <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ strategy &amp; tactics</p>
         <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>

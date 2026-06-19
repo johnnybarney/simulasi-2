@@ -73,7 +73,7 @@ function MniXHeroAnimated() {
   }, []);
 
   return (
-    <section className="relative flex min-h-[80vh] items-end overflow-hidden pb-20 pt-32">
+    <section className="theme-hero relative flex min-h-[80vh] items-end overflow-hidden pb-20 pt-32">
 
       {/* back button */}
       <div className="absolute top-24 left-0 z-10 px-6 md:px-12 lg:px-20">
@@ -144,7 +144,7 @@ function MniXHeroAnimated() {
               ( Physical Viz )
             </p>
           </div>
-          <p className="mt-6 max-w-xl text-sm leading-relaxed text-white/40" style={{ fontFamily: BODY }}>
+          <p className="mt-6 max-w-xl text-sm leading-relaxed text-white/75" style={{ fontFamily: BODY }}>
             The prime standard for physical cyber security visualization — making invisible threats tangible for executives, operators, and analysts alike.
           </p>
         </div>
