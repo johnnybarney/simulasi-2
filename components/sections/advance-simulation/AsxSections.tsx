@@ -63,37 +63,29 @@ export function AsxOfferingsSection() {
   return (
     <section className="theme-section-bg py-32" style={{ backgroundImage: SECTION_BG }}>
       <Container>
-        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ strategy &amp; tactics</p>
+        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ offerings</p>
         <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
-          Tactical&nbsp;<span style={gradStyle}>/ Solutions /</span>
+          Strategy &amp;&nbsp;<span style={gradStyle}>/ Tactical Solutions /</span>
         </h2>
-        <div className="space-y-20">
-          {offerings.map((offering, index) => {
-            const reversed = index % 2 === 1;
-            return (
-              <div key={offering.title}
-                className={`grid items-start gap-12 lg:grid-cols-2 ${reversed ? "lg:[&>*:first-child]:order-2 lg:[&>*:last-child]:order-1" : ""}`}>
-                <div className="lg:pt-4">
-                  <span className="block mb-3 text-sm font-semibold" style={{ color: ACCENT, fontFamily: BODY }}>/ {String(index + 1).padStart(2, "0")}</span>
-                  <h3 className="font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(1.5rem, 2.5vw, 2rem)" }}>
-                    {offering.title}
-                  </h3>
-                  <div className="mt-4 h-px w-16" style={{ background: `linear-gradient(90deg, ${ACCENT}, transparent)` }} />
-                </div>
-                <div className="space-y-4">
-                  {offering.blocks.map((block) => (
-                    <div key={block.label} className="p-6 transition-all duration-300 hover:scale-[1.01]"
-                      style={{ backgroundImage: CARD_BG, borderRadius: "9px" }}>
-                      <p className="mb-1 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1rem" }}>
-                        <span style={{ color: ACCENT }}>/ </span>{block.label}
-                      </p>
-                      <p className="text-sm text-white/50" style={{ fontFamily: BODY }}>{block.text}</p>
-                    </div>
-                  ))}
-                </div>
+        <div className="grid gap-6 lg:grid-cols-3">
+          {offerings.map((item, i) => (
+            <div key={item.title} className="p-8 transition-all duration-500 hover:scale-[1.02]"
+              style={{ backgroundImage: CARD_BG, borderRadius: "9px" }}>
+              <span className="block mb-6 font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "3rem", color: `${ACCENT}40` }}>
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mb-4 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1.125rem" }}>
+                {item.title}
+              </h3>
+              <div className="space-y-2">
+                {item.blocks.map((block) => (
+                  <p key={block.label} className="text-xs text-white/50" style={{ fontFamily: BODY }}>
+                    <span style={{ color: ACCENT }}>/</span> <span className="text-white/70">{block.label}:</span> {block.text}
+                  </p>
+                ))}
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </Container>
     </section>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { PenTestAnimation } from "./PenTestAnimation";
+import { RedTeamAnimation } from "./RedTeamAnimation";
 import { Container } from "@/components/layout/Container";
 
 const DISPLAY = "'Clash Display', sans-serif";
@@ -139,9 +140,7 @@ export function OffensiveOperationsComparisonSection() {
             </div>
           </div>
           <div className="overflow-hidden border border-white/8" style={{ borderRadius: "9px" }}>
-            <div className="relative aspect-[4/3] w-full">
-              <Image src="/images/red3.png" alt="Red Teaming" fill sizes="50vw" className="object-contain p-4" />
-            </div>
+            <RedTeamAnimation />
             <div className="border-t border-white/8 p-6">
               <p className="text-xs tracking-[0.3em] uppercase" style={{ color: ACCENT, fontFamily: BODY }}>/ 02</p>
               <p className="mt-2 font-semibold text-white" style={{ fontFamily: DISPLAY }}>Red Teaming</p>

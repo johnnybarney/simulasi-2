@@ -1,15 +1,39 @@
 "use client";
 
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 const ACCENT = "#00c5cd";
 const BODY   = "var(--font-chakra), 'Chakra Petch', sans-serif";
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  // Default to "dark" before hydration so the toggle renders consistently
-  const isDark = (theme ?? "dark") === "dark";
+  useEffect(() => {
+    // defer one tick so setState is not synchronous inside the effect body
+    const t = setTimeout(() => {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setMounted(true);
+    }, 0);
+    return () => clearTimeout(t);
+  }, []);
+
+  // Before hydration: render a neutral, theme-agnostic placeholder
+  // so server HTML and client HTML always match on first render
+  if (!mounted) {
+    return (
+      <div
+        className="h-5 w-10 rounded-full flex-shrink-0"
+        style={{
+          background: "rgba(0,197,205,0.2)",
+          border: "1px solid rgba(0,197,205,0.4)",
+        }}
+      />
+    );
+  }
+
+  const isDark = theme === "dark";
 
   return (
     <button
