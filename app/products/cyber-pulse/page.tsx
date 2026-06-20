@@ -59,6 +59,7 @@ export default function CyberPulsePage() {
         watermark="PULSE"
         code="Intelligence Feed"
         description="Real-time cyber threat intelligence and situational awareness — keeping your organisation informed, prepared, and ahead of adversaries."
+        video="/images/cyberpulse.mp4"
       />
 
       {/* ── Articles ── */}

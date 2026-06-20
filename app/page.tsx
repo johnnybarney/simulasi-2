@@ -1,12 +1,10 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Container } from "@/components/layout/Container";
 import { LoadingScreen } from "@/components/ui/LoadingScreen";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { HeroAnimated } from "@/components/sections/home/HeroAnimated";
-import { ServiceLink } from "@/components/ui/ServiceLink";
 import { ScrollAnchorRestore } from "@/components/ui/ScrollAnchorRestore";
 import { routes } from "@/lib/navigation";
 import { homeContent } from "@/lib/constants/home";
@@ -25,48 +23,19 @@ const gradStyle = {
 };
 
 /* ── Xizt card backgrounds ───────────────────────────────────── */
-const ABOUT_CARD_BG   = "linear-gradient(339deg, rgba(0,197,205,0.04) 18%, rgba(84,84,84,0.08) 77%)";
 const NEEDS_CARD_BG   = "linear-gradient(145deg, rgba(0,197,205,0.08) 32%, rgba(84,84,84,0.12) 73%)";
 const SECTION_BG      = "linear-gradient(300deg, #050505, #000000 56%, #080808)";
 
 /* ── page data ───────────────────────────────────────────────── */
-const aboutItems = [
-  { num: "01", title: "We Simulate",           lines: ["Real-world adversary tactics", "Live infrastructure stress tests", "Command & decision wargames"] },
-  { num: "02", title: "Quickly and safely",    lines: ["Expose hidden vulnerabilities", "Validate your detection stack", "Strengthen incident response"] },
-  { num: "03", title: "We deliver intelligence", lines: ["OSINT & attack surface mapping", "Deep/dark web reconnaissance", "Actionable threat reporting"] },
-  { num: "04", title: "We build capability",   lines: ["Strategic training programs", "Skills gap remediation", "Measurable maturity scoring"] },
-];
-
 const needItems = [
-  { title: "Test your defenses",  lines: ["Red team operations", "Penetration testing", "Adversarial simulation"] },
+  { title: "Test your defenses",  lines: ["Red team operations", "Adversarial simulation"] },
   { title: "Train your team",     lines: ["Tabletop exercises", "Technical drills", "Decision-making frameworks"] },
   { title: "Map your exposure",   lines: ["OSINT reconnaissance", "Dark web analysis", "Attack surface discovery"] },
   { title: "Build resilience",    lines: ["Maturity assessment", "Skills development", "Playbook creation"] },
-  { title: "Respond faster",      lines: ["IR war gaming", "Playbook refinement", "Escalation rehearsals"] },
+  { title: "Respond faster",      lines: ["Incident Response simulation", "Playbook refinement", "Escalation rehearsals"] },
   { title: "Prove compliance",    lines: ["Framework alignment", "Audit-ready reporting", "Regulatory mapping"] },
 ];
 
-const serviceList = [
-  { num: "01", title: "Technical Simulation Exercise", sub: "TSX",               href: routes.tsx },
-  { num: "02", title: "Interactive Tabletop Exercise",  sub: "iTTX",              href: routes.ittx },
-  { num: "03", title: "Advance Simulation Exercise",    sub: "ASX",               href: routes.asx },
-  { num: "04", title: "Offensive Operations",           sub: "Attack Simulation", href: routes.attackSimulation },
-  { num: "05", title: "Reconnaissance Intelligence",    sub: "Recon Intel",       href: routes.reconIntel },
-  { num: "06", title: "Capacity Building",              sub: "Strategic Training", href: "https://rp.my/training" },
-  { num: "07", title: "CD-X Platform",                  sub: "CE-C2",             href: routes.cdX },
-  { num: "08", title: "MNI-X 3D Kit",                   sub: "Physical Visualization", href: routes.mniX3dKit },
-];
-
-const cases = [
-  { num: "01", tag: "Insight",    title: "Why Tabletop Exercises Fail — And How to Fix Them",           excerpt: "Most tabletop exercises produce a report that sits on a shelf. We break down what separates a meaningful exercise from an expensive meeting." },
-  { num: "02", tag: "Case Study", title: "How a Dual-Track ASX Exposed a Critical IR Gap",              excerpt: "A finance-sector client discovered their incident response team and executive leadership had never aligned on crisis authority." },
-  { num: "03", tag: "Intelligence", title: "The Rise of OSINT-Driven Attack Surface Discovery",         excerpt: "Adversaries enumerate your attack surface before you do. We examine the tools and techniques used in modern reconnaissance." },
-  { num: "04", tag: "Product",    title: "Introducing CD-X: The Cyber Exercise Command Platform",       excerpt: "CD-X gives exercise directors full command and control over every phase of a cyber exercise." },
-  { num: "05", tag: "Insight",    title: "Measuring Cyber Maturity: Beyond the Framework Checkbox",     excerpt: "Compliance scores rarely reflect operational readiness. We explore what measurable cyber maturity actually looks like." },
-  { num: "06", tag: "Product",    title: "MNI-X 3D Kit: Making Invisible Threats Physical",             excerpt: "We launched MNI-X 3D Kit to solve a persistent problem: non-technical leaders cannot fund what they cannot see." },
-];
-
-const techLogos  = ["NIST", "ISO 27001", "MITRE ATT&CK", "OSINT", "Red Team", "Zero Trust"];
 const marqueeItems = ["Cyber Resilience", "Attack Simulation", "Threat Intelligence", "Mission Assurance", "War Gaming", "Recon Intel", "Capacity Building", "CE-C2"];
 const partnerLogos = [
   { src: "/images/petronas.png",        alt: "Petronas" },
@@ -214,68 +183,12 @@ export default function HomePage() {
           );
         })()}
 
-        {/* ─── About / simulasi ─────────────────────────────────── */}
-        <section className="theme-section-bg relative overflow-hidden py-32" style={{ backgroundImage: SECTION_BG }}>
-          <SideTag label="/ simulasi" />
-          <span className="pointer-events-none absolute -right-10 top-1/2 -translate-y-1/2 select-none font-bold text-white/[0.03]"
-            style={{ fontFamily: DISPLAY, fontSize: "clamp(6rem, 20vw, 18rem)", lineHeight: 1 }}>
-            about
-          </span>
-          <Container className="relative">
-            <div className="grid gap-16 lg:grid-cols-[1fr_2fr]">
-              <ScrollReveal>
-                <div className="lg:pt-2">
-                  <p className="text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>
-                    / about simulasi
-                  </p>
-                  <h2 className="mt-4 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(1.75rem, 3vw, 2.5rem)" }}>
-                    The Shift to<br />Measurable<br />Capability
-                  </h2>
-                  <p className="mt-4 text-sm leading-relaxed text-white/40" style={{ fontFamily: BODY }}>
-                    {homeContent.about.body}
-                  </p>
-                  <Link href={routes.aboutUs}
-                    className="mt-8 inline-block text-[10px] tracking-[0.3em] uppercase text-white/30 hover:text-white transition-colors"
-                    style={{ fontFamily: BODY }}>
-                    Learn More →
-                  </Link>
-                </div>
-              </ScrollReveal>
-
-              {/* Xizt about grid — 4 cards with subtle gradient bg + border-radius */}
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                {aboutItems.map((item, i) => (
-                  <ScrollReveal key={item.num} delay={i * 0.08}>
-                    <div className="p-6 transition-all duration-500 hover:scale-[1.02]"
-                      style={{ backgroundImage: ABOUT_CARD_BG, borderRadius: "9px" }}>
-                      <span className="block text-sm font-semibold mb-4" style={{ color: ACCENT, fontFamily: BODY }}>
-                        {item.num}
-                      </span>
-                      <h3 className="font-semibold text-white mb-3"
-                        style={{ fontFamily: DISPLAY, fontSize: "1.125rem" }}>
-                        {item.title}
-                      </h3>
-                      <div className="space-y-1">
-                        {item.lines.map((line) => (
-                          <p key={line} className="text-xs text-white/40" style={{ fontFamily: BODY }}>
-                            <span style={{ color: ACCENT }}>/</span> {line}
-                          </p>
-                        ))}
-                      </div>
-                    </div>
-                  </ScrollReveal>
-                ))}
-              </div>
-            </div>
-          </Container>
-        </section>
-
         {/* ─── divider ──────────────────────────────────────────── */}
         <div className="h-px w-full" style={{ background: `linear-gradient(90deg, transparent, ${ACCENT2} 40%, ${ACCENT}, ${ACCENT2} 60%, transparent)` }} />
 
-        {/* ─── you need to ──────────────────────────────────────── */}
+        {/* ─── why you need to ──────────────────────────────────── */}
         <section className="relative py-32">
-          <SideTag label="/ you need to" />
+          <SideTag label="/ why you need to" />
           {/* watermark clipped separately so it doesn't block scroll */}
           <div className="pointer-events-none absolute inset-0 overflow-hidden">
             <span className="absolute -left-10 top-1/2 -translate-y-1/2 select-none font-bold text-white/[0.03]"
@@ -285,9 +198,9 @@ export default function HomePage() {
           </div>
           <Container className="relative mb-12">
             <ScrollReveal>
-              <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ when you need to</p>
+              <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ why you need to</p>
               <h2 className="font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 5vw, 3.5rem)" }}>
-                you<br />need&nbsp;<span style={gradStyle}>/ to /</span>
+                why you<br />need&nbsp;<span style={gradStyle}>/ to /</span>
               </h2>
             </ScrollReveal>
           </Container>
@@ -368,147 +281,6 @@ export default function HomePage() {
           </Container>
         </section>
 
-        {/* ─── what do we / offer / ─────────────────────────────── */}
-        <section className="relative py-32">
-          <SideTag label="/ services" />
-          <Container>
-            <ScrollReveal>
-              <div className="mb-16 flex items-baseline justify-between">
-                <h2 className="font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 5vw, 3.5rem)" }}>
-                  what do<br />we&nbsp;<span style={gradStyle}>/ offer /</span>
-                </h2>
-                <Link href={routes.contact}
-                  className="hidden text-[10px] tracking-[0.3em] uppercase text-white/30 hover:text-white transition-colors md:block"
-                  style={{ fontFamily: BODY }}>
-                  lets talk →
-                </Link>
-              </div>
-            </ScrollReveal>
-
-            <ul className="divide-y divide-white/8">
-              {serviceList.map((s, i) => (
-                <ScrollReveal key={s.num} delay={i * 0.05}>
-                  <li id={`service-${s.num}`}>
-                    <ServiceLink href={s.href} anchorId={`service-${s.num}`}
-                      className="group relative flex items-center justify-between gap-8 py-7 transition-all overflow-hidden">
-                      <span className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"
-                        style={{ background: `linear-gradient(90deg, rgba(0,197,205,0.06) 0%, transparent 100%)` }} />
-                      <div className="relative flex items-center gap-8">
-                        <span className="w-12 shrink-0 text-sm font-semibold" style={{ color: ACCENT, fontFamily: BODY }}>/ {s.num}</span>
-                        <div>
-                          <h3 className="font-semibold text-white group-hover:text-white transition-all"
-                            style={{ fontFamily: DISPLAY, fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}>
-                            {s.title}
-                          </h3>
-                          <p className="mt-0.5 text-[10px] tracking-widest uppercase text-white/30" style={{ fontFamily: BODY }}>( {s.sub} )</p>
-                        </div>
-                      </div>
-                      <span className="relative shrink-0 text-sm text-white/20 group-hover:text-white/60 transition-colors" style={{ fontFamily: BODY }}>→</span>
-                    </ServiceLink>
-                  </li>
-                </ScrollReveal>
-              ))}
-            </ul>
-          </Container>
-        </section>
-
-        {/* ─── CD-X Platform (NetOps equivalent) ──────────────── */}
-        <section className="theme-section-bg relative overflow-hidden border-t border-white/8 py-32" style={{ backgroundImage: SECTION_BG }}>
-          <span className="pointer-events-none absolute -right-10 top-1/2 -translate-y-1/2 select-none font-bold text-white/[0.025]"
-            style={{ fontFamily: DISPLAY, fontSize: "clamp(6rem, 18vw, 16rem)", lineHeight: 1 }}>
-            CD-X
-          </span>
-          <Container className="relative">
-            <div className="grid gap-16 lg:grid-cols-2">
-              <ScrollReveal>
-                <p className="text-[10px] tracking-[0.35em] uppercase text-white/30 mb-4" style={{ fontFamily: BODY }}>/ product</p>
-                <h2 className="font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
-                  CD-X Platform
-                </h2>
-                <p className="mt-3 text-xs tracking-widest uppercase" style={{ color: ACCENT, fontFamily: BODY }}>
-                  Cyber Exercise Command & Control ( CE-C2 )
-                </p>
-                <p className="mt-6 text-sm leading-relaxed text-white/40" style={{ fontFamily: BODY }}>
-                  CD-X gives exercise directors full command and control from mission briefing through live execution to automated after-action reporting. Built for operators, by operators.
-                </p>
-                <Link href={routes.cdX}
-                  className="mt-8 inline-block text-[10px] tracking-[0.3em] uppercase text-white/30 hover:text-white transition-colors"
-                  style={{ fontFamily: BODY }}>
-                  Find Out More →
-                </Link>
-              </ScrollReveal>
-
-              <div className="space-y-6">
-                {[
-                  { num: "/ 01", text: "Real-time exercise orchestration gives directors full command from scenario start to debrief." },
-                  { num: "/ 02", text: "Multi-team role management with live inject delivery synchronized across all participants." },
-                  { num: "/ 03", text: "Automated after-action report generation — no manual assembly, no lost data." },
-                ].map((item) => (
-                  <ScrollReveal key={item.num}>
-                    <div className="border-l-2 pl-6" style={{ borderColor: `${ACCENT}33` }}>
-                      <p className="mb-2 text-sm font-semibold" style={{ color: ACCENT, fontFamily: BODY }}>{item.num}</p>
-                      <p className="text-sm leading-relaxed text-white/40" style={{ fontFamily: BODY }}>{item.text}</p>
-                    </div>
-                  </ScrollReveal>
-                ))}
-              </div>
-            </div>
-          </Container>
-        </section>
-
-        {/* ─── MNI-X 3D Kit (GRC equivalent) ──────────────────── */}
-        <section className="relative overflow-hidden border-t border-white/8 py-32">
-          <span className="pointer-events-none absolute -left-10 top-1/2 -translate-y-1/2 select-none font-bold text-white/[0.025]"
-            style={{ fontFamily: DISPLAY, fontSize: "clamp(6rem, 18vw, 16rem)", lineHeight: 1 }}>
-            MNI-X
-          </span>
-          <Container className="relative">
-            <ScrollReveal>
-              <p className="text-[10px] tracking-[0.35em] uppercase text-white/30 mb-4" style={{ fontFamily: BODY }}>/ product</p>
-              <h2 className="font-bold text-white mb-3" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
-                MNI-X 3D Kit
-              </h2>
-              <p className="mb-12 text-xs tracking-widest uppercase" style={{ color: ACCENT, fontFamily: BODY }}>
-                Physical Cyber Warfare Visualization
-              </p>
-            </ScrollReveal>
-
-            <div className="grid gap-6 md:grid-cols-3">
-              {[
-                { title: "Board-Level Communication",   text: "Make invisible cyber threats tangible for non-technical executives who control security budgets." },
-                { title: "Tabletop Exercise Enhancement", text: "Physical 3D models as the game board during iTTX sessions for dramatically more engaging exercises." },
-                { title: "SOC Team Training",           text: "Physical escalation path models help analysts understand communication flows during incidents." },
-              ].map((item, i) => (
-                <ScrollReveal key={i} delay={i * 0.1}>
-                  <div className="p-8 hover:scale-[1.02] transition-all duration-500"
-                    style={{ backgroundImage: ABOUT_CARD_BG, borderRadius: "9px" }}>
-                    <p className="mb-4 font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "3rem", color: `${ACCENT}40` }}>
-                      {String(i + 1).padStart(2, "0")}
-                    </p>
-                    <h3 className="mb-3 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1.125rem" }}>
-                      {item.title}
-                    </h3>
-                    <p className="text-xs leading-relaxed text-white/40" style={{ fontFamily: BODY }}>{item.text}</p>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-
-            <ScrollReveal delay={0.3}>
-              <div className="mt-12 flex items-center justify-between border-t border-white/8 pt-8">
-                <p className="text-sm leading-relaxed text-white/40 max-w-lg" style={{ fontFamily: BODY }}>
-                  The MNI-X 3D Kit transforms abstract cyber concepts into physical, touchable models — making the invisible war visible.
-                </p>
-                <Link href={routes.mniX3dKit}
-                  className="shrink-0 ml-8 text-[10px] tracking-[0.3em] uppercase text-white/30 hover:text-white transition-colors"
-                  style={{ fontFamily: BODY }}>
-                  Find Out More →
-                </Link>
-              </div>
-            </ScrollReveal>
-          </Container>
-        </section>
-
         {/* ─── Partners marquee ─────────────────────────────────── */}
         <section className="theme-section-bg border-y border-white/8 py-12" style={{ backgroundImage: SECTION_BG }}>
           <Container>
@@ -531,51 +303,6 @@ export default function HomePage() {
                 ))}
               </div>
             </div>
-          </Container>
-        </section>
-
-        {/* ─── cyber / pulse ───────────────────────────────────── */}
-        <section className="relative overflow-hidden py-32">
-          <SideTag label="/ pulse" />
-          <span className="pointer-events-none absolute -right-10 top-0 select-none font-bold text-white/[0.03]"
-            style={{ fontFamily: DISPLAY, fontSize: "clamp(6rem, 20vw, 18rem)", lineHeight: 1 }}>
-            PULSE
-          </span>
-          <Container className="relative">
-            <ScrollReveal>
-              <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ cyber pulse</p>
-              <div className="mb-16 flex items-end justify-between gap-4">
-                <h2 className="font-bold" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 5vw, 3.5rem)" }}>
-                  <span style={{ color: ACCENT }}>cyber</span>&nbsp;<span className="text-white">/ pulse /</span>
-                </h2>
-                <Link href="/products/cyber-pulse"
-                  className="hidden shrink-0 text-[10px] tracking-[0.3em] uppercase text-white/30 hover:text-white transition-colors md:block"
-                  style={{ fontFamily: BODY }}>
-                  View all →
-                </Link>
-              </div>
-            </ScrollReveal>
-
-            <ul className="divide-y divide-white/8">
-              {cases.map((c, i) => (
-                <ScrollReveal key={c.num} delay={i * 0.06}>
-                  <li className="group grid grid-cols-[4rem_1fr] gap-8 py-10 md:grid-cols-[5rem_1fr_auto]">
-                    <span className="text-sm font-semibold" style={{ color: ACCENT, fontFamily: BODY }}>/ {c.num}</span>
-                    <div>
-                      <p className="mb-2 text-[10px] tracking-widest uppercase text-white/30" style={{ fontFamily: BODY }}>{c.tag}</p>
-                      <h3 className="mb-3 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}>
-                        {c.title}
-                      </h3>
-                      <p className="text-sm leading-relaxed text-white/40" style={{ fontFamily: BODY }}>{c.excerpt}</p>
-                    </div>
-                    <div className="hidden md:flex items-center">
-                      <span className="text-[10px] tracking-widest uppercase text-white/20 group-hover:text-white/60 transition-colors"
-                        style={{ fontFamily: BODY }}>Find Out More →</span>
-                    </div>
-                  </li>
-                </ScrollReveal>
-              ))}
-            </ul>
           </Container>
         </section>
 

@@ -10,7 +10,7 @@ export const homeContent = {
   hero: {
     title: "CYBER COMMAND: AI-DRIVEN WARFARE SIMULATION",
     subtitle:
-      "Transforming artificial threats into digital dominance. The premier dashboard for full-spectrum cyber exercise management and military cyber defense.",
+      "The premier dashboard for full-spectrum cyber exercise management.",
     primaryCta: "ACCESS WAR ROOM",
     secondaryCta: "MISSION BRIEFING",
     videoSrc: "/images/landing.mp4",
@@ -27,15 +27,15 @@ export const homeContent = {
         title: "RECONNAISSANCE INTELLIGENCE",
         titleCode: "RECON INTEL",
         description:
-          "Transform raw data into actionable intelligence with AI-augmented investigations and automated reconnaissance.",
-        strategicValue: "Proactive Threat Detection",
+          "The Information Gathering Intelligence layer serves as the primary ingestion engine for the Cyber TIP (Target Intelligence Package).",
+        strategicValue: "Information Gathering Intelligence",
         iconSrc: "/images/icons/osint-ai.jpg",
       },
       {
         title: "TECHNICAL SIMULATION EXERCISE",
         titleCode: "TSX",
         description:
-          "Stress-test defenses with real-world, custom-crafted attacks delivered through controlled simulation environments.",
+          "Real world TTP cyber simulation attacks in safe environment sand box.",
         strategicValue: "Validated Incident Response",
         iconSrc: "/images/icons/live-technical-simulation.jpg",
       },
@@ -51,22 +51,23 @@ export const homeContent = {
         title: "INTERACTIVE SIMULATION EXERCISE",
         titleCode: "iTTX",
         description:
-          "Coordinate leadership and technical teams through interactive scenario-driven exercises that sharpen decision-making under pressure.",
+          "Coordinate leadership and technical teams through interactive scenario-driven exercise.",
         strategicValue: "Refined Crisis Management",
         iconSrc: "/images/icons/tabletop-exercises.jpg",
       },
       {
-        title: "ADVANCE SIMULATION EXERCISE",
+        title: "ADVANCED SIMULATION EXERCISE",
         titleCode: "ASX",
         description:
-          "Run hands-on drills that validate controls, tune detection, and build muscle memory across your security operations.",
+          "Bringing ITTX and TSX together — management and technical functioning exercise in one scenario.",
         strategicValue: "Enhanced Team Competency",
         iconSrc: "/images/icons/technical-cyber-drills.jpg",
       },
       {
         title: "CAPACITY BUILDING",
+        titleCode: "Cyber Security Training",
         description:
-          "Strategic training programs and skills development for your team's capabilities.",
+          "Strategic training program and skill development based on outcome of cyber exercise.",
         strategicValue: "Empowered Execution",
         iconSrc: "/images/capacitybuilding.jpg",
       },

@@ -101,7 +101,7 @@ export function MniXOpportunitySection() {
   const useCases = [
     {
       title: "Simplify Technical Flow",
-      description: "Abstract attack paths become tangible. A manager can hold a physical Ransomware Kill Chain — from phishing email model to infected workstation to encrypted server with a physical lock icon.",
+      description: "Escalation path models physically map communication flows during a live incident.",
     },
     {
       title: "Improve Team Coordination",
@@ -109,7 +109,7 @@ export function MniXOpportunitySection() {
     },
     {
       title: "Handle Service Breakdowns",
-      description: "Incident Response Kits show a stable network versus a breached network — a firewall model with a physical hole, a data piece leaking out.",
+      description: "Incident Response Kits show a stable network versus a breached network.",
     },
     {
       title: "Quantify Skills",
@@ -153,7 +153,7 @@ export function MniXProductsSection() {
       badge: "Premium",
       title: "Customized Threat Modeling",
       tagline: "High-Margin · Project-Based",
-      description: "A high-value consulting service. A CISO hires us to create a 3D model of their specific network architecture to visualize how a particular threat — such as a specific APT group — would move through their environment.",
+      description: "3D model replica of specific IT infrastructure to visualize threat movement through their own environment.",
       note: "A one-of-a-kind model: a true \"crown jewel\" for a company's security planning.",
     },
     {
@@ -162,21 +162,13 @@ export function MniXProductsSection() {
       title: "Standardized Cyber Kits",
       tagline: "Scalable · Ready-to-Buy",
       description: "Pre-designed kits that address the industry's most common, complex concepts.",
-      kits: ["The Ransomware Kill Chain Kit", "The DDoS Attack Kit", "The Zero Trust Architecture Kit", "The SOC Coordination Kit"],
     },
     {
       tier: "03",
-      badge: "Passive Income",
-      title: "Digital File Sales (.STL)",
-      tagline: "High-Margin · Passive",
-      description: "Selling 3D-printable digital files for standardized kits. Many security professionals are tech enthusiasts who own 3D printers, providing high-margin, passive income.",
-    },
-    {
-      tier: "04",
       badge: "Service",
-      title: "Incident Response War Gaming",
+      title: "Tactical Incident Response War Gaming",
       tagline: "High-Impact · Workshop-Based",
-      description: "We facilitate tabletop exercises using our models as the game board. We simulate a live breach and have the company's IR team physically move pieces to respond — transforming a boring meeting into an engaging, high-impact wargame.",
+      description: "Tabletop Exercise using 3D replica models on Sand Table.",
     },
   ];
 
@@ -187,7 +179,7 @@ export function MniXProductsSection() {
         <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
           Products &amp;&nbsp;<span style={gradStyle}>/ Services /</span>
         </h2>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {products.map((p) => (
             <div key={p.tier} className="p-8 transition-all duration-500 hover:scale-[1.02]"
               style={{ backgroundImage: CARD_BG, borderRadius: "9px" }}>
@@ -200,15 +192,6 @@ export function MniXProductsSection() {
               <h3 className="mb-1 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1rem" }}>{p.title}</h3>
               <p className="mb-4 text-[10px] tracking-widest uppercase text-white/30" style={{ fontFamily: BODY }}>{p.tagline}</p>
               <p className="text-xs leading-relaxed text-white/50" style={{ fontFamily: BODY }}>{p.description}</p>
-              {p.kits && (
-                <ul className="mt-4 space-y-2">
-                  {p.kits.map((kit) => (
-                    <li key={kit} className="flex items-center gap-2 text-xs text-white/50" style={{ fontFamily: BODY }}>
-                      <span style={{ color: ACCENT }}>/</span> {kit}
-                    </li>
-                  ))}
-                </ul>
-              )}
               {p.note && (
                 <p className="mt-4 border-l-2 pl-3 text-xs italic text-white/40" style={{ borderColor: `${ACCENT}40`, fontFamily: BODY }}>
                   {p.note}

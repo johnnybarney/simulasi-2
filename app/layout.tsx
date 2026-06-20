@@ -16,7 +16,7 @@ const chakraPetch = Chakra_Petch({
 
 export const metadata: Metadata = {
   title: { default: "Simulasi", template: "%s | Simulasi" },
-  description: "Transforming artificial threats into digital dominance. The premier dashboard for full-spectrum cyber exercise management and military cyber defense.",
+  description: "The premier dashboard for full-spectrum cyber exercise management.",
   metadataBase: new URL("https://simulasi.org"),
   icons: {
     icon: [{ url: "/images/rpmylagi.png", type: "image/png" }],

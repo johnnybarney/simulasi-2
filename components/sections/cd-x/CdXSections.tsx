@@ -124,7 +124,7 @@ export function ValueDeliveryTable() {
     { pillar: "Blue Team Empowerment",      provide: "Real-time dashboards and after-action analytics for defenders.", outcome: "Improved detection tuning and response readiness." },
     { pillar: "Automated IR Tracking",      provide: "Incident response milestones captured automatically during exercises.", outcome: "Audit-ready timelines and measurable IR performance." },
     { pillar: "Compliance-by-Design",       provide: "Framework mappings built into every exercise template.", outcome: "Regulatory alignment without additional documentation burden." },
-    { pillar: "Isolated Range",             provide: "Safe, segmented environments for high-fidelity technical drills.", outcome: "Realistic testing without production risk." },
+    { pillar: "Isolated Simulation Sandbox",      provide: "Safe, segmented environments for high-fidelity technical drills.", outcome: "Realistic testing without production risk." },
   ];
 
   return (
