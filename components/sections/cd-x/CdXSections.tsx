@@ -46,7 +46,7 @@ export function CdXHero() {
       </span>
       <Container className="relative z-10 grid items-end gap-16 lg:grid-cols-2">
         <div>
-          <p className="mb-4 text-[11px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ product</p>
+          <p className="mb-4 text-[11px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>/ product</p>
           <h1 className="font-bold leading-[0.92] tracking-tight" style={{ fontFamily: DISPLAY, fontSize: "clamp(4rem, 12vw, 10rem)" }}>
             <span style={gradStyle}>CD-X</span>
           </h1>
@@ -92,7 +92,7 @@ export function CyberDrillsSection() {
             aria-label="National Critical Infrastructure" />
         </div>
         <div>
-          <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ cyber drills matter</p>
+          <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>/ cyber drills matter</p>
           <h2 className="font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3.5rem)" }}>
             National Critical<br /><span style={gradStyle}>/ Infrastructure /</span>
           </h2>
@@ -135,7 +135,7 @@ export function ValueDeliveryTable() {
         value
       </span>
       <Container className="relative">
-        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ platform value</p>
+        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>/ platform value</p>
         <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
           Value&nbsp;<span style={gradStyle}>/ Delivery /</span>
         </h2>
@@ -143,9 +143,9 @@ export function ValueDeliveryTable() {
           <table className="w-full min-w-[640px] text-left text-sm border-collapse">
             <thead>
               <tr className="border-b border-white/10">
-                <th className="pb-4 text-[10px] tracking-[0.3em] uppercase text-white/30 pr-8" style={{ fontFamily: BODY }}>Service Pillar</th>
-                <th className="pb-4 text-[10px] tracking-[0.3em] uppercase text-white/30 pr-8" style={{ fontFamily: BODY }}>What We Provide</th>
-                <th className="pb-4 text-[10px] tracking-[0.3em] uppercase text-white/30" style={{ fontFamily: BODY }}>Business Outcome</th>
+                <th className="pb-4 text-[10px] tracking-[0.3em] uppercase text-white/50 pr-8" style={{ fontFamily: BODY }}>Service Pillar</th>
+                <th className="pb-4 text-[10px] tracking-[0.3em] uppercase text-white/50 pr-8" style={{ fontFamily: BODY }}>What We Provide</th>
+                <th className="pb-4 text-[10px] tracking-[0.3em] uppercase text-white/50" style={{ fontFamily: BODY }}>Business Outcome</th>
               </tr>
             </thead>
             <tbody>

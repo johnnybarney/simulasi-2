@@ -30,7 +30,7 @@ export function TextField({
         type={type}
         required={required}
         placeholder={placeholder}
-        className="w-full border-b-2 border-white/20 bg-transparent px-0 py-3 text-white placeholder:text-white/30 transition-colors focus:border-cyan-neon focus:outline-none"
+        className="w-full border-b-2 border-white/20 bg-transparent px-0 py-3 text-white placeholder:text-white/40 transition-colors focus:border-cyan-neon focus:outline-none"
       />
     </div>
   );
@@ -66,7 +66,7 @@ export function TextArea({
         required={required}
         placeholder={placeholder}
         rows={rows}
-        className="w-full resize-none border-b-2 border-white/20 bg-transparent px-0 py-3 text-white placeholder:text-white/30 transition-colors focus:border-cyan-neon focus:outline-none"
+        className="w-full resize-none border-b-2 border-white/20 bg-transparent px-0 py-3 text-white placeholder:text-white/40 transition-colors focus:border-cyan-neon focus:outline-none"
       />
     </div>
   );

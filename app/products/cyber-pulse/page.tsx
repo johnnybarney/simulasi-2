@@ -72,7 +72,7 @@ export default function CyberPulsePage() {
                   className="group grid grid-cols-[4rem_1fr] gap-8 py-10 md:grid-cols-[5rem_1fr_auto]">
                   <span className="text-sm font-semibold" style={{ color: ACCENT, fontFamily: BODY }}>/ {item.num}</span>
                   <div>
-                    <p className="mb-2 text-[10px] tracking-widest uppercase text-white/30" style={{ fontFamily: BODY }}>
+                    <p className="mb-2 text-[10px] tracking-widest uppercase text-white/50" style={{ fontFamily: BODY }}>
                       {item.tag}
                     </p>
                     <h3 className="mb-3 font-semibold text-white group-hover:text-white/80 transition-colors"

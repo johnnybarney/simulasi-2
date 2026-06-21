@@ -9,7 +9,7 @@ export const routes = {
   cdX: "/products/cd-x",
   mniX3dKit: "/products/mni-x-3d-kit",
   cyberPulse: "/products/cyber-pulse",
-  contact: "/about-us#contact",
+  contact: "/contact-us",
   aboutUs: "/about-us",
   privacy: "/#privacy",
   terms: "/#terms",

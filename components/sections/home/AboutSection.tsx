@@ -25,7 +25,7 @@ export function AboutSection() {
         about
       </span>
       <Container className="relative">
-        <p className="mb-4 text-[11px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>
+        <p className="mb-4 text-[11px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>
           / About Simulasi
         </p>
         <h1 className="font-bold leading-[0.92] tracking-tight" style={{ fontFamily: DISPLAY, fontSize: "clamp(2.5rem, 8vw, 7rem)" }}>

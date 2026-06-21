@@ -27,7 +27,7 @@ export function LoadingScreen() {
       className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black transition-opacity duration-500"
       style={{ opacity: progress >= 100 ? 0 : 1 }}
     >
-      <p className="font-mono text-[11px] tracking-[0.35em] uppercase text-white/30">
+      <p className="font-mono text-[11px] tracking-[0.35em] uppercase text-white/50">
         LOADING...
       </p>
       <p
@@ -36,7 +36,7 @@ export function LoadingScreen() {
       >
         {progress}
       </p>
-      <p className="font-mono text-[11px] tracking-[0.35em] uppercase text-white/30">
+      <p className="font-mono text-[11px] tracking-[0.35em] uppercase text-white/50">
         %
       </p>
     </div>

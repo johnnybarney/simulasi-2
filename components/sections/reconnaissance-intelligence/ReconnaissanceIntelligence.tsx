@@ -27,7 +27,7 @@ export function ReconnaissanceIntelligenceHero() {
       </span>
       <Container className="relative z-10 grid items-end gap-12 lg:grid-cols-2">
         <div>
-          <p className="mb-4 text-[11px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>
+          <p className="mb-4 text-[11px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>
             / Reconnaissance Intelligence
           </p>
           <h1 className="font-bold leading-[0.92] tracking-tight" style={{ fontFamily: DISPLAY, fontSize: "clamp(2.5rem, 7vw, 6rem)" }}>
@@ -67,7 +67,7 @@ export function ReconnaissanceIntelligenceInvestigationsSection() {
   return (
     <section className="theme-section-bg py-32" style={{ backgroundImage: SECTION_BG }}>
       <Container>
-        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ ai-augmented</p>
+        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>/ ai-augmented</p>
         <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
           AI-Augmented&nbsp;<span style={gradStyle}>/ Investigations /</span>
         </h2>
@@ -132,7 +132,7 @@ export function ReconnaissanceIntelligenceVulnerabilitySection() {
         recon
       </span>
       <Container className="relative">
-        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ zero-touch reconnaissance</p>
+        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>/ zero-touch reconnaissance</p>
         <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
           Automated&nbsp;<span style={gradStyle}>/ Vulnerability Assessment /</span>
         </h2>
@@ -173,7 +173,7 @@ export function ReconnaissanceIntelligenceForensicsSection() {
   return (
     <section className="theme-section-bg border-y border-white/8 py-32" style={{ backgroundImage: SECTION_BG }}>
       <Container>
-        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ digital forensics</p>
+        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>/ digital forensics</p>
         <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
           Uncover&nbsp;<span style={gradStyle}>/ Hidden Threats /</span>
         </h2>
@@ -219,7 +219,7 @@ export function ReconnaissanceIntelligenceWhyChooseSection() {
         intel
       </span>
       <Container className="relative">
-        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ why simulasi</p>
+        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>/ why simulasi</p>
         <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
           Why Choose&nbsp;<span style={gradStyle}>/ Simulasi /</span>
         </h2>

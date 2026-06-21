@@ -29,7 +29,7 @@ export function OffensiveOperationsHero() {
         offensive
       </span>
       <Container className="relative">
-        <p className="mb-4 text-[11px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>
+        <p className="mb-4 text-[11px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>
           / Offensive Operations
         </p>
         <h1 className="font-bold leading-[0.92] tracking-tight" style={{ fontFamily: DISPLAY, fontSize: "clamp(2.5rem, 8vw, 7rem)" }}>
@@ -60,7 +60,7 @@ export function OffensiveOperationsMethodologySection() {
   return (
     <section className="theme-section-bg border-y border-white/8 py-32" style={{ backgroundImage: SECTION_BG }}>
       <Container>
-        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ methodology</p>
+        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>/ methodology</p>
         <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
           Our&nbsp;<span style={gradStyle}>/ Methodology /</span>
         </h2>
@@ -100,7 +100,7 @@ export function OffensiveOperationsBenefitsSection() {
         benefits
       </span>
       <Container className="relative">
-        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ key benefits</p>
+        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>/ key benefits</p>
         <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
           What You&nbsp;<span style={gradStyle}>/ Gain /</span>
         </h2>
@@ -126,7 +126,7 @@ export function OffensiveOperationsComparisonSection() {
   return (
     <section className="theme-section-bg border-t border-white/8 py-32" style={{ backgroundImage: SECTION_BG }}>
       <Container>
-        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ comparison</p>
+        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>/ comparison</p>
         <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
           Red Teaming vs&nbsp;<span style={gradStyle}>/ Penetration Testing /</span>
         </h2>
@@ -134,17 +134,17 @@ export function OffensiveOperationsComparisonSection() {
           <div className="overflow-hidden border border-white/8" style={{ borderRadius: "9px" }}>
             <PenTestAnimation />
             <div className="border-t border-white/8 p-6">
-              <p className="text-xs tracking-[0.3em] uppercase text-white/40" style={{ fontFamily: BODY }}>/ 01</p>
-              <p className="mt-2 font-semibold text-white" style={{ fontFamily: DISPLAY }}>Penetration Testing</p>
-              <p className="mt-2 text-xs leading-relaxed text-white/40" style={{ fontFamily: BODY }}>Structured, time-boxed testing of specific systems and attack vectors within agreed scope.</p>
+              <p className="text-xs tracking-[0.3em] uppercase" style={{ color: ACCENT, fontFamily: BODY }}>/ 01</p>
+              <p className="mt-2 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1.375rem" }}>Penetration Testing</p>
+              <p className="mt-2 text-sm leading-relaxed text-white/40" style={{ fontFamily: BODY }}>Structured, time-boxed testing of specific systems and attack vectors within agreed scope.</p>
             </div>
           </div>
           <div className="overflow-hidden border border-white/8" style={{ borderRadius: "9px" }}>
             <RedTeamAnimation />
             <div className="border-t border-white/8 p-6">
               <p className="text-xs tracking-[0.3em] uppercase" style={{ color: ACCENT, fontFamily: BODY }}>/ 02</p>
-              <p className="mt-2 font-semibold text-white" style={{ fontFamily: DISPLAY }}>Red Teaming</p>
-              <p className="mt-2 text-xs leading-relaxed text-white/40" style={{ fontFamily: BODY }}>Goal-based adversary simulation across people, process, and technology — no scope limits.</p>
+              <p className="mt-2 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1.375rem" }}>Red Teaming</p>
+              <p className="mt-2 text-sm leading-relaxed text-white/40" style={{ fontFamily: BODY }}>Goal-based adversary simulation across people, process, and technology — no scope limits.</p>
             </div>
           </div>
         </div>

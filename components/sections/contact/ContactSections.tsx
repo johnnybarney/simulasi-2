@@ -17,37 +17,35 @@ const gradStyle = {
 
 const SECTION_BG = "linear-gradient(300deg, #050505, #000000 56%, #080808)";
 
-export function ContactMainSection({ embedded = false }: { embedded?: boolean }) {
+export function ContactMainSection() {
   const { hero, office, channels } = contactContent;
 
   return (
-    <section id={embedded ? "contact" : undefined}
+    <section
       className="theme-section-bg relative overflow-hidden border-t border-white/8 py-32"
       style={{ backgroundImage: SECTION_BG }}>
       <div className="pointer-events-none absolute inset-0"
         style={{ background: `radial-gradient(ellipse 80% 50% at 50% 100%, ${ACCENT}18 0%, transparent 70%)` }} />
       <Container className="relative">
-        {embedded && (
-          <div className="mb-16">
-            <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ {hero.subtitle}</p>
-            <h2 className="font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
-              {hero.title.includes("help") ? (
-                <>Hey! We are ready<br />to&nbsp;<span style={gradStyle}>/ help you!!! /</span></>
-              ) : (
-                <span style={gradStyle}>/ {hero.title} /</span>
-              )}
-            </h2>
-            <p className="mt-4 max-w-lg text-sm leading-relaxed text-white/40" style={{ fontFamily: BODY }}>
-              {hero.description}
-            </p>
-          </div>
-        )}
+        <div className="mb-16">
+          <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>/ {hero.subtitle}</p>
+          <h2 className="font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+            {hero.title.includes("help") ? (
+              <>Hey! We are ready<br />to&nbsp;<span style={gradStyle}>/ help you!!! /</span></>
+            ) : (
+              <span style={gradStyle}>/ {hero.title} /</span>
+            )}
+          </h2>
+          <p className="mt-4 max-w-lg text-sm leading-relaxed text-white/40" style={{ fontFamily: BODY }}>
+            {hero.description}
+          </p>
+        </div>
 
         <div className="grid gap-16 lg:grid-cols-[2fr_3fr]">
           {/* Contact info */}
           <div className="space-y-8">
             <div className="border border-white/8 p-6" style={{ borderRadius: "9px" }}>
-              <p className="mb-1 text-[10px] tracking-[0.3em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ location</p>
+              <p className="mb-1 text-[10px] tracking-[0.3em] uppercase text-white/50" style={{ fontFamily: BODY }}>/ location</p>
               <h3 className="mb-4 font-semibold text-white" style={{ fontFamily: DISPLAY }}>{office.label}</h3>
               <address className="not-italic space-y-1">
                 {office.addressLines.map((line) => (
@@ -96,7 +94,7 @@ export function ContactMapSection() {
   return (
     <section className="border-t border-white/8 py-20">
       <Container>
-        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30 text-center" style={{ fontFamily: BODY }}>/ find us</p>
+        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/50 text-center" style={{ fontFamily: BODY }}>/ find us</p>
         <h2 className="mb-10 text-center font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(1.5rem, 3vw, 2.5rem)" }}>
           Bandar Utama,&nbsp;<span style={gradStyle}>/ Malaysia /</span>
         </h2>

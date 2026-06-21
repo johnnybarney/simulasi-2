@@ -16,12 +16,12 @@ export default function NotFound() {
         404
       </span>
       <Container className="relative text-center">
-        <p className="mb-4 font-mono text-[11px] tracking-[0.4em] uppercase text-white/30">/ Error 404</p>
+        <p className="mb-4 font-mono text-[11px] tracking-[0.4em] uppercase text-white/50">/ Error 404</p>
         <h1 className="font-display font-bold leading-tight" style={{ fontFamily: "var(--font-space-grotesk)", fontSize: "clamp(3rem, 8vw, 7rem)" }}>
           <span className="block text-white">Page</span>
           <span style={gradStyle}>/ not found /</span>
         </h1>
-        <p className="mx-auto mt-6 max-w-sm font-mono text-xs text-white/30">
+        <p className="mx-auto mt-6 max-w-sm font-mono text-xs text-white/40">
           The page you are looking for does not exist or has been moved.
         </p>
         <Link href="/" className="mt-10 inline-block border border-white/20 px-10 py-4 font-mono text-[11px] tracking-[0.3em] uppercase text-white/60 hover:border-white hover:text-white transition-all duration-300">

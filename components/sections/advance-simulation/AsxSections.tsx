@@ -31,7 +31,7 @@ export function AsxHero() {
         ASX
       </span>
       <Container className="relative">
-        <p className="mb-4 text-[11px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>
+        <p className="mb-4 text-[11px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>
           / Advanced Simulation Exercise
         </p>
         <h1 className="font-bold leading-[0.92] tracking-tight" style={{ fontFamily: DISPLAY, fontSize: "clamp(2.5rem, 8vw, 7rem)" }}>
@@ -63,7 +63,7 @@ export function AsxOfferingsSection() {
   return (
     <section className="theme-section-bg py-32" style={{ backgroundImage: SECTION_BG }}>
       <Container>
-        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ offerings</p>
+        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>/ offerings</p>
         <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
           Strategy &amp;&nbsp;<span style={gradStyle}>/ Tactical Solutions /</span>
         </h2>
@@ -74,12 +74,12 @@ export function AsxOfferingsSection() {
               <span className="block mb-6 font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "3rem", color: `${ACCENT}40` }}>
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="mb-4 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1.125rem" }}>
+              <h3 className="mb-4 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1.375rem" }}>
                 {item.title}
               </h3>
               <div className="space-y-2">
                 {item.blocks.map((block) => (
-                  <p key={block.label} className="text-xs text-white/50" style={{ fontFamily: BODY }}>
+                  <p key={block.label} className="text-sm text-white/50" style={{ fontFamily: BODY }}>
                     <span style={{ color: ACCENT }}>/</span> <span className="text-white/70">{block.label}:</span> {block.text}
                   </p>
                 ))}
@@ -103,7 +103,7 @@ export function AsxWhyChooseSection() {
         assurance
       </span>
       <Container className="relative">
-        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ mission assurance</p>
+        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>/ mission assurance</p>
         <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
           Why&nbsp;<span style={gradStyle}>/ Choose ASX /</span>
         </h2>
@@ -114,10 +114,10 @@ export function AsxWhyChooseSection() {
               <span className="block mb-4 font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "2.5rem", color: `${ACCENT}40` }}>
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="mb-3 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1.125rem" }}>
+              <h3 className="mb-3 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1.375rem" }}>
                 {item.title}
               </h3>
-              <p className="text-sm leading-relaxed text-white/50" style={{ fontFamily: BODY }}>{item.description}</p>
+              <p className="text-base leading-relaxed text-white/50" style={{ fontFamily: BODY }}>{item.description}</p>
             </div>
           ))}
         </div>

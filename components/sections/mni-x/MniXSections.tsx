@@ -28,7 +28,7 @@ export function MniXHero() {
       </span>
       <Container className="relative z-10 grid items-end gap-16 lg:grid-cols-2">
         <div>
-          <p className="mb-4 text-[11px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ product</p>
+          <p className="mb-4 text-[11px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>/ product</p>
           <h1 className="font-bold leading-[0.92] tracking-tight" style={{ fontFamily: DISPLAY, fontSize: "clamp(3rem, 9vw, 8rem)" }}>
             <span style={gradStyle}>MNI-X</span><br />
             <span className="text-white">3D Kit</span>
@@ -72,7 +72,7 @@ export function MniXProblemSection() {
   return (
     <section className="theme-section-bg border-y border-white/8 py-32" style={{ backgroundImage: SECTION_BG }}>
       <Container>
-        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ the challenge</p>
+        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>/ the challenge</p>
         <h2 className="mb-6 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
           The&nbsp;<span style={gradStyle}>/ Visualization Gap /</span>
         </h2>
@@ -124,7 +124,7 @@ export function MniXOpportunitySection() {
         solve
       </span>
       <Container className="relative">
-        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ the opportunity</p>
+        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>/ the opportunity</p>
         <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
           What We&nbsp;<span style={gradStyle}>/ Solve /</span>
         </h2>
@@ -175,7 +175,7 @@ export function MniXProductsSection() {
   return (
     <section className="theme-section-bg border-t border-white/8 py-32" style={{ backgroundImage: SECTION_BG }}>
       <Container>
-        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ offerings</p>
+        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>/ offerings</p>
         <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
           Products &amp;&nbsp;<span style={gradStyle}>/ Services /</span>
         </h2>
@@ -189,9 +189,9 @@ export function MniXProductsSection() {
                   {p.badge}
                 </span>
               </div>
-              <h3 className="mb-1 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1rem" }}>{p.title}</h3>
-              <p className="mb-4 text-[10px] tracking-widest uppercase text-white/30" style={{ fontFamily: BODY }}>{p.tagline}</p>
-              <p className="text-xs leading-relaxed text-white/50" style={{ fontFamily: BODY }}>{p.description}</p>
+              <h3 className="mb-1 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1.375rem" }}>{p.title}</h3>
+              <p className="mb-4 text-xs tracking-widest uppercase text-white/50" style={{ fontFamily: BODY }}>{p.tagline}</p>
+              <p className="text-sm leading-relaxed text-white/50" style={{ fontFamily: BODY }}>{p.description}</p>
               {p.note && (
                 <p className="mt-4 border-l-2 pl-3 text-xs italic text-white/40" style={{ borderColor: `${ACCENT}40`, fontFamily: BODY }}>
                   {p.note}

@@ -188,6 +188,40 @@
   transform: translateY(0);
 }
 
+/* ── Strategic capability cards: auto height + aligned footers ── */
+.capability-cards {
+  align-items: stretch;
+}
+
+.capability-cards > .reveal {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100%;
+}
+
+.capability-card {
+  flex: 1;
+  width: 100%;
+  min-height: 320px;
+}
+
+.capability-card > * {
+  justify-self: stretch;
+}
+
+.capability-strategic-label {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.capability-strategic-text {
+  color: #00c5cd;
+}
+
+[data-theme="light"] .capability-strategic-label {
+  color: #0d0d0d !important;
+}
+
 /* ── Light mode overrides ───────────────────────────────────────── */
 [data-theme="light"] {
   /* header bar */

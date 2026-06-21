@@ -21,7 +21,7 @@ export function CriticalInsightSection() {
       <Container>
         <div className="grid gap-12 lg:grid-cols-[1fr_2fr] items-center">
           <div>
-            <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ critical insight</p>
+            <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>/ critical insight</p>
             <h2 className="font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(1.5rem, 3vw, 2.5rem)" }}>
               <span style={gradStyle}>/ Insight /</span>
             </h2>

@@ -40,7 +40,7 @@ const marqueeItems = ["Cyber Resilience", "Attack Simulation", "Threat Intellige
 const partnerLogos = [
   { src: "/images/petronas.png",        alt: "Petronas" },
   { src: "/images/kaf-logo.png",        alt: "KAF" },
-  { src: "/images/kwap1.png",           alt: "KWAP" },
+  { src: "/images/nacsa.png",           alt: "NACSA" },
   { src: "/images/kklw.png",            alt: "KKLW" },
   { src: "/images/malaysiaairports.png",alt: "Malaysia Airports" },
   { src: "/images/raya.png",            alt: "Raya Airways" },
@@ -56,7 +56,7 @@ const partnerLogos = [
   { src: "/images/jpj.png",             alt: "JPJ" },
   { src: "/images/kdn.png",             alt: "KDN" },
   { src: "/images/tudm.png",            alt: "TUDM" },
-  { src: "/images/nacsa.png",           alt: "NACSA" },
+  { src: "/images/kwap1.png",           alt: "KWAP" },
 ];
 
 /* ── vertical side label ─────────────────────────────────────── */
@@ -89,7 +89,7 @@ export default function HomePage() {
         <section className="theme-section-bg trusted-by-section border-y border-white/8 py-12" style={{ backgroundImage: SECTION_BG }}>
           <Container>
             <ScrollReveal>
-              <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>
+              <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>
                 / trusted by
               </p>
               <h2 className="mb-10 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 5vw, 3.5rem)" }}>
@@ -120,17 +120,17 @@ export default function HomePage() {
             <div className="grid gap-16 lg:grid-cols-2">
               <ScrollReveal>
                 <p className="text-sm leading-relaxed text-white/40" style={{ fontFamily: BODY }}>
-                  We manage and provide our customers with measurable cyber resilience. Protecting critical infrastructure and national security interests through continuous, intelligence-driven simulation.
+                  Forging measurable, battle-tested resilience across critical infrastructure and national security sectors.
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={0.15}>
                 <div>
-                  <p className="text-[10px] tracking-[0.35em] uppercase text-white/30 mb-4" style={{ fontFamily: BODY }}>/ platform</p>
+                  <p className="text-[10px] tracking-[0.35em] uppercase text-white/50 mb-4" style={{ fontFamily: BODY }}>/ KESIAPSIAGAAN PROGRAM</p>
                   <h3 className="font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(3rem, 6vw, 5rem)" }}>
                     simulasi
                   </h3>
-                  <p className="mt-3 text-xs text-white/40" style={{ fontFamily: BODY }}>
-                    / AI-driven warfare simulation. Continuous dynamic capability.
+                  <p className="mt-3 text-sm leading-relaxed text-white/40" style={{ fontFamily: BODY }}>
+                    / Intelligence-driven cyber warfare simulation for sovereign defense.
                   </p>
                 </div>
               </ScrollReveal>
@@ -158,63 +158,72 @@ export default function HomePage() {
               </span>
               <Container className="relative">
                 <ScrollReveal>
-                  <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>
+                  <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>
                     / strategic capabilities
                   </p>
-                  <div className="mb-16 flex items-end justify-between gap-8">
+                  <div className="mb-16">
                     <h2 className="font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 5vw, 3.5rem)" }}>
                       Our&nbsp;<span style={gradStyle}>/ Strategic /</span><br />Capabilities
                     </h2>
-                    <Link href={routes.tsx}
-                      className="hidden shrink-0 text-[10px] tracking-[0.3em] uppercase text-white/30 hover:text-white transition-colors md:block"
-                      style={{ fontFamily: BODY }}>
-                      View All →
-                    </Link>
+                    <p className="mt-4 text-[10px] tracking-[0.3em] uppercase text-white/50" style={{ fontFamily: BODY }}>
+                      Click the card to learn more
+                    </p>
                   </div>
                 </ScrollReveal>
 
-                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="capability-cards grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                   {servicePillars.items.map((item, i) => (
-                    <ScrollReveal key={item.title} delay={i * 0.08}>
+                    <ScrollReveal key={item.title} delay={i * 0.08} className="h-full">
                       <Link href={pillarRoutes[i]}
-                        className="group relative flex flex-col overflow-hidden transition-all duration-500 hover:scale-[1.02]"
-                        style={{ backgroundImage: NEEDS_CARD_BG, borderRadius: "9px", minHeight: "280px" }}>
+                        className="capability-card group relative grid h-full min-h-[320px] w-full overflow-hidden p-8 transition-all duration-500 hover:scale-[1.02]"
+                        style={{
+                          backgroundImage: NEEDS_CARD_BG,
+                          borderRadius: "9px",
+                          gridTemplateRows: "3.25rem minmax(4.75rem, auto) minmax(0, 1fr) auto auto",
+                        }}>
                         {/* hover glow */}
-                        <div className="pointer-events-none absolute bottom-0 left-0 h-48 w-48 blur-[60px] opacity-0 group-hover:opacity-60 transition-opacity"
-                          style={{ background: ACCENT, borderRadius: "100%" }} aria-hidden="true" />
+                        <div className="pointer-events-none absolute bottom-0 left-0 h-48 w-48 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                          style={{ background: `linear-gradient(${ACCENT2}, ${ACCENT})`, borderRadius: "100%" }} aria-hidden="true" />
 
-                        <div className="relative flex flex-1 flex-col p-8">
-                          {/* number */}
-                          <div className="mb-6">
-                            <span className="font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "2.5rem", color: `${ACCENT}35` }}>
-                              {String(i + 1).padStart(2, "0")}
-                            </span>
-                          </div>
+                        {/* row 1 — number */}
+                        <span className="w-full font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "2.75rem", color: `${ACCENT}35` }}>
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
 
-                          {/* title + code */}
-                          <h3 className="mb-1 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "1rem", letterSpacing: "0.02em" }}>
+                        {/* row 2 — title + service code (stacked) */}
+                        <div className="w-full">
+                          <h3 className="mb-1.5 line-clamp-2 font-semibold leading-snug text-white" style={{ fontFamily: DISPLAY, fontSize: "1.125rem", letterSpacing: "0.02em" }}>
                             {item.title}
                           </h3>
                           {item.titleCode && (
-                            <p className="mb-4 text-[10px] tracking-[0.25em] uppercase" style={{ color: ACCENT, fontFamily: BODY }}>
+                            <p className="line-clamp-2 text-[11px] leading-relaxed tracking-[0.25em] uppercase" style={{ color: ACCENT, fontFamily: BODY }}>
                               ( {item.titleCode} )
                             </p>
                           )}
+                        </div>
 
-                          {/* description */}
-                          <p className="flex-1 text-xs leading-relaxed text-white/40" style={{ fontFamily: BODY }}>
-                            {item.description}
-                          </p>
+                        {/* row 3 — description (fills remaining space) */}
+                        <p className="mb-6 min-h-0 w-full text-sm leading-relaxed text-white/40" style={{ fontFamily: BODY }}>
+                          {item.description}
+                        </p>
 
-                          {/* strategic value badge */}
-                          <div className="mt-6 flex items-center justify-between border-t pt-4" style={{ borderColor: `${ACCENT}20` }}>
-                            <span className="text-[9px] tracking-[0.2em] uppercase text-white/25" style={{ fontFamily: BODY }}>
-                              Strategic Value
-                            </span>
-                            <span className="text-[9px] tracking-[0.15em] uppercase font-medium" style={{ color: ACCENT, fontFamily: BODY }}>
-                              {item.strategicValue}
-                            </span>
-                          </div>
+                        {/* row 4 — full-width divider (always aligns with card edges) */}
+                        <div className="w-full border-t" style={{ borderColor: `${ACCENT}20` }} aria-hidden="true" />
+
+                        {/* row 5 — strategic value */}
+                        <div className="flex w-full items-start gap-6 pt-4">
+                          <span className="capability-strategic-label shrink-0 whitespace-nowrap text-[10px] tracking-[0.2em] uppercase" style={{ fontFamily: BODY }}>
+                            Strategic Value
+                          </span>
+                          <span className="capability-strategic-text text-[10px] leading-relaxed tracking-[0.15em] uppercase font-medium" style={{ fontFamily: BODY }}>
+                            {item.strategicValueLines ? (
+                              item.strategicValueLines.map((line) => (
+                                <span key={line} className="block">{line}</span>
+                              ))
+                            ) : (
+                              item.strategicValue
+                            )}
+                          </span>
                         </div>
                       </Link>
                     </ScrollReveal>
@@ -240,7 +249,7 @@ export default function HomePage() {
           </div>
           <Container className="relative mb-12">
             <ScrollReveal>
-              <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ why you need to</p>
+              <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>/ why you need to</p>
               <h2 className="font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 5vw, 3.5rem)" }}>
                 why you<br />need&nbsp;<span style={gradStyle}>/ to /</span>
               </h2>
@@ -256,16 +265,16 @@ export default function HomePage() {
                   <div className="pointer-events-none absolute bottom-0 left-0 h-48 w-48 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity"
                     style={{ background: `linear-gradient(${ACCENT2}, ${ACCENT})`, borderRadius: "100%" }} aria-hidden="true" />
                   <span className="relative block font-bold leading-none mb-6"
-                    style={{ fontFamily: DISPLAY, fontSize: "3rem", color: "rgba(0,197,205,0.3)" }}>
+                    style={{ fontFamily: DISPLAY, fontSize: "3.25rem", color: "rgba(0,197,205,0.3)" }}>
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <h3 className="relative font-semibold text-white mb-4"
-                    style={{ fontFamily: DISPLAY, fontSize: "1.125rem" }}>
+                    style={{ fontFamily: DISPLAY, fontSize: "1.25rem" }}>
                     {item.title}
                   </h3>
                   <div className="relative space-y-2">
                     {item.lines.map((line) => (
-                      <p key={line} className="text-xs text-white/50" style={{ fontFamily: BODY }}>
+                      <p key={line} className="text-sm text-white/50" style={{ fontFamily: BODY }}>
                         <span style={{ color: ACCENT }}>/</span> {line}
                       </p>
                     ))}

@@ -33,7 +33,7 @@ export function TabletopExerciseHero() {
       </span>
       <Container className="relative z-10 grid items-end gap-12 lg:grid-cols-2">
         <div>
-          <p className="mb-4 text-[11px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>
+          <p className="mb-4 text-[11px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>
             / Interactive Tabletop Exercise
           </p>
           <h1 className="font-bold leading-[0.92] tracking-tight" style={{ fontFamily: DISPLAY, fontSize: "clamp(2.5rem, 7vw, 6rem)" }}>
@@ -61,7 +61,7 @@ export function TabletopCoreOfferingsSection() {
   return (
     <section className="theme-section-bg py-32" style={{ backgroundImage: SECTION_BG }}>
       <Container>
-        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ offerings</p>
+        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>/ offerings</p>
         <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
           Strategy &amp;&nbsp;<span style={gradStyle}>/ Tactical Solutions /</span>
         </h2>
@@ -72,12 +72,12 @@ export function TabletopCoreOfferingsSection() {
               <span className="block mb-6 font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "3rem", color: `${ACCENT}40` }}>
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="mb-4 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1.125rem" }}>
+              <h3 className="mb-4 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1.375rem" }}>
                 {item.title}
               </h3>
               <div className="space-y-2">
                 {item.blocks.map((block) => (
-                  <p key={block.label} className="text-xs text-white/50" style={{ fontFamily: BODY }}>
+                  <p key={block.label} className="text-sm text-white/50" style={{ fontFamily: BODY }}>
                     <span style={{ color: ACCENT }}>/</span> <span className="text-white/70">{block.label}:</span> {block.text}
                   </p>
                 ))}
@@ -103,7 +103,7 @@ export function TabletopWhyChooseSection() {
         </span>
       </div>
       <Container className="relative">
-        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ why choose us</p>
+        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>/ why choose us</p>
         <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
           Mission&nbsp;<span style={gradStyle}>/ Assurance /</span>
         </h2>
@@ -119,10 +119,10 @@ export function TabletopWhyChooseSection() {
                 style={{ fontFamily: DISPLAY, fontSize: "3rem", color: `${ACCENT}40` }}>
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="relative font-semibold text-white mb-3" style={{ fontFamily: DISPLAY, fontSize: "1.125rem" }}>
+              <h3 className="relative font-semibold text-white mb-3" style={{ fontFamily: DISPLAY, fontSize: "1.375rem" }}>
                 {item.title}
               </h3>
-              <p className="relative text-xs leading-relaxed text-white/50" style={{ fontFamily: BODY }}>{item.description}</p>
+              <p className="relative text-sm leading-relaxed text-white/50" style={{ fontFamily: BODY }}>{item.description}</p>
             </div>
           ))}
         </div>

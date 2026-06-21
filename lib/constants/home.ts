@@ -3,6 +3,7 @@ export type ServicePillarItem = {
   titleCode?: string;
   description: string;
   strategicValue: string;
+  strategicValueLines?: string[];
   iconSrc: string;
 };
 
@@ -29,6 +30,7 @@ export const homeContent = {
         description:
           "The Information Gathering Intelligence layer serves as the primary ingestion engine for the Cyber TIP (Target Intelligence Package).",
         strategicValue: "Information Gathering Intelligence",
+        strategicValueLines: ["Information Gathering", "Intelligence"],
         iconSrc: "/images/icons/osint-ai.jpg",
       },
       {

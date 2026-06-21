@@ -27,7 +27,7 @@ export function TechnicalSimulationExerciseHero() {
         TSX
       </span>
       <Container className="relative">
-        <p className="mb-4 text-[11px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>
+        <p className="mb-4 text-[11px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>
           / Technical Simulation Exercise
         </p>
         <h1 className="font-bold leading-[0.92] tracking-tight" style={{ fontFamily: DISPLAY, fontSize: "clamp(3rem, 9vw, 8rem)" }}>
@@ -51,7 +51,7 @@ export function TechnicalSimulationExerciseMethodologySection() {
   return (
     <section className="theme-section-bg py-32" style={{ backgroundImage: SECTION_BG }}>
       <Container>
-        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ methodology</p>
+        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>/ methodology</p>
         <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
           Tailored&nbsp;<span style={gradStyle}>/ Attack Simulation /</span>
         </h2>
@@ -91,7 +91,7 @@ export function TechnicalSimulationExerciseBenefitsSection() {
         benefits
       </span>
       <Container className="relative">
-        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ key benefits</p>
+        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>/ key benefits</p>
         <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
           Live Simulation&nbsp;<span style={gradStyle}>/ Benefits /</span>
         </h2>
@@ -102,10 +102,10 @@ export function TechnicalSimulationExerciseBenefitsSection() {
               <span className="block mb-6 font-bold leading-none" style={{ fontFamily: DISPLAY, fontSize: "3rem", color: `${ACCENT}40` }}>
                 {item.num}
               </span>
-              <h3 className="mb-4 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1.125rem" }}>{item.title}</h3>
+              <h3 className="mb-4 font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: "1.375rem" }}>{item.title}</h3>
               <div className="space-y-2">
                 {item.points.map((p) => (
-                  <p key={p} className="text-xs text-white/50" style={{ fontFamily: BODY }}>
+                  <p key={p} className="text-sm text-white/50" style={{ fontFamily: BODY }}>
                     <span style={{ color: ACCENT }}>/</span> {p}
                   </p>
                 ))}
@@ -137,7 +137,7 @@ export function TechnicalSimulationExerciseLifecycleSection() {
         lifecycle
       </span>
       <Container className="relative">
-        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ exercise lifecycle</p>
+        <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>/ exercise lifecycle</p>
         <h2 className="mb-16 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
           Kill Chain&nbsp;<span style={gradStyle}>/ Stages /</span>
         </h2>
