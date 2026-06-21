@@ -85,17 +85,58 @@ export default function HomePage() {
         {/* ─── Hero ─────────────────────────────────────────────── */}
         <HeroAnimated />
 
-        {/* ─── Marquee ──────────────────────────────────────────── */}
-        <div className="overflow-hidden border-y border-white/8 py-5">
-          <div className="marquee-track flex whitespace-nowrap">
-            {[...marqueeItems, ...marqueeItems].map((item, i) => (
-              <span key={i} className="mx-10 text-[11px] tracking-[0.3em] uppercase text-white/60"
-                style={{ fontFamily: BODY }}>
-                {item} <span style={{ color: ACCENT }}>✦</span>
-              </span>
-            ))}
-          </div>
-        </div>
+        {/* ─── Partners marquee ─────────────────────────────────── */}
+        <section className="theme-section-bg trusted-by-section border-y border-white/8 py-12" style={{ backgroundImage: SECTION_BG }}>
+          <Container>
+            <ScrollReveal>
+              <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>
+                / trusted by
+              </p>
+              <h2 className="mb-10 font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(2rem, 5vw, 3.5rem)" }}>
+                trusted&nbsp;<span style={gradStyle}>/ by /</span>
+              </h2>
+            </ScrollReveal>
+            <div className="overflow-hidden">
+              <div className="marquee-track flex items-center whitespace-nowrap" style={{ animationDuration: "50s" }}>
+                {[...partnerLogos, ...partnerLogos].map((logo, i) => (
+                  <div key={i} className="partner-logo-pill mx-5 shrink-0 flex items-center justify-center rounded-lg"
+                    style={{ backgroundColor: "#c8c8c8", width: "260px", height: "120px", padding: "10px 12px" }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={logo.src}
+                      alt={logo.alt}
+                      style={{ maxWidth: "220px", maxHeight: "95px", width: "auto", height: "auto", objectFit: "contain" }}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Container>
+        </section>
+
+        {/* ─── simulasi / platform spotlight ── */}
+        <section className="theme-section-bg border-y border-white/8 py-24" style={{ backgroundImage: SECTION_BG }}>
+          <Container>
+            <div className="grid gap-16 lg:grid-cols-2">
+              <ScrollReveal>
+                <p className="text-sm leading-relaxed text-white/40" style={{ fontFamily: BODY }}>
+                  We manage and provide our customers with measurable cyber resilience. Protecting critical infrastructure and national security interests through continuous, intelligence-driven simulation.
+                </p>
+              </ScrollReveal>
+              <ScrollReveal delay={0.15}>
+                <div>
+                  <p className="text-[10px] tracking-[0.35em] uppercase text-white/30 mb-4" style={{ fontFamily: BODY }}>/ platform</p>
+                  <h3 className="font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(3rem, 6vw, 5rem)" }}>
+                    simulasi
+                  </h3>
+                  <p className="mt-3 text-xs text-white/40" style={{ fontFamily: BODY }}>
+                    / AI-driven warfare simulation. Continuous dynamic capability.
+                  </p>
+                </div>
+              </ScrollReveal>
+            </div>
+          </Container>
+        </section>
 
         {/* ─── Our Strategic Capabilities ──────────────────────── */}
         {(() => {
@@ -235,78 +276,17 @@ export default function HomePage() {
           </Container>
         </section>
 
-        {/* ─── lets talk CTA ────────────────────────────────────── */}
-        <section className="border-y border-white/8 py-20">
-          <Container>
-            <ScrollReveal>
-              <div className="flex flex-col gap-10 md:flex-row md:items-center md:justify-between">
-                <div className="max-w-xl">
-                  <h2 className="font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(1.5rem, 3vw, 2.5rem)" }}>
-                    lets talk /
-                  </h2>
-                  <p className="mt-4 text-sm leading-relaxed text-white/50" style={{ fontFamily: BODY }}>
-                    We offer a full spectrum of cyber exercise services, including attack simulation and source code verification. Professional simulation experts provide a complete package of resilience services and solutions.
-                  </p>
-                </div>
-                <Link href={routes.contact}
-                  className="shrink-0 border border-white/20 px-10 py-4 text-[11px] tracking-[0.3em] uppercase text-white/60 hover:border-white hover:text-white transition-all duration-300 self-start"
-                  style={{ fontFamily: BODY }}>
-                  Start Now /
-                </Link>
-              </div>
-            </ScrollReveal>
-          </Container>
-        </section>
-
-        {/* ─── simulasi / platform spotlight ("devsecops" equivalent) ── */}
-        <section className="theme-section-bg border-y border-white/8 py-24" style={{ backgroundImage: SECTION_BG }}>
-          <Container>
-            <div className="grid gap-16 lg:grid-cols-2">
-              <ScrollReveal>
-                <p className="text-sm leading-relaxed text-white/40" style={{ fontFamily: BODY }}>
-                  We manage and provide our customers with measurable cyber resilience. Protecting critical infrastructure and national security interests through continuous, intelligence-driven simulation.
-                </p>
-              </ScrollReveal>
-              <ScrollReveal delay={0.15}>
-                <div>
-                  <p className="text-[10px] tracking-[0.35em] uppercase text-white/30 mb-4" style={{ fontFamily: BODY }}>/ platform</p>
-                  <h3 className="font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(3rem, 6vw, 5rem)" }}>
-                    simulasi
-                  </h3>
-                  <p className="mt-3 text-xs text-white/40" style={{ fontFamily: BODY }}>
-                    / AI-driven warfare simulation. Continuous dynamic capability.
-                  </p>
-                </div>
-              </ScrollReveal>
-            </div>
-          </Container>
-        </section>
-
-        {/* ─── Partners marquee ─────────────────────────────────── */}
-        <section className="theme-section-bg trusted-by-section border-y border-white/8 py-12" style={{ backgroundImage: SECTION_BG }}>
-          <Container>
-            <p className="mb-8 text-center text-sm md:text-base tracking-[0.45em] uppercase font-medium"
-              style={{ fontFamily: BODY, color: "var(--theme-text, #ffffff)", opacity: 0.85 }}>
-              / TRUSTED BY
-            </p>
-            <div className="overflow-hidden">
-              <div className="marquee-track flex items-center whitespace-nowrap" style={{ animationDuration: "50s" }}>
-                {[...partnerLogos, ...partnerLogos].map((logo, i) => (
-                  <div key={i} className="partner-logo-pill mx-5 shrink-0 flex items-center justify-center rounded-lg"
-                    style={{ backgroundColor: "#c8c8c8", width: "260px", height: "120px", padding: "10px 12px" }}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={logo.src}
-                      alt={logo.alt}
-                      style={{ maxWidth: "220px", maxHeight: "95px", width: "auto", height: "auto", objectFit: "contain" }}
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Container>
-        </section>
-
+        {/* ─── Marquee ──────────────────────────────────────────── */}
+        <div className="overflow-hidden border-y border-white/8 py-5">
+          <div className="marquee-track flex whitespace-nowrap">
+            {[...marqueeItems, ...marqueeItems].map((item, i) => (
+              <span key={i} className="mx-10 text-[11px] tracking-[0.3em] uppercase text-white/60"
+                style={{ fontFamily: BODY }}>
+                {item} <span style={{ color: ACCENT }}>✦</span>
+              </span>
+            ))}
+          </div>
+        </div>
 
       </main>
       <Footer />

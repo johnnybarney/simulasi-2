@@ -9,11 +9,10 @@ import { homeContent } from "@/lib/constants/home";
 const DISPLAY = "'Clash Display', sans-serif";
 const BODY    = "var(--font-chakra), 'Chakra Petch', sans-serif";
 const ACCENT  = "#00c5cd";
-const ACCENT2 = "#545454";
 
-/* gradient for the accent line */
+/* gradient for the accent line — bright teal → white for legibility on video */
 const gradStyle: React.CSSProperties = {
-  background: `linear-gradient(90deg, ${ACCENT2} 0%, ${ACCENT} 60%, #ffffff 100%)`,
+  background: `linear-gradient(90deg, #00e8f0 0%, ${ACCENT} 45%, #ffffff 100%)`,
   WebkitBackgroundClip: "text",
   WebkitTextFillColor: "transparent",
   backgroundClip: "text",
@@ -121,14 +120,14 @@ export function HeroAnimated() {
           className="mb-10 flex items-center gap-4 transition-all duration-700"
           style={{ opacity: phase >= 0 ? 1 : 0, transform: phase >= 0 ? "none" : "translateY(12px)" }}
         >
-          <span className="h-px w-8 block" style={{ background: ACCENT }} />
+          <span className="h-px w-10 block" style={{ background: ACCENT, boxShadow: `0 0 8px ${ACCENT}88` }} />
           <p
-            className="text-[10px] tracking-[0.55em] uppercase"
-            style={{ fontFamily: BODY, color: ACCENT }}
+            className="text-[11px] tracking-[0.55em] uppercase"
+            style={{ fontFamily: BODY, color: "#00e8f0", textShadow: "0 0 18px rgba(0,232,240,0.35)" }}
           >
             Welcome to Simulasi
           </p>
-          <span className="h-px flex-1 block opacity-20" style={{ background: ACCENT }} />
+          <span className="h-px flex-1 block opacity-[0.55]" style={{ background: ACCENT, boxShadow: `0 0 6px ${ACCENT}66` }} />
         </div>
 
         {/* ── headline ── */}
@@ -165,8 +164,8 @@ export function HeroAnimated() {
           style={{ opacity: phase >= 4 ? 1 : 0 }}
         >
           <div className="flex items-center gap-4">
-            <div className="h-px w-16" style={{ background: `linear-gradient(90deg, ${ACCENT}, transparent)` }} />
-            <span className="text-[9px] tracking-[0.5em] uppercase text-white/60" style={{ fontFamily: BODY }}>
+            <div className="h-px w-24" style={{ background: `linear-gradient(90deg, #00e8f0, ${ACCENT} 70%, transparent)` }} />
+            <span className="text-[10px] tracking-[0.5em] uppercase text-white/90" style={{ fontFamily: BODY }}>
               EST. 2026
             </span>
           </div>

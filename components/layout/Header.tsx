@@ -93,7 +93,7 @@ export function Header({ activeHref }: Props) {
             className="flex items-center gap-2 font-bold tracking-tight text-xl"
             style={{ fontFamily: DISPLAY, color: "var(--theme-text, #ffffff)" }}
           >
-            <Image src="/images/rpmy3.png" alt="RP.MY logo" width={32} height={32} className="logo-mark object-contain" />
+            <Image src="/images/rpmyrpmy.png" alt="RP.MY logo" width={32} height={32} className="logo-mark object-contain" />
             Simulasi
           </Link>
 
