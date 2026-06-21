@@ -27,7 +27,7 @@ function TypeCursor() {
   );
 }
 
-type Line = { text: string; accent?: boolean };
+type Line = { text: string; accent?: boolean; color?: string };
 
 type Props = {
   eyebrow: string;
@@ -143,7 +143,7 @@ export function ServiceHeroAnimated({ eyebrow, lines, watermark, description, co
 
         {/* headline */}
         <h1 style={{ fontFamily: DISPLAY, fontWeight: 700, lineHeight: 1, fontSize: "clamp(3rem, 10vw, 8rem)" }}>
-          <span className="block mb-1" style={{ color: lines[0].accent ? "transparent" : "#ffffff" }}>
+          <span className="block mb-1" style={{ color: lines[0].accent ? "transparent" : (lines[0].color ?? "#ffffff") }}>
             {lines[0].accent
               ? <span style={gradStyle}>{l1.slice(0, chars1)}</span>
               : l1.slice(0, chars1)
@@ -155,13 +155,13 @@ export function ServiceHeroAnimated({ eyebrow, lines, watermark, description, co
             {chars2 > 0 && (
               lines[1].accent
                 ? <span style={gradStyle}>{l2.slice(0, chars2)}</span>
-                : <span className="text-white">{l2.slice(0, chars2)}</span>
+                : <span style={{ color: lines[1].color ?? "#ffffff" }}>{l2.slice(0, chars2)}</span>
             )}
             {phase === 2 && <TypeCursor />}
           </span>
 
           {l3 && (
-            <span className="block" style={{ color: lines[2]?.accent ? "transparent" : "#ffffff" }}>
+            <span className="block" style={{ color: lines[2]?.accent ? "transparent" : (lines[2]?.color ?? "#ffffff") }}>
               {lines[2]?.accent
                 ? <span style={gradStyle}>{l3.slice(0, chars3)}</span>
                 : l3.slice(0, chars3)

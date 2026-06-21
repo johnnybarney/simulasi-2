@@ -12,13 +12,13 @@ export default function CdXProductPage() {
       <ServiceHeroAnimated
         eyebrow="CD-X Platform"
         lines={[
-          { text: "CD-X" },
+          { text: "CD-X", color: "#FFD700" },
           { text: "Platform", accent: true },
         ]}
         watermark="CD-X"
         code="CE-C2"
         description="Full command and control over every phase of a cyber exercise — from mission briefing through live execution to automated after-action reporting."
-        video="/images/cdx.mp4"
+        video="/images/cdx1.mp4"
       />
       <CyberDrillsSection />
       <ValueDeliveryTable />

@@ -56,6 +56,7 @@ const partnerLogos = [
   { src: "/images/jpj.png",             alt: "JPJ" },
   { src: "/images/kdn.png",             alt: "KDN" },
   { src: "/images/tudm.png",            alt: "TUDM" },
+  { src: "/images/nacsa.png",           alt: "NACSA" },
 ];
 
 /* ── vertical side label ─────────────────────────────────────── */
@@ -282,22 +283,22 @@ export default function HomePage() {
         </section>
 
         {/* ─── Partners marquee ─────────────────────────────────── */}
-        <section className="theme-section-bg border-y border-white/8 py-12" style={{ backgroundImage: SECTION_BG }}>
+        <section className="theme-section-bg trusted-by-section border-y border-white/8 py-12" style={{ backgroundImage: SECTION_BG }}>
           <Container>
-            <p className="mb-8 text-center text-[10px] tracking-[0.35em] uppercase text-white/30"
-              style={{ fontFamily: BODY }}>
-              / Our Valued Clients
+            <p className="mb-8 text-center text-sm md:text-base tracking-[0.45em] uppercase font-medium"
+              style={{ fontFamily: BODY, color: "var(--theme-text, #ffffff)", opacity: 0.85 }}>
+              / TRUSTED BY
             </p>
             <div className="overflow-hidden">
               <div className="marquee-track flex items-center whitespace-nowrap" style={{ animationDuration: "50s" }}>
                 {[...partnerLogos, ...partnerLogos].map((logo, i) => (
-                  <div key={i} className="mx-5 shrink-0 flex items-center justify-center rounded-lg"
-                    style={{ backgroundColor: "#c8c8c8", width: "160px", height: "80px", padding: "12px 16px" }}>
+                  <div key={i} className="partner-logo-pill mx-5 shrink-0 flex items-center justify-center rounded-lg"
+                    style={{ backgroundColor: "#c8c8c8", width: "260px", height: "120px", padding: "10px 12px" }}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={logo.src}
                       alt={logo.alt}
-                      style={{ maxWidth: "128px", maxHeight: "56px", width: "auto", height: "auto", objectFit: "contain" }}
+                      style={{ maxWidth: "220px", maxHeight: "95px", width: "auto", height: "auto", objectFit: "contain" }}
                     />
                   </div>
                 ))}

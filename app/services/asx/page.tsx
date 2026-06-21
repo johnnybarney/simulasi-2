@@ -10,9 +10,9 @@ export default function AsxServicePage() {
   return (
     <PageShell headerVariant="advance-simulation" footerVariant="advance-simulation" activeHref={routes.asx}>
       <ServiceHeroAnimated
-        eyebrow="Advance Simulation Exercise"
+        eyebrow="Advanced Simulation Exercise"
         lines={[
-          { text: "Advance" },
+          { text: "Advanced" },
           { text: "Simulation", accent: true },
           { text: "Exercise" },
         ]}

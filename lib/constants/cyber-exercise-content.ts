@@ -107,7 +107,7 @@ export const asxContent = {
   tagline: "Detect. Respond. Recover.",
   heroVideo: {
     src: "/images/stadium.mp4",
-    alt: "Advance Simulation Exercise simulation",
+    alt: "Advanced Simulation Exercise simulation",
   },
   offerings: cyberExerciseSharedContent.offerings.map((offering) =>
     offering.title === "MNI-X 3D Kit"

@@ -87,8 +87,9 @@ export function CyberDrillsSection() {
     <section className="theme-section-bg border-y border-white/8 py-32" style={{ backgroundImage: SECTION_BG }}>
       <Container className="grid items-center gap-16 lg:grid-cols-2">
         <div className="overflow-hidden border border-white/8" style={{ borderRadius: "9px" }}>
-          <Image src="/images/national.png" alt="National Critical Infrastructure"
-            width={800} height={600} className="h-auto w-full object-contain" />
+          <video src="/images/cyber.mp4" autoPlay loop muted playsInline
+            className="aspect-video w-full object-cover"
+            aria-label="National Critical Infrastructure" />
         </div>
         <div>
           <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>/ cyber drills matter</p>

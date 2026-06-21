@@ -28,7 +28,16 @@
   --theme-border-mid:   rgba(255,255,255,0.15);
   --theme-surface:      rgba(255,255,255,0.04);
   --theme-accent:       #00c5cd;
+  --theme-menu-code:    #00c5cd;
   --theme-header-bg:    rgba(0,0,0,0.95);
+}
+
+.menu-sub-code {
+  color: var(--theme-menu-code, #00c5cd);
+}
+
+[data-theme="light"] .menu-sub-code {
+  font-weight: 600;
 }
 
 [data-theme="light"] {
@@ -44,6 +53,7 @@
   --theme-border-mid:   rgba(0,0,0,0.15);
   --theme-surface:      rgba(0,0,0,0.04);
   --theme-accent:       #00a8af;
+  --theme-menu-code:    #00d4dd;
   --theme-header-bg:    rgba(244,245,247,0.97);
 }
 
@@ -223,6 +233,21 @@
 
   /* background tints */
   .bg-cyber-bg { background-color: #f4f5f7 !important; }
+
+  /* logo mark — blend with page bg in light mode */
+  .logo-mark {
+    background-color: var(--theme-bg, #f4f5f7);
+    border-radius: 4px;
+  }
+
+  /* trusted by section + partner logo pills */
+  .trusted-by-section {
+    background: #ffffff !important;
+  }
+
+  .partner-logo-pill {
+    background-color: #ffffff !important;
+  }
 
   /* menu/overlay */
   .bg-\[\#050505\]  { background-color: #f4f5f7 !important; }

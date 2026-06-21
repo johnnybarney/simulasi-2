@@ -15,7 +15,7 @@ const ACCENT  = "#00c5cd";
 const serviceLinks = [
   { label: "Technical Simulation Exercise", code: "TSX",             href: routes.tsx },
   { label: "Interactive Tabletop Exercise", code: "iTTX",            href: routes.ittx },
-  { label: "Advance Simulation Exercise",   code: "ASX",             href: routes.asx },
+  { label: "Advanced Simulation Exercise",   code: "ASX",             href: routes.asx },
   { label: "Offensive Operations",          code: "Attack Sim",      href: routes.attackSimulation },
   { label: "Reconnaissance Intelligence",   code: "Recon Intel",     href: routes.reconIntel },
   { label: "Capacity Building",             code: null,               href: "https://rp.my/training" },
@@ -35,6 +35,34 @@ const mainLinks = [
 ];
 
 type Sub = "services" | "products" | null;
+
+function MenuIcon({ open }: { open: boolean }) {
+  return (
+    <span className="relative flex h-5 w-6 flex-col items-center justify-center">
+      <span
+        className="absolute block h-px w-full transition-all duration-300"
+        style={{
+          background: "var(--theme-text, #ffffff)",
+          transform: open ? "rotate(45deg)" : "translateY(-6px)",
+        }}
+      />
+      <span
+        className="absolute block h-px w-full transition-all duration-300"
+        style={{
+          background: "var(--theme-text, #ffffff)",
+          opacity: open ? 0 : 1,
+        }}
+      />
+      <span
+        className="absolute block h-px w-full transition-all duration-300"
+        style={{
+          background: "var(--theme-text, #ffffff)",
+          transform: open ? "rotate(-45deg)" : "translateY(6px)",
+        }}
+      />
+    </span>
+  );
+}
 
 type Props = { activeHref?: string };
 
@@ -65,7 +93,7 @@ export function Header({ activeHref }: Props) {
             className="flex items-center gap-2 font-bold tracking-tight text-xl"
             style={{ fontFamily: DISPLAY, color: "var(--theme-text, #ffffff)" }}
           >
-            <Image src="/images/rpmy3.png" alt="RP.MY logo" width={32} height={32} className="object-contain" />
+            <Image src="/images/rpmy3.png" alt="RP.MY logo" width={32} height={32} className="logo-mark object-contain" />
             Simulasi
           </Link>
 
@@ -73,12 +101,11 @@ export function Header({ activeHref }: Props) {
             <ThemeToggle />
             <button
               onClick={() => setOpen((v) => !v)}
-              className="text-[11px] tracking-[0.35em] uppercase transition-opacity hover:opacity-60"
-              style={{ fontFamily: BODY, color: "var(--theme-text, #ffffff)" }}
+              className="flex h-10 w-10 items-center justify-center transition-opacity hover:opacity-70"
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
             >
-              {open ? "/ Close" : "/ Menu"}
+              <MenuIcon open={open} />
             </button>
           </div>
         </Container>
@@ -186,15 +213,15 @@ export function Header({ activeHref }: Props) {
               <div className="flex flex-col justify-center min-h-[200px]">
                 {hovered ? (
                   <div key={hovered} className="animate-[fadeSlideIn_0.2s_ease]">
-                    <p className="mb-6 text-[10px] tracking-[0.35em] uppercase"
-                      style={{ color: `${ACCENT}88`, fontFamily: BODY }}>
+                    <p className="mb-8 text-xs tracking-[0.35em] uppercase"
+                      style={{ color: ACCENT, fontFamily: BODY }}>
                       / {hovered === "services" ? "our services" : "our products"}
                     </p>
-                    <ul className="space-y-1">
+                    <ul className="space-y-2">
                       {subLinks.map((item) => {
                         const isExternal = item.href.startsWith("http");
-                        const baseColor = "var(--theme-text-sec, rgba(255,255,255,0.6))";
-                        const arrowColor = "var(--theme-text-dim, rgba(255,255,255,0.2))";
+                        const baseColor = "var(--theme-text, #ffffff)";
+                        const arrowColor = "var(--theme-text-muted, rgba(255,255,255,0.45))";
 
                         function handleEnter(e: React.MouseEvent<HTMLElement>) {
                           const el = e.currentTarget;
@@ -211,15 +238,15 @@ export function Header({ activeHref }: Props) {
 
                         const inner = (
                           <>
-                            <span className="text-[10px] tracking-[0.2em] uppercase"
-                              style={{ color: ACCENT, fontFamily: BODY, minWidth: "3.5rem" }}>
+                            <span className="menu-sub-code text-xs font-semibold tracking-[0.2em] uppercase"
+                              style={{ fontFamily: BODY, minWidth: "4.5rem" }}>
                               {item.code ?? "→"}
                             </span>
-                            <span data-label className="text-sm font-medium transition-colors duration-200"
-                              style={{ fontFamily: BODY, letterSpacing: "0.05em", color: baseColor }}>
+                            <span data-label className="text-base font-semibold transition-colors duration-200"
+                              style={{ fontFamily: BODY, letterSpacing: "0.04em", color: baseColor }}>
                               {item.label}
                             </span>
-                            <span data-arrow className="ml-auto transition-colors duration-200"
+                            <span data-arrow className="ml-auto text-base transition-colors duration-200"
                               style={{ color: arrowColor }}>
                               →
                             </span>
@@ -230,7 +257,7 @@ export function Header({ activeHref }: Props) {
                           onClick: closeMenu,
                           onMouseEnter: handleEnter,
                           onMouseLeave: handleLeave,
-                          className: "flex items-center gap-3 py-2.5 border-b transition-all duration-200",
+                          className: "flex items-center gap-4 py-3 border-b transition-all duration-200",
                           style: { borderBottomColor: "var(--theme-border, rgba(255,255,255,0.05))" } as React.CSSProperties,
                         };
 
@@ -252,7 +279,7 @@ export function Header({ activeHref }: Props) {
                   </div>
                 ) : (
                   /* idle state: subtle prompt */
-                  <p className="text-[10px] tracking-[0.35em] uppercase" style={{ fontFamily: BODY, color: "var(--theme-text-dim, rgba(255,255,255,0.15))" }}>
+                  <p className="text-xs tracking-[0.35em] uppercase" style={{ fontFamily: BODY, color: "var(--theme-text-muted, rgba(255,255,255,0.4))" }}>
                     / hover a section to explore
                   </p>
                 )}

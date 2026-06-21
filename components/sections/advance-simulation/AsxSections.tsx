@@ -32,10 +32,10 @@ export function AsxHero() {
       </span>
       <Container className="relative">
         <p className="mb-4 text-[11px] tracking-[0.35em] uppercase text-white/30" style={{ fontFamily: BODY }}>
-          / Advance Simulation Exercise
+          / Advanced Simulation Exercise
         </p>
         <h1 className="font-bold leading-[0.92] tracking-tight" style={{ fontFamily: DISPLAY, fontSize: "clamp(2.5rem, 8vw, 7rem)" }}>
-          <span className="block text-white">Advance</span>
+          <span className="block text-white">Advanced</span>
           <span className="block"><span style={gradStyle}>/ Simulation /</span></span>
           <span className="block text-white">Exercise</span>
         </h1>

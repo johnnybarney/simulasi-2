@@ -56,7 +56,7 @@ export type NavItem = {
 export const servicePages: NavChild[] = [
   { label: "Technical Simulation Exercise", labelCode: "TSX", href: routes.tsx },
   { label: "Interactive Tabletop Exercise", labelCode: "iTTX", href: routes.ittx },
-  { label: "Advance Simulation Exercise", labelCode: "ASX", href: routes.asx },
+  { label: "Advanced Simulation Exercise", labelCode: "ASX", href: routes.asx },
   { label: "Offensive Operations", labelCode: "Attack Simulation", href: routes.attackSimulation },
   { label: "Reconnaissance Intelligence", labelCode: "Recon Intel", href: routes.reconIntel },
   { label: "Capacity Building", href: routes.training },
