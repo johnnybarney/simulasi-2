@@ -87,7 +87,7 @@ function MniXHeroAnimated() {
         className="absolute inset-0 h-full w-full object-cover transition-opacity duration-[1800ms]"
         style={{ opacity: showVideo ? 0.85 : 0, objectPosition: "center center" }}
       >
-        <source src="/images/mini.mp4" type="video/mp4" />
+        <source src="/images/mni1.mp4" type="video/mp4" />
       </video>
 
       {/* gradient overlays */}
