@@ -95,16 +95,20 @@ export function AboutHeroSection() {
         about
       </span>
       <Container className="relative z-[2]">
-        <p className="mb-4 text-[11px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>
-          / {hero.eyebrow}
-        </p>
+        <div className="mb-10 flex items-center gap-4">
+          <span className="h-px w-8 block" style={{ background: ACCENT }} aria-hidden="true" />
+          <p className="text-[10px] tracking-[0.55em] uppercase" style={{ fontFamily: BODY, color: ACCENT }}>
+            {hero.eyebrow}
+          </p>
+          <span className="h-px flex-1 block opacity-20" style={{ background: ACCENT }} aria-hidden="true" />
+        </div>
         <h1 className="font-bold leading-[0.92] tracking-tight" style={{ fontFamily: DISPLAY, fontSize: "clamp(2.5rem, 8vw, 7rem)" }}>
           <span className="block text-white">{hero.title}</span>
           <span className="block">
             <span style={gradStyle}>/ {hero.titleAccent} /</span>
           </span>
         </h1>
-        <p className="mt-10 max-w-2xl text-sm leading-relaxed text-white/40 md:text-base" style={{ fontFamily: BODY }}>
+        <p className="mt-10 max-w-xl text-sm leading-relaxed text-white/75 md:text-base" style={{ fontFamily: BODY }}>
           {hero.intro}
         </p>
       </Container>

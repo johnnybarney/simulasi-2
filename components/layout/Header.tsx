@@ -114,15 +114,15 @@ export function Header({ activeHref }: Props) {
       {/* ── full-screen overlay ──────────────────────────────────── */}
       <div
         className={cn(
-          "fixed inset-0 z-[199] transition-all duration-500",
+          "fixed inset-0 z-[199] flex flex-col overflow-hidden transition-all duration-500",
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none",
         )}
         style={{ backgroundColor: "var(--theme-bg, #000000)", transition: "background-color 0.35s ease" }}
       >
-        <Container className="flex h-full flex-col justify-between py-28">
+        <Container className="flex min-h-0 flex-1 flex-col py-24 pt-28">
 
           {/* top: contact info */}
-          <div className="flex flex-wrap gap-8 border-b border-white/8 pb-8">
+          <div className="flex shrink-0 flex-wrap gap-8 border-b border-white/8 pb-6">
             <a href="mailto:contact@simulasi.org"
               className="text-[11px] tracking-[0.25em] uppercase transition-colors hover:opacity-100"
               style={{ fontFamily: BODY, color: "var(--theme-text-muted, rgba(255,255,255,0.4))" }}>
@@ -135,9 +135,12 @@ export function Header({ activeHref }: Props) {
             </a>
           </div>
 
-          {/* middle: two-column — big nav left, sub-links right */}
-          <nav aria-label="Overlay navigation" className="flex-1 flex items-center">
-            <div className="grid w-full gap-16 lg:grid-cols-[1fr_1fr]">
+          {/* middle: main nav + sub-links — scrollable on mobile */}
+          <nav
+            aria-label="Overlay navigation"
+            className="min-h-0 flex-1 overflow-y-auto overscroll-y-contain py-6 [-webkit-overflow-scrolling:touch]"
+          >
+            <div className="grid w-full gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
 
               {/* ── left: main nav items ── */}
               <ul className="space-y-0">
@@ -157,6 +160,7 @@ export function Header({ activeHref }: Props) {
                             textTransform: "uppercase",
                             color: isActive ? ACCENT : "var(--theme-text, #ffffff)",
                           }}
+                          onClick={() => setHovered(isActive ? null : link.sub)}
                           onMouseEnter={(e) => {
                             setHovered(link.sub);
                             (e.currentTarget as HTMLElement).style.color = ACCENT;
@@ -210,10 +214,10 @@ export function Header({ activeHref }: Props) {
               </ul>
 
               {/* ── right: sub-link panel ── */}
-              <div className="flex flex-col justify-center min-h-[200px]">
+              <div className="flex min-h-0 flex-col lg:justify-center">
                 {hovered ? (
                   <div key={hovered} className="animate-[fadeSlideIn_0.2s_ease]">
-                    <p className="mb-8 text-xs tracking-[0.35em] uppercase"
+                    <p className="mb-6 text-xs tracking-[0.35em] uppercase lg:mb-8"
                       style={{ color: ACCENT, fontFamily: BODY }}>
                       / {hovered === "services" ? "our services" : "our products"}
                     </p>
@@ -279,7 +283,12 @@ export function Header({ activeHref }: Props) {
                   </div>
                 ) : (
                   /* idle state: subtle prompt */
-                  <p className="text-xs tracking-[0.35em] uppercase" style={{ fontFamily: BODY, color: "var(--theme-text-muted, rgba(255,255,255,0.4))" }}>
+                  <p className="text-xs tracking-[0.35em] uppercase lg:hidden" style={{ fontFamily: BODY, color: "var(--theme-text-muted, rgba(255,255,255,0.4))" }}>
+                    / tap a section to explore
+                  </p>
+                )}
+                {!hovered && (
+                  <p className="hidden text-xs tracking-[0.35em] uppercase lg:block" style={{ fontFamily: BODY, color: "var(--theme-text-muted, rgba(255,255,255,0.4))" }}>
                     / hover a section to explore
                   </p>
                 )}
@@ -288,7 +297,7 @@ export function Header({ activeHref }: Props) {
           </nav>
 
           {/* bottom: CTA */}
-          <div className="border-t border-white/8 pt-8 flex items-center justify-between flex-wrap gap-4">
+          <div className="flex shrink-0 flex-wrap items-center justify-between gap-4 border-t border-white/8 pt-6">
             <p className="text-[10px] tracking-[0.35em] uppercase text-white/20" style={{ fontFamily: BODY }}>
               © 2026 Simulasi
             </p>

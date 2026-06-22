@@ -13,7 +13,7 @@ export type AboutMilestone = {
 
 export const aboutContent = {
   hero: {
-    eyebrow: "About Simulasi",
+    eyebrow: "ABOUT SIMULASI",
     title: "The Frontline of",
     titleAccent: "Cyber Resilience",
     intro:
