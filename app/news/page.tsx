@@ -18,6 +18,7 @@ export default function NewsPage() {
         watermark="NEWS"
         code="News"
         description="Insights, case studies, and intelligence from the Simulasi team — keeping you informed on the evolving threat landscape."
+        video="/images/latestnews.mp4"
       />
     </PageShell>
   );

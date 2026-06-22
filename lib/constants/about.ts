@@ -101,6 +101,7 @@ export const aboutContent = {
           name: "M. Nizal Othman",
           role: "Business Development Lead",
           bio: "Strategic directions for tactical capabilities to match enterprise objectives and regulatory frameworks.",
+          imageSrc: "/images/nizal.jpeg",
         },
         {
           name: "Yaakob Noor",
@@ -111,7 +112,7 @@ export const aboutContent = {
         {
           name: "Johan Shah Abdullah",
           role: "Programmer",
-          bio: "Hustler in Vibe Coding. Digital development team.",
+          bio: "Hustler in Vibe Coding. Digital development team focusing on emerging.",
           imageSrc: "/images/mrjohnny.jpg",
         },
         {
@@ -123,7 +124,8 @@ export const aboutContent = {
         {
           name: "Nur Diana Kamilah",
           role: "Project Management Coordinator",
-          bio: "Organize and manage the delivery of completion on schedule.",
+          bio: "Warden of timeline that track project deliverables and proactively manage risks to maintain schedule integrity and ensure timely completion.",
+          imageSrc: "/images/dhia.jpeg",
         },
       ] satisfies AboutTeamMember[],
     },
