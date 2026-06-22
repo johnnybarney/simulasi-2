@@ -18,7 +18,7 @@ export default function CdXProductPage() {
         watermark="CD-X"
         code="CE-C2"
         description="Full command and control over every phase of a cyber exercise — from mission briefing through live execution to automated after-action reporting."
-        video="/images/cdx1.mp4"
+        video="/images/cdx100.mp4"
       />
       <CyberDrillsSection />
       <ValueDeliveryTable />

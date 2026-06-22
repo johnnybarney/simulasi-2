@@ -69,7 +69,7 @@ function CardDetail({ num, title, points }: {
           <p key={p.label} className="text-sm" style={{ fontFamily: BODY }}>
             <span style={{ color: ACCENT }}>/ </span>
             <span className="font-medium text-white/80">{p.label}:</span>
-            <span className="text-white/45"> {p.text}</span>
+            <span style={{ color: ACCENT }}> {p.text}</span>
           </p>
         ))}
       </div>

@@ -41,7 +41,7 @@ const partnerLogos = [
   { src: "/images/petronas.png",        alt: "Petronas" },
   { src: "/images/kaf-logo.png",        alt: "KAF" },
   { src: "/images/nacsa.png",           alt: "NACSA" },
-  { src: "/images/kklw.png",            alt: "KKLW" },
+  { src: "/images/malakoff.png",        alt: "Malakoff" },
   { src: "/images/malaysiaairports.png",alt: "Malaysia Airports" },
   { src: "/images/raya.png",            alt: "Raya Airways" },
   { src: "/images/sepang2.png",         alt: "Sepang Aircraft Engineering" },
@@ -119,11 +119,6 @@ export default function HomePage() {
           <Container>
             <div className="grid gap-16 lg:grid-cols-2">
               <ScrollReveal>
-                <p className="text-sm leading-relaxed text-white/40" style={{ fontFamily: BODY }}>
-                  Forging measurable, battle-tested resilience across critical infrastructure and national security sectors.
-                </p>
-              </ScrollReveal>
-              <ScrollReveal delay={0.15}>
                 <div>
                   <p className="text-[10px] tracking-[0.35em] uppercase text-white/50 mb-4" style={{ fontFamily: BODY }}>/ KESIAPSIAGAAN PROGRAM</p>
                   <h3 className="font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(3rem, 6vw, 5rem)" }}>
@@ -132,6 +127,12 @@ export default function HomePage() {
                   <p className="mt-3 text-sm leading-relaxed text-white/40" style={{ fontFamily: BODY }}>
                     / Intelligence-driven cyber warfare simulation for sovereign defense.
                   </p>
+                </div>
+              </ScrollReveal>
+              <ScrollReveal delay={0.15}>
+                <div className="text-base leading-relaxed text-white/70 md:text-lg text-left" style={{ fontFamily: BODY }}>
+                  <span className="block">Forging measurable, battle-tested resilience across critical</span>
+                  <span className="block">infrastructure and national security sectors.</span>
                 </div>
               </ScrollReveal>
             </div>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Container } from "@/components/layout/Container";
 import { aboutContent } from "@/lib/constants/about";
 
@@ -26,10 +27,29 @@ function initials(name: string) {
     .join("");
 }
 
-function TeamPhotoPlaceholder({ name, large = false }: { name: string; large?: boolean }) {
+function TeamPhoto({ name, imageSrc, imagePosition, large = false }: { name: string; imageSrc?: string; imagePosition?: string; large?: boolean }) {
+  const sizeClass = large ? "h-36 w-36" : "h-28 w-28";
+
+  if (imageSrc) {
+    return (
+      <div
+        className={`relative shrink-0 overflow-hidden border border-white/10 ${sizeClass}`}
+        style={{ borderRadius: "9px", backgroundImage: CARD_BG }}>
+        <Image
+          src={imageSrc}
+          alt={name}
+          fill
+          className="object-cover"
+          style={{ objectPosition: imagePosition ?? "50% 35%" }}
+          sizes={large ? "144px" : "112px"}
+        />
+      </div>
+    );
+  }
+
   return (
     <div
-      className={`relative flex shrink-0 items-center justify-center overflow-hidden border border-white/10 ${large ? "h-36 w-36" : "h-28 w-28"}`}
+      className={`relative flex shrink-0 items-center justify-center overflow-hidden border border-white/10 ${sizeClass}`}
       style={{ borderRadius: "9px", backgroundImage: CARD_BG }}
       aria-hidden="true">
       <span
@@ -42,12 +62,12 @@ function TeamPhotoPlaceholder({ name, large = false }: { name: string; large?: b
   );
 }
 
-function TeamMemberCard({ name, role, bio, large = false }: { name: string; role: string; bio: string; large?: boolean }) {
+function TeamMemberCard({ name, role, bio, imageSrc, imagePosition, large = false }: { name: string; role: string; bio: string; imageSrc?: string; imagePosition?: string; large?: boolean }) {
   return (
     <div
       className="group flex h-full flex-col gap-5 p-8 transition-all duration-500 hover:scale-[1.02] sm:flex-row sm:items-start"
       style={{ backgroundImage: large ? NEEDS_BG : CARD_BG, borderRadius: "9px" }}>
-      <TeamPhotoPlaceholder name={name} large={large} />
+      <TeamPhoto name={name} imageSrc={imageSrc} imagePosition={imagePosition} large={large} />
       <div className="min-w-0 flex-1">
         <h3 className="font-semibold text-white" style={{ fontFamily: DISPLAY, fontSize: large ? "1.375rem" : "1.125rem" }}>
           {name}

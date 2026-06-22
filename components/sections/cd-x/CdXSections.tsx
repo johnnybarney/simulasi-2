@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/layout/Container";
+import { ProductImageCarousel } from "@/components/sections/cd-x/ProductImageCarousel";
 import { routes } from "@/lib/navigation";
 import Link from "next/link";
 
@@ -7,7 +8,7 @@ const partnerLogos = [
   { src: "/images/petronas2.png",        alt: "Petronas" },
   { src: "/images/kaf-logo.png",         alt: "KAF" },
   { src: "/images/kwap.png",             alt: "KWAP" },
-  { src: "/images/kklw.png",             alt: "KKLW" },
+  { src: "/images/malakoff.png",             alt: "Malakoff" },
   { src: "/images/malaysiaairports.png", alt: "Malaysia Airports" },
   { src: "/images/raya.png",             alt: "Raya Airways" },
   { src: "/images/sepang2.png",          alt: "Sepang Aircraft Engineering" },
@@ -87,9 +88,7 @@ export function CyberDrillsSection() {
     <section className="theme-section-bg border-y border-white/8 py-32" style={{ backgroundImage: SECTION_BG }}>
       <Container className="grid items-center gap-16 lg:grid-cols-2">
         <div className="overflow-hidden border border-white/8" style={{ borderRadius: "9px" }}>
-          <video src="/images/cyber.mp4" autoPlay loop muted playsInline
-            className="aspect-video w-full object-cover"
-            aria-label="National Critical Infrastructure" />
+          <ProductImageCarousel />
         </div>
         <div>
           <p className="mb-3 text-[10px] tracking-[0.35em] uppercase text-white/50" style={{ fontFamily: BODY }}>/ cyber drills matter</p>

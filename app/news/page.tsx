@@ -16,7 +16,7 @@ export default function NewsPage() {
           { text: "News", accent: true },
         ]}
         watermark="NEWS"
-        code="Cyber Pulse"
+        code="News"
         description="Insights, case studies, and intelligence from the Simulasi team — keeping you informed on the evolving threat landscape."
       />
     </PageShell>

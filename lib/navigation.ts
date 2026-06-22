@@ -9,6 +9,7 @@ export const routes = {
   cdX: "/products/cd-x",
   mniX3dKit: "/products/mni-x-3d-kit",
   cyberPulse: "/products/cyber-pulse",
+  news: "/news",
   contact: "/contact-us",
   aboutUs: "/about-us",
   privacy: "/#privacy",
@@ -83,7 +84,7 @@ const homeNavItems: NavItem[] = [
     hasDropdown: true,
     children: productPages,
   },
-  { label: "Cyber Pulse", href: routes.cyberPulse },
+  { label: "News", href: routes.news },
   { label: "News", href: "/news" },
   { label: "About Us", href: routes.aboutUs },
 ];

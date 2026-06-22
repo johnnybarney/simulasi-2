@@ -188,7 +188,7 @@ export function HeroAnimated() {
 
           {/* framework tags */}
           <div className="mb-12 flex flex-wrap gap-x-6 gap-y-2">
-            {["CYBER EXERCISE IMPLEMENTATION PLAN", "SIMULATION @ SAND BOX", "3D REPLICA @ SAND TABLE", "CYBER CRISIS MANAGEMENT PLAN"].map((tag) => (
+            {["CYBER EXERCISE IMPLEMENTATION PLAN", "SIMULATION @ SAND BOX", "3D REPLICA @ SAND TABLE", "CYBER CRISIS & COMMUNICATION EXERCISE"].map((tag) => (
               <span
                 key={tag}
                 className="text-[9px] tracking-[0.25em] uppercase text-white/70 border border-white/30 px-3 py-1"

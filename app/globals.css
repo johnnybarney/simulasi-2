@@ -268,10 +268,10 @@
   /* background tints */
   .bg-cyber-bg { background-color: #f4f5f7 !important; }
 
-  /* logo mark — blend with page bg in light mode */
-  .logo-mark {
-    background-color: var(--theme-bg, #f4f5f7);
-    border-radius: 4px;
+  /* logo mark — transparent asset; no patch background in light mode */
+  [data-theme="light"] .logo-mark {
+    background-color: transparent;
+    border-radius: 0;
   }
 
   /* trusted by section + partner logo pills */

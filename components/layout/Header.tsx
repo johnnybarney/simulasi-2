@@ -29,7 +29,7 @@ const productLinks = [
 const mainLinks = [
   { label: "Services",    href: routes.tsx,        sub: "services" as const },
   { label: "Products",    href: routes.cdX,        sub: "products" as const },
-  { label: "Cyber Pulse", href: routes.cyberPulse, sub: null },
+  { label: "News",        href: routes.news,        sub: null },
   { label: "About Us",    href: routes.aboutUs,    sub: null },
   { label: "Contact Us",  href: routes.contact,    sub: null },
 ];
@@ -93,7 +93,7 @@ export function Header({ activeHref }: Props) {
             className="flex items-center gap-2 font-bold tracking-tight text-xl"
             style={{ fontFamily: DISPLAY, color: "var(--theme-text, #ffffff)" }}
           >
-            <Image src="/images/rpmyrpmy.png" alt="RP.MY logo" width={32} height={32} className="logo-mark object-contain" />
+            <Image src="/images/rpmyrpmy-transparent.png" alt="RP.MY logo" width={32} height={32} className="logo-mark object-contain" />
             Simulasi
           </Link>
 
