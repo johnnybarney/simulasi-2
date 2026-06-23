@@ -104,7 +104,7 @@ export const aboutContent = {
           imageSrc: "/images/nizal.jpeg",
         },
         {
-          name: "Yaakob Noor",
+          name: "Yaacob Noor",
           role: "Digital Development Specialist",
           bio: "Turns complex organizational process and procedure into functional digital systems.",
           imageSrc: "/images/yaakob.jpg",
@@ -112,7 +112,7 @@ export const aboutContent = {
         {
           name: "Johan Shah Abdullah",
           role: "Programmer",
-          bio: "Hustler in Vibe Coding. Digital development team focusing on emerging.",
+          bio: "Hustler in Vibe Coding. Digital development team focusing on emerging technologies.",
           imageSrc: "/images/mrjohnny.jpg",
         },
         {

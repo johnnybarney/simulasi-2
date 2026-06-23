@@ -48,7 +48,6 @@ const partnerLogos = [
   { src: "/images/ssm.png",             alt: "SSM" },
   { src: "/images/umw.png",             alt: "UMW" },
   { src: "/images/universiti.png",      alt: "Universiti Malaya" },
-  { src: "/images/airbus.png",          alt: "Airbus" },
   { src: "/images/coway.png",           alt: "Coway" },
   { src: "/images/heitech.png",         alt: "HeiTech" },
   { src: "/images/pidm.png",            alt: "PIDM" },

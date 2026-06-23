@@ -148,7 +148,7 @@ export function AboutMissionSection() {
               / mission doctrine
             </p>
             <h2 className="font-bold text-white" style={{ fontFamily: DISPLAY, fontSize: "clamp(1.75rem, 4vw, 2.75rem)" }}>
-              Absolute&nbsp;<span style={gradStyle}>/ Resilience /</span>
+              Absolute&nbsp;<span style={gradStyle}>/ Resilience</span>
             </h2>
           </div>
           <div className="border-l-2 pl-8 md:pl-10" style={{ borderColor: `${ACCENT}33` }}>
